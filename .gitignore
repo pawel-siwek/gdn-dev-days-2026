@@ -2,3 +2,5 @@ node_modules/
 dist/
 .astro/
 .DS_Store
+cli-workshop/website/dist/
+cli-workshop/website/.astro/
