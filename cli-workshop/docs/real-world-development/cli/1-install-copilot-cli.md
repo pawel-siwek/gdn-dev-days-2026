@@ -1,63 +1,63 @@
 ---
-title: "Lesson 1 - Installing GitHub Copilot CLI"
-description: "Install and authenticate Copilot CLI in your Codespace, get oriented, and find the seeded filtering issue."
-authors:
-  - geektrainer
-lastUpdated: 2026-09-18
+title: "Lekcja 1 — Instalacja GitHub Copilot CLI"
+description: "Zainstaluj i zaloguj Copilot CLI w swoim codespace, rozejrzyj się i znajdź przygotowane zgłoszenie o filtrowaniu."
+lastUpdated: 2026-09-30
 ---
 
-[GitHub Copilot CLI][about-copilot-cli] is a powerful agentic coding assistant that runs in your terminal, enabling you to explore codebases, generate code, run commands, and interact with external tools — all from the command line. It allows you to offload tasks, request changes, and stay in the zone. The first step, as you might imagine, is to install the tool! Fortunately, this can be done using tools you're already familiar with.
+<!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-In this lesson, you will:
+[GitHub Copilot CLI][about-copilot-cli] to agentowy asystent programowania działający w terminalu. Pozwala przeglądać repozytoria, generować kod, uruchamiać komendy i korzystać z zewnętrznych narzędzi — wszystko z linii poleceń. Dzięki temu oddajesz zadania i nie wypadasz z rytmu pracy. Pierwszym krokiem jest, rzecz jasna, instalacja narzędzia — na szczęście zrobisz to narzędziami, które już znasz.
 
-- install GitHub Copilot CLI using npm.
-- authenticate with your GitHub account.
-- trust the workshop repository and try a quick conversation.
-- find the filtering issue through the built-in GitHub MCP server.
+W tej lekcji:
 
-## Scenario
+- zainstalujesz GitHub Copilot CLI przez npm,
+- zalogujesz się na swoje konto GitHub,
+- oznaczysz repozytorium warsztatowe jako zaufane i przeprowadzisz krótką rozmowę,
+- znajdziesz zgłoszenie o filtrowaniu przez wbudowany serwer GitHub MCP.
 
-Your team is starting to use AI agents to work through a growing backlog. Copilot CLI brings that capability into the terminal, where many developers already live. This lesson gets you installed, authenticated, and ready to use it for the rest of the workshop.
+## Scenariusz
 
-## Install Copilot CLI
+Twój zespół zaczyna wykorzystywać agentów AI do przerabiania rosnącego backlogu. Copilot CLI wnosi tę możliwość do terminala, w którym wielu programistów i tak spędza większość czasu. Ta lekcja doprowadza Cię do stanu „zainstalowane, zalogowane, gotowe do pracy" na resztę warsztatu.
 
-You can install Copilot CLI through [npm][install-cli], WinGet, and Homebrew. Since GitHub Codespaces comes with Node.js preinstalled, you'll use npm.
+## Zainstaluj Copilot CLI
 
-1. Return to your Codespace and open a terminal.
-2. Verify Node.js is installed and meets the version requirement:
+Copilot CLI zainstalujesz przez [npm][install-cli], WinGet albo Homebrew. Ponieważ GitHub Codespaces ma preinstalowany Node.js, użyjemy npm.
+
+1. Wróć do swojego codespace'a i otwórz terminal.
+2. Sprawdź, czy Node.js jest zainstalowany i spełnia wymaganie wersji:
 
    ```bash
    node --version
    ```
 
-   You should see version 24 or higher.
+   Powinieneś zobaczyć wersję 24 lub wyższą.
 
-3. Install Copilot CLI globally:
+3. Zainstaluj Copilot CLI globalnie:
 
    ```bash
    npm install -g @github/copilot
    ```
 
-4. Verify the installation:
+4. Sprawdź instalację:
 
    ```bash
    copilot --version
    ```
 
-   You should see the version number displayed.
+   Powinien wyświetlić się numer wersji.
 
-## Authenticate with GitHub
+## Zaloguj się na konto GitHub
 
-On first launch, Copilot CLI prompts you to authenticate with your GitHub account.
+Przy pierwszym uruchomieniu Copilot CLI poprosi Cię o zalogowanie się na konto GitHub.
 
-1. Start Copilot CLI:
+1. Uruchom Copilot CLI:
 
    ```bash
    copilot
    ```
 
-2. If prompted, follow the device-code instructions to authenticate and authorize Copilot CLI.
-3. Copilot CLI displays the following prompt:
+2. Jeśli pojawi się prośba o logowanie, przejdź przez procedurę device code, żeby uwierzytelnić i autoryzować Copilot CLI.
+3. Copilot CLI wyświetli taki komunikat:
 
    ```plaintext
    Copilot can read files in this folder and, with your permission, edit them or run code and shell commands. It will remember your permissions for the rest of this session.
@@ -65,72 +65,72 @@ On first launch, Copilot CLI prompts you to authenticate with your GitHub accoun
    Do you trust the files in this folder?
    ```
 
-4. Verify that the path is your Tailspin Toys repository, then answer yes by selecting **Yes, and remember this folder for future sessions**.
+4. Sprawdź, czy ścieżka wskazuje na Twoje repozytorium Tailspin Toys, a potem potwierdź, wybierając **Yes, and remember this folder for future sessions**.
 
 > [!NOTE]
-> In a Codespace, you may already be authenticated through your GitHub session. If Copilot CLI starts without prompting for authentication, you're good to go!
+> W codespace możesz być już zalogowany przez swoją sesję GitHuba. Jeśli Copilot CLI wystartuje bez pytania o logowanie — wszystko gra.
 
-## Get oriented
+## Rozejrzyj się
 
-Commands at the normal shell prompt run directly in your Codespace. After Copilot CLI starts, natural language goes to the agent and slash commands control the conversation.
+Komendy wpisywane w zwykłym prompcie powłoki wykonują się bezpośrednio w codespace. Po uruchomieniu Copilot CLI język naturalny trafia do agenta, a komendy slash sterują rozmową.
 
-1. Enter `/model`, use the arrow keys to select **Auto**, press <kbd>Enter</kbd>, then press <kbd>Enter</kbd> again to confirm.
-2. Enter `/help` to see the commands available in your installed version, then press <kbd>Esc</kbd> to close the help screen.
-3. Ask Copilot a simple question to verify everything is working:
+1. Wpisz `/model`, strzałkami wybierz **Auto**, naciśnij <kbd>Enter</kbd>, a potem jeszcze raz <kbd>Enter</kbd>, żeby potwierdzić.
+2. Wpisz `/help`, żeby zobaczyć komendy dostępne w Twojej wersji, a potem naciśnij <kbd>Esc</kbd>, żeby zamknąć pomoc.
+3. Zadaj Copilotowi proste pytanie, żeby sprawdzić, czy wszystko działa:
 
    ```plaintext
    What are the key files in this project?
    ```
 
-4. Read the response and notice how Copilot explores the repository before answering.
-5. Enter `/mcp list` and confirm the built-in GitHub MCP server is available.
-6. Ask Copilot to find the filtering issue:
+4. Przeczytaj odpowiedź i zwróć uwagę, że Copilot najpierw przegląda repozytorium, a dopiero potem odpowiada.
+5. Wpisz `/mcp list` i potwierdź, że wbudowany serwer GitHub MCP jest dostępny.
+6. Poproś Copilota o znalezienie zgłoszenia o filtrowaniu:
 
    ```plaintext
-   Using GitHub MCP, find the issue in this repository titled "Allow users to filter games by category and publisher." Give me its URL and a short summary. Don't change anything.
+   Using GitHub MCP, find the issue in this repository about filtering games by category and publisher. Give me its URL and a short summary. Don't change anything.
    ```
 
-7. Open the URL and read the issue. You'll use it after completing a quick first change.
+7. Otwórz podany URL i przeczytaj zgłoszenie. Wrócisz do niego po wykonaniu pierwszej, szybkiej zmiany.
 
 > [!TIP]
-> A normal Copilot CLI session works in the branch currently checked out in your terminal; it does not automatically create a worktree. You'll create a feature branch before each change.
+> Zwykła sesja Copilot CLI pracuje na gałęzi aktualnie wybranej w Twoim terminalu — nie tworzy automatycznie worktree. Przed każdą zmianą sam założysz gałąź funkcjonalności.
 
-## Use the workshop shortcut
+## Skrót na potrzeby warsztatu
 
-Copilot CLI normally asks before using tools outside its established permissions. For this workshop, you'll relaunch it with `--yolo`, a user-approved shortcut that removes those approval prompts inside the Codespace so you can focus on the exercises.
+Copilot CLI standardowo pyta o zgodę przed użyciem narzędzi spoza ustalonych uprawnień. Na potrzeby warsztatu uruchomisz go ponownie z flagą `--yolo` — zatwierdzonym przez Ciebie skrótem, który wyłącza te pytania wewnątrz codespace'a, żebyś mógł skupić się na ćwiczeniach.
 
 > [!CAUTION]
-> `--yolo` enables full automatic permissions (`--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls`). Use it only in an isolated environment like a Codespace or VM, and never alias it as your default for day-to-day development. See [Allowing and denying tool use][allow-all-warning] for details.
+> `--yolo` włącza pełne automatyczne uprawnienia (`--allow-all-tools`, `--allow-all-paths` i `--allow-all-urls`). Używaj tego **wyłącznie** w izolowanym środowisku, takim jak codespace albo maszyna wirtualna, i nigdy nie ustawiaj tego jako domyślnego aliasu do codziennej pracy. Szczegóły w [Allowing and denying tool use][allow-all-warning].
 
-For this workshop, `--enable-all-github-mcp-tools` turns on the read/write GitHub MCP tools that later lessons use to work with issues and pull requests. The Codespace limits access to your local computer, but authenticated GitHub resources are still real. Review changes before publishing or merging them.
+Na potrzeby warsztatu `--enable-all-github-mcp-tools` włącza narzędzia GitHub MCP do odczytu i zapisu, z których korzystają dalsze lekcje przy pracy ze zgłoszeniami i pull requestami. Codespace ogranicza dostęp do Twojego komputera, ale zasoby GitHuba, do których jesteś zalogowany, są jak najbardziej prawdziwe. Przeglądaj zmiany, zanim je opublikujesz albo zmergujesz.
 
-1. Exit Copilot CLI with `/exit`.
-2. Relaunch it from the repository root:
+1. Zamknij Copilot CLI komendą `/exit`.
+2. Uruchom go ponownie z katalogu głównego repozytorium:
 
    ```bash
    copilot --yolo --enable-all-github-mcp-tools
    ```
 
-3. Ask another quick question about the project to confirm the conversation is working, then exit with `/exit`.
+3. Zadaj jeszcze jedno szybkie pytanie o projekt, żeby potwierdzić, że rozmowa działa, a potem wyjdź przez `/exit`.
 
-Copilot saves conversations automatically. Later, after changing instructions or adding an agent, you'll use `copilot --resume` to return to the same feature conversation and branch.
+Copilot zapisuje rozmowy automatycznie. Później, po zmianie instrukcji albo dodaniu agenta, użyjesz `copilot --resume`, żeby wrócić do tej samej rozmowy i gałęzi.
 
-## Summary and next steps
+## Podsumowanie i co dalej
 
-Congratulations! In this lesson, you:
+Gratulacje! W tej lekcji:
 
-- installed GitHub Copilot CLI using npm.
-- authenticated with your GitHub account.
-- trusted the workshop repository and tried a quick conversation.
-- found the filtering issue through the built-in GitHub MCP server.
+- zainstalowałeś GitHub Copilot CLI przez npm,
+- zalogowałeś się na swoje konto GitHub,
+- oznaczyłeś repozytorium warsztatowe jako zaufane i przeprowadziłeś krótką rozmowę,
+- znalazłeś zgłoszenie o filtrowaniu przez wbudowany serwer GitHub MCP.
 
-Next, you'll [start your first focused change][next-lesson] and use Copilot CLI to show a star rating on the game cards.
+W następnym kroku [zaczniesz pierwszą, niewielką zmianę][next-lesson] i użyjesz Copilot CLI, żeby pokazać oceny w gwiazdkach na kartach gier.
 
-## Resources
+## Materiały
 
-- [Install GitHub Copilot CLI][install-cli]
-- [About GitHub Copilot CLI][about-copilot-cli]
-- [Copilot CLI command reference][cli-reference]
+- [Instalacja GitHub Copilot CLI][install-cli]
+- [O GitHub Copilot CLI][about-copilot-cli]
+- [Dokumentacja komend Copilot CLI][cli-reference]
 
 [previous-lesson]: ../0-prerequisites/
 [next-lesson]: ../2-add-star-rating/

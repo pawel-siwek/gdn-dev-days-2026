@@ -1,62 +1,61 @@
 ---
 slug: real-world-development/cli
 title: "GitHub Copilot CLI"
-description: "Build, verify, and deliver two Tailspin Toys changes while learning Copilot CLI modes, customizations, MCP tools, and pull request automation."
-authors:
-  - geektrainer
-lastUpdated: 2026-09-18
+description: "Zbuduj, zweryfikuj i dowieź dwie zmiany w Tailspin Toys, poznając tryby agenta w Copilot CLI, własne instrukcje, narzędzia MCP i automatyzację pull requestów."
+lastUpdated: 2026-09-30
 ---
 
-**[GitHub Copilot CLI][about-copilot-cli]** puts GitHub Copilot in your terminal as an agentic coding assistant. It explores codebases, generates code, runs commands, and connects to external tools — all from the command line, so you can stay in the flow without switching to a graphical editor.
+<!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-The workshop follows one continuous Tailspin Toys workflow:
+**[GitHub Copilot CLI][about-copilot-cli]** wstawia GitHub Copilota do Twojego terminala jako agentowego asystenta programowania. Przegląda repozytoria, generuje kod, uruchamia komendy i łączy się z zewnętrznymi narzędziami — a wszystko z linii poleceń, więc nie musisz przełączać się do graficznego edytora.
 
-1. Prepare the project in GitHub Codespaces, install Copilot CLI, and get oriented.
-2. Make a focused star-rating change, review it in the browser, and manually merge your first pull request (PR).
-3. Start from the filtering issue, define the approach in Plan mode, build it in Autopilot mode, then review it in Interactive mode.
-4. Update the repository instructions and apply them to the filtering work.
-5. Customize the existing `quality-checks` skill and use it to run the project checks.
-6. Add the Playwright Model Context Protocol (MCP) server and use it to explore filtering in a browser.
-7. Create a quality assurance (QA) custom agent and use it to review requirements, coverage, and verification evidence.
-8. Review the complete filtering change and use Agent Merge for the filtering PR.
-9. Explore useful slash commands for context, models, sharing, and optional cloud delegation.
+Warsztat prowadzi przez jeden ciągły przepływ pracy na projekcie Tailspin Toys:
 
-To keep the workshop focused, you'll create two PRs: star ratings, then filtering with the instruction updates, skill update, QA profile, and tests. The filtering and quality workflow shares one conversation and branch so you can build on your work as you explore each tool.
+1. Przygotujesz projekt w GitHub Codespaces, zainstalujesz Copilot CLI i zorientujesz się w terenie.
+2. Wprowadzisz niewielką zmianę z ocenami w gwiazdkach, obejrzysz ją w przeglądarce i ręcznie zmergujesz swojego pierwszego pull requesta (PR).
+3. Wyjdziesz od zgłoszenia o filtrowaniu, ustalisz podejście w trybie Plan, zbudujesz je w trybie Autopilot, a potem przejrzysz w trybie interaktywnym.
+4. Zaktualizujesz instrukcje repozytorium i zastosujesz je do pracy nad filtrowaniem.
+5. Dostosujesz istniejący skill `quality-checks` i użyjesz go do uruchomienia kontroli w projekcie.
+6. Dodasz serwer Playwright Model Context Protocol (MCP) i sprawdzisz nim filtrowanie w przeglądarce.
+7. Stworzysz własnego agenta do kontroli jakości (QA) i przejrzysz nim wymagania, pokrycie i dowody weryfikacji.
+8. Przejrzysz całą zmianę z filtrowaniem i użyjesz Agent Merge do jej pull requesta.
+9. Poznasz przydatne komendy slash do kontekstu, modeli, udostępniania i opcjonalnego delegowania do chmury.
 
-## Lessons
+Żeby warsztat pozostał zwarty, utworzysz dwa PR-y: oceny w gwiazdkach, a potem filtrowanie wraz z aktualizacją instrukcji, zmianą skilla, profilem QA i testami. Praca nad filtrowaniem i jakością toczy się w jednej rozmowie i na jednej gałęzi, więc każde kolejne narzędzie buduje na tym, co już zrobiłeś.
 
-| Lesson | Topic | Description |
-| ------ | ----- | ----------- |
-| [0. Prerequisites][ex0] | Setup | Create your repository and Codespace |
-| [1. Installing Copilot CLI][ex1] | Installation | Install and authenticate Copilot CLI, then get oriented |
-| [2. Add star ratings: a quick win][ex2] | First change | Display existing ratings and the null fallback, then merge your first PR |
-| [3. Agent modes: Plan and Autopilot][ex3] | Agent modes | Plan the feature from its issue, build with Autopilot, then review in Interactive mode |
-| [4. Guide Copilot with custom instructions][ex4] | Context | Explore and update instructions, then apply them to filtering |
-| [5. Customize and use a quality-checks skill][ex5] | Repeatable checks | Explore the existing skill, change its report format, and run it |
-| [6. Validate functionality with Playwright MCP][ex6] | Browser observation | Configure MCP in the CLI and inspect filtering behavior |
-| [7. Create and use a QA agent][ex7] | Requirements and coverage | Create and select a specialist profile, then gather final verification evidence |
-| [8. Create and merge the feature PR][ex8] | Review and merge | Review the complete change, create the PR, and use Agent Merge |
-| [9. Slash commands in GitHub Copilot CLI][ex9] | CLI features | Explore context, models, sharing, and optional delegation to cloud agent |
-| [10. Wrap-up and next steps][ex10] | Summary | Review the workflow, reusable customizations, and further resources |
-| [Optional: Incorporate Foundry][foundry] | Hosted agents | Prepare a model, deploy a catalog-grounded agent, and connect it to the website |
+## Lekcje
 
-## Prerequisites
+| Lekcja | Temat | Opis |
+| ------ | ----- | ---- |
+| [0. Wymagania wstępne][ex0] | Setup | Utworzenie repozytorium i codespace'a |
+| [1. Instalacja Copilot CLI][ex1] | Instalacja | Instalacja i logowanie w Copilot CLI, pierwsze rozeznanie |
+| [2. Oceny w gwiazdkach: szybka wygrana][ex2] | Pierwsza zmiana | Wyświetlenie istniejących ocen i obsługa braku danych, merge pierwszego PR-a |
+| [3. Tryby agenta: Plan i Autopilot][ex3] | Tryby agenta | Zaplanowanie funkcji na podstawie zgłoszenia, budowa w Autopilocie, przegląd w trybie interaktywnym |
+| [4. Sterowanie Copilotem przez własne instrukcje][ex4] | Kontekst | Przegląd i aktualizacja instrukcji, zastosowanie ich do filtrowania |
+| [5. Skill do kontroli jakości][ex5] | Powtarzalne kontrole | Poznanie istniejącego skilla, zmiana formatu raportu i uruchomienie go |
+| [6. Weryfikacja przez Playwright MCP][ex6] | Obserwacja w przeglądarce | Konfiguracja MCP w CLI i sprawdzenie działania filtrowania |
+| [7. Własny agent QA][ex7] | Wymagania i pokrycie | Utworzenie i wybór profilu specjalisty, zebranie końcowych dowodów weryfikacji |
+| [8. Pull request z funkcjonalnością][ex8] | Review i merge | Przegląd całej zmiany, utworzenie PR-a i użycie Agent Merge |
+| [9. Komendy slash w GitHub Copilot CLI][ex9] | Możliwości CLI | Kontekst, modele, udostępnianie i opcjonalne delegowanie do agenta w chmurze |
+| [10. Podsumowanie i co dalej][ex10] | Podsumowanie | Przegląd przepływu pracy, wielokrotnego użytku dostosowań i dalszych materiałów |
 
-Before attending this workshop, please ensure you have:
+## Wymagania wstępne
 
-- [ ] A GitHub account with an active **Copilot Student, Pro, Pro+, Business, or Enterprise** plan
-- [ ] Permission to create a repository and Codespace
-- [ ] Basic familiarity with terminal or command-line operations
+Zanim zaczniesz warsztat, upewnij się, że masz:
+
+- [ ] Konto GitHub z aktywnym planem **Copilot Student, Pro, Pro+, Business albo Enterprise**
+- [ ] Uprawnienia do utworzenia repozytorium i codespace'a
+- [ ] Podstawową znajomość pracy w terminalu
 
 > [!TIP]
-> No paid plan? Verified students can get GitHub Copilot for free through [GitHub Education][student-plan]. The **Copilot Student** plan includes the agent, MCP, code review, and Copilot CLI features this workshop uses.
+> Nie masz płatnego planu? Zweryfikowani studenci dostają GitHub Copilota za darmo przez [GitHub Education][student-plan]. Plan **Copilot Student** obejmuje agenta, MCP, code review i Copilot CLI — czyli wszystko, czego używamy na tym warsztacie.
 
 > [!NOTE]
-> If you are using Copilot Business or Copilot Enterprise, ensure your administrator has enabled Copilot CLI for use.
+> Jeśli korzystasz z Copilot Business albo Copilot Enterprise, upewnij się, że administrator włączył u Was Copilot CLI.
 
-## Get started
+## Zaczynamy
 
-**[Start with the prerequisites →][ex0]**
+**[Zacznij od wymagań wstępnych →][ex0]**
 
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [student-plan]: https://github.com/education/students
@@ -71,4 +70,3 @@ Before attending this workshop, please ensure you have:
 [ex8]: 8-create-pull-request/
 [ex9]: 9-cli-power-tools/
 [ex10]: 10-review/
-[foundry]: 8-foundry-agent/

@@ -1,65 +1,65 @@
 ---
-title: "Lesson 3 - Agent modes: Plan and Autopilot"
-description: "Use Plan to agree on an approach, Autopilot to build filtering from an issue, and Interactive mode to review the result."
-authors:
-  - geektrainer
-lastUpdated: 2026-09-18
+title: "Lekcja 3 — Tryby agenta: Plan i Autopilot"
+description: "Ustal podejście w trybie Plan, zbuduj filtrowanie ze zgłoszenia w trybie Autopilot i przejrzyj wynik w trybie interaktywnym."
+lastUpdated: 2026-09-30
 ---
 
-We started by adding a small feature into our project. But larger changes require a more robust process. Fortunately, GitHub Copilot CLI is built to work with an organization's existing flow, ensuring we build the right things the right way. This is the first of several lessons where you will follow a typical agent-driven development process, starting by using an issue to generate a new feature, ensuring the code is valid, the feature behaves as expected, and eventually merged successfully into the project.
+<!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
+
+Zaczęliśmy od dodania do projektu niewielkiej funkcjonalności. Większe zmiany wymagają jednak solidniejszego procesu. Na szczęście GitHub Copilot CLI jest zbudowany tak, żeby wpasować się w istniejący proces organizacji — dzięki temu budujemy właściwe rzeczy we właściwy sposób. To pierwsza z kilku lekcji, w których przejdziesz przez typowy, agentowy proces wytwórczy: od zgłoszenia, przez wygenerowanie funkcjonalności, sprawdzenie poprawności kodu i jego zachowania, aż po udany merge do projektu.
 
 > [!NOTE]
-> You'll use the same conversation and branch as you continue through the feature workflow. Typically you'd have different branches or PRs for the different file types you'd be working with, but we'll be taking a shortcut to help us focus on the core concepts.
+> Przez cały ten przepływ pracy będziesz korzystać z tej samej rozmowy i tej samej gałęzi. Normalnie różne rodzaje plików trafiałyby na osobne gałęzie albo do osobnych PR-ów, ale tu idziemy na skróty, żeby skupić się na kluczowych pojęciach.
 
-To start, in this lesson, you will:
+W tej lekcji:
 
-- start a new Copilot conversation from a GitHub issue.
-- define requirements in Plan mode.
-- implement the new feature using Autopilot mode.
-- review the code.
-- validate the feature manually in a forwarded browser.
+- rozpoczniesz nową rozmowę z Copilotem, wychodząc od zgłoszenia na GitHubie,
+- zdefiniujesz wymagania w trybie Plan,
+- zaimplementujesz nową funkcjonalność w trybie Autopilot,
+- przejrzysz kod,
+- ręcznie sprawdzisz funkcjonalność w przekierowanej przeglądarce.
 
-As you continue this feature, you'll update the repository instructions, customize the existing `quality-checks` skill, add MCP validation, create a QA agent, and open the feature PR.
+W kolejnych lekcjach, kontynuując tę samą funkcjonalność, zaktualizujesz instrukcje repozytorium, dostosujesz istniejący skill `quality-checks`, dodasz weryfikację przez MCP, stworzysz agenta QA i otworzysz pull requesta.
 
-## Scenario
+## Scenariusz
 
-Tailspin Toys' catalog is growing, and visitors need to narrow the games by category and publisher. The backlog issue describes the feature, but details such as combining categories need agreement before coding. You'll use Plan mode to resolve those decisions, then authorize a bounded implementation with Autopilot.
+Katalog Tailspin Toys rośnie, a odwiedzający potrzebują możliwości zawężenia listy gier po kategorii i wydawcy. Zgłoszenie w backlogu opisuje tę funkcjonalność, ale szczegóły — takie jak łączenie kategorii — wymagają ustaleń przed kodowaniem. Użyjesz trybu Plan, żeby te decyzje podjąć, a potem autoryzujesz ograniczoną implementację w Autopilocie.
 
-## Background
+## Kontekst
 
-Introducing AI coding agents to your development flow doesn't change the fundamentals. If anything, they become even more important! Most developers follow a flow that resembles:
+Wprowadzenie agentów AI do procesu wytwórczego nie zmienia podstaw. Wręcz przeciwnie — one stają się jeszcze ważniejsze. Większość programistów pracuje w procesie zbliżonym do tego:
 
-1. Start from a filed issue that describes what needs to be done.
-2. Create a plan of what needs to be built.
-3. Build and review the code.
-4. Run the tests to validate the code.
-5. Manually validate the new functionality.
-6. Create a pull request (PR).
-7. Once the code has been reviewed and the continuous integration process succeeds, merge the code.
+1. Wyjście od zgłoszenia opisującego, co trzeba zrobić.
+2. Stworzenie planu tego, co trzeba zbudować.
+3. Zbudowanie kodu i jego przegląd.
+4. Uruchomienie testów w celu weryfikacji kodu.
+5. Ręczna weryfikacja nowej funkcjonalności.
+6. Utworzenie pull requesta (PR).
+7. Merge po przejściu code review i procesu ciągłej integracji.
 
 > [!NOTE]
-> Depending on your team and organization, the exact specifics will vary. But most will be a variation on the theme listed above.
+> W zależności od zespołu i organizacji szczegóły będą się różnić. Ale większość procesów to wariacja na powyższy temat.
 
-By sticking to this standard approach, you ensure the code generated by AI meets the requirements set forth and goes through the same vetting process as code written by hand.
+Trzymając się tego standardowego podejścia, masz pewność, że kod wygenerowany przez AI spełnia postawione wymagania i przechodzi przez dokładnie ten sam proces weryfikacji, co kod pisany ręcznie.
 
-## Conversation modes
+## Tryby rozmowy
 
-The **conversation mode** controls how much autonomy the agent has. Press <kbd>Shift</kbd>+<kbd>Tab</kbd> to cycle between modes:
+**Tryb rozmowy** decyduje o tym, jak dużą autonomię ma agent. Naciskaj <kbd>Shift</kbd>+<kbd>Tab</kbd>, żeby przełączać się między trybami:
 
-- **Interactive**: You and the agent work together. The agent suggests changes and waits for your input before proceeding.
-- **Plan**: The agent creates a plan first and is blocked from editing project files.
-- **Autopilot**: The agent works autonomously — writing code, running tests, and iterating until the task is complete.
+- **Interactive**: pracujecie razem. Agent proponuje zmiany i czeka na Twoją reakcję, zanim ruszy dalej.
+- **Plan**: agent najpierw tworzy plan i ma zablokowaną możliwość edytowania plików projektu.
+- **Autopilot**: agent pracuje samodzielnie — pisze kod, uruchamia testy i iteruje, aż uzna zadanie za ukończone.
 
-Start in Plan mode, review the plan, then use Autopilot to implement it.
+Zacznij w trybie Plan, przejrzyj plan, a potem użyj Autopilota do jego wdrożenia.
 
-## Start from the issue
+## Wyjdź od zgłoszenia
 
-Before starting the filtering work, return to your Codespace and make sure the repository and terminal are ready.
+Zanim zaczniesz pracę nad filtrowaniem, wróć do codespace'a i upewnij się, że repozytorium i terminal są gotowe.
 
-1. Return to your Codespace. If it is stopped, restart it before continuing.
-2. Confirm the star-rating PR is merged.
-3. If the terminal isn't open, press <kbd>Control</kbd>+<kbd>\`</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>\`</kbd> (Windows/Linux).
-4. Update `main`, then create a branch for the filtering work:
+1. Wróć do swojego codespace'a. Jeśli jest zatrzymany, uruchom go ponownie.
+2. Potwierdź, że PR z ocenami w gwiazdkach został zmergowany.
+3. Jeśli terminal nie jest otwarty, naciśnij <kbd>Control</kbd>+<kbd>\`</kbd> (Mac) albo <kbd>Ctrl</kbd>+<kbd>\`</kbd> (Windows/Linux).
+4. Zaktualizuj `main`, a potem utwórz gałąź na pracę nad filtrowaniem:
 
    ```bash
    git checkout main
@@ -67,91 +67,91 @@ Before starting the filtering work, return to your Codespace and make sure the r
    git checkout -b game-filters-cli
    ```
 
-5. Start Copilot CLI:
+5. Uruchom Copilot CLI:
 
    ```bash
    copilot --yolo
    ```
 
-6. Press <kbd>Tab</kbd> twice to open the **Issues** tab.
-7. Press <kbd>A</kbd> to display all issues.
-8. Use the arrow keys to highlight the issue titled **Allow users to filter games by category and publisher**.
-9. Press <kbd>C</kbd> to add the issue to the prompt and return to the **Session** tab.
+6. Naciśnij dwa razy <kbd>Tab</kbd>, żeby otworzyć zakładkę **Issues**.
+7. Naciśnij <kbd>A</kbd>, żeby wyświetlić wszystkie zgłoszenia.
+8. Strzałkami podświetl zgłoszenie zatytułowane **Umożliw filtrowanie gier po kategorii i wydawcy**.
+9. Naciśnij <kbd>C</kbd>, żeby dodać zgłoszenie do promptu i wrócić do zakładki **Session**.
 
-Notice how the prompt now starts with `#7` (or a similar number). The `#` allows you to bring an issue or pull request (PR) on GitHub into context.
+Zwróć uwagę, że prompt zaczyna się teraz od `#7` (albo podobnego numeru). Znak `#` pozwala wciągnąć do kontekstu zgłoszenie albo pull requesta z GitHuba.
 
-## Plan the filtering feature
+## Zaplanuj filtrowanie
 
-Planning gives you a chance to define the approach to be taken for implementing a feature or performing tasks before handing it over to Copilot. It's always a good idea for anything complex to spend a bit of time planning. Let's switch to plan mode, and ask Copilot to create the plan.
+Planowanie daje Ci szansę ustalić podejście do implementacji, zanim oddasz robotę Copilotowi. Przy czymkolwiek złożonym zawsze warto poświęcić chwilę na plan. Przełączmy się więc w tryb Plan i poprośmy Copilota o jego przygotowanie.
 
-1. Press <kbd>Shift</kbd>+<kbd>Tab</kbd> to switch to Plan mode. Confirm the mode indicator below the prompt displays **Plan**.
-2. After the issue reference added in the prior step, enter the following prompt:
+1. Naciśnij <kbd>Shift</kbd>+<kbd>Tab</kbd>, żeby przełączyć się w tryb Plan. Sprawdź, czy wskaźnik trybu pod promptem pokazuje **Plan**.
+2. Za odwołaniem do zgłoszenia dodanym w poprzednim kroku wpisz ten prompt:
 
    ```plaintext
    Create a plan for implementing this feature.
    ```
 
-Copilot gets to work on building out the plan! It'll start by exploring the project, then determining the best approach.
+   Copilot bierze się za budowanie planu. Zacznie od przejrzenia projektu, a potem ustali najlepsze podejście.
 
-3. Along the way, Copilot may ask questions about how the filtering capabilities should work. Answer them based on your preferences. There are no wrong answers here!
-4. Once the plan is complete, press <kbd>Control</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) to expand the plan.
-5. Scroll up and down to review the plan.
-6. Ask Copilot to revise any part of the plan that does not match your decisions.
+3. Po drodze Copilot może zadawać pytania o to, jak filtrowanie ma działać. Odpowiadaj zgodnie ze swoimi preferencjami — nie ma tu złych odpowiedzi.
+4. Kiedy plan będzie gotowy, naciśnij <kbd>Control</kbd>+<kbd>E</kbd> (Mac) albo <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux), żeby go rozwinąć.
+5. Przewiń plan w górę i w dół, żeby go przejrzeć.
+6. Poproś Copilota o poprawienie każdego fragmentu planu, który nie zgadza się z Twoimi decyzjami.
 
-## Approve Autopilot
+## Zatwierdź Autopilota
 
-With the plan written and reviewed, it's time to implement it! Let's let Copilot do its thing by using autopilot.
+Plan napisany i przejrzany — czas go wdrożyć. Pozwólmy Copilotowi działać w trybie Autopilot.
 
-Autopilot will allow Copilot to iterate on the problem until it believes it's complete.
+Autopilot pozwoli Copilotowi iterować nad problemem, dopóki nie uzna go za rozwiązany.
 
-1. Select **Accept plan and build on autopilot (recommended)**, or the similarly labeled option in your installed version.
-2. Confirm the mode indicator below the prompt displays **Autopilot**.
-3. Watch as Copilot iterates through the established plan, generates code, and runs tests.
+1. Wybierz **Accept plan and build on autopilot (recommended)** albo podobnie nazwaną opcję w Twojej wersji.
+2. Sprawdź, czy wskaźnik trybu pod promptem pokazuje **Autopilot**.
+3. Obserwuj, jak Copilot przechodzi przez ustalony plan, generuje kod i uruchamia testy.
 
 > [!NOTE]
-> Approval can start implementation immediately, so review the plan first. If Copilot reports missing dependencies or a port conflict, resolve the setup issue before treating the checks as complete.
+> Zatwierdzenie może od razu uruchomić implementację, więc najpierw przejrzyj plan. Jeśli Copilot zgłosi brakujące zależności albo konflikt portu, rozwiąż problem konfiguracyjny, zanim uznasz kontrole za zaliczone.
 
-## Review and verify the implementation
+## Przejrzyj i zweryfikuj implementację
 
-Once the code is generated, it needs to be reviewed before it's merged, just like any other code. Let's both review the code and run the site to ensure everything looks good.
+Wygenerowany kod trzeba przejrzeć przed mergem, tak samo jak każdy inny. Zróbmy jedno i drugie: przegląd kodu i uruchomienie strony, żeby sprawdzić, czy wszystko wygląda dobrze.
 
-1. Press <kbd>Shift</kbd>+<kbd>Tab</kbd> to enter Interactive mode. Confirm the mode indicator no longer displays **Plan** or **Autopilot**.
-2. Enter `/diff` and inspect the filtering implementation and tests.
-3. Compare the result with the issue and the decisions you made during planning.
-4. Once the code is reviewed, press <kbd>Esc</kbd> to exit the diff view.
-5. Review the output from the project's checks and ask Copilot to resolve any failures.
+1. Naciśnij <kbd>Shift</kbd>+<kbd>Tab</kbd>, żeby wejść w tryb Interactive. Sprawdź, czy wskaźnik trybu nie pokazuje już **Plan** ani **Autopilot**.
+2. Wpisz `/diff` i przyjrzyj się implementacji filtrowania oraz testom.
+3. Porównaj wynik ze zgłoszeniem i z decyzjami podjętymi podczas planowania.
+4. Po przejrzeniu kodu naciśnij <kbd>Esc</kbd>, żeby wyjść z widoku diffa.
+5. Przejrzyj wyniki kontroli projektu i poproś Copilota o naprawienie ewentualnych błędów.
 
-## Explore the new functionality
+## Sprawdź nową funkcjonalność
 
-OK, the code looks good — but does it run? Let's start the app like we did before and open the site through the Codespaces forwarded port.
+Kod wygląda dobrze — ale czy działa? Uruchommy aplikację tak jak poprzednio i otwórzmy stronę przez port przekierowany przez Codespaces.
 
-1. Ask Copilot to start the app:
+1. Poproś Copilota o uruchomienie aplikacji:
 
    ```plaintext
    Start the app so I can try the filtering feature in my browser. Tell me the URL and leave the server running.
    ```
 
-2. When Codespaces reports that port `4321` is available, select **Open in Browser**.
-3. Try category filtering, publisher filtering, and the combinations you agreed on in the plan.
-4. Confirm reset and empty-result behavior match the issue and your decisions.
-5. Return to your Codespace and ask Copilot to stop the development server it started.
+2. Kiedy Codespaces zgłosi, że port `4321` jest dostępny, wybierz **Open in Browser**.
+3. Wypróbuj filtrowanie po kategorii, po wydawcy oraz kombinacje ustalone w planie.
+4. Sprawdź, czy resetowanie filtrów i zachowanie przy braku wyników odpowiadają zgłoszeniu i Twoim decyzjom.
+5. Wróć do codespace'a i poproś Copilota o zatrzymanie uruchomionego serwera deweloperskiego.
 
-## Summary and next steps
+## Podsumowanie i co dalej
 
-You've used different conversation modes to build and review a feature. In this lesson, you:
+Wykorzystałeś różne tryby rozmowy do zbudowania i przejrzenia funkcjonalności. W tej lekcji:
 
-- started a new Copilot conversation from a GitHub issue.
-- defined requirements in Plan mode.
-- implemented the new feature using Autopilot mode.
-- reviewed the code.
-- validated the feature manually in a forwarded browser.
+- rozpocząłeś nową rozmowę z Copilotem, wychodząc od zgłoszenia na GitHubie,
+- zdefiniowałeś wymagania w trybie Plan,
+- zaimplementowałeś nową funkcjonalność w trybie Autopilot,
+- przejrzałeś kod,
+- ręcznie sprawdziłeś funkcjonalność w przekierowanej przeglądarce.
 
-Next, let's dig a little deeper into how code is generated, ensuring it follows documented practices, by [using custom instructions][next-lesson].
+W następnym kroku zejdziemy głębiej w to, jak powstaje kod, i zadbamy, żeby trzymał się udokumentowanych praktyk — [przez własne instrukcje][next-lesson].
 
-## Resources
+## Materiały
 
-- [Autopilot in GitHub Copilot CLI][autopilot]
-- [Copilot CLI command reference][cli-reference]
+- [Autopilot w GitHub Copilot CLI][autopilot]
+- [Dokumentacja komend Copilot CLI][cli-reference]
 
 [autopilot]: https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot
 [cli-reference]: https://docs.github.com/copilot/reference/copilot-cli-reference/cli-command-reference

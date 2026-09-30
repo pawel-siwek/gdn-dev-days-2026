@@ -1,121 +1,121 @@
 ---
-title: "Lesson 2 - Add star ratings: a quick win"
-description: "Use Copilot CLI to make a small change to the game cards, review it in a forwarded browser, and merge it as your first pull request."
-authors:
-  - geektrainer
-lastUpdated: 2026-09-18
+title: "Lekcja 2 — Oceny w gwiazdkach: szybka wygrana"
+description: "Użyj Copilot CLI, żeby wprowadzić drobną zmianę na kartach gier, obejrzyj ją w przekierowanej przeglądarce i zmerguj jako swojego pierwszego pull requesta."
+lastUpdated: 2026-09-30
 ---
 
-Now that you've installed Copilot CLI and tried a conversation, it's time to make your first change to the project. You'll keep it small: the games already have a star rating in their data, but the game cards on the home page don't show it yet. You'll ask the agent to surface it, review the change, and merge it as your first pull request.
+<!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-In this lesson, you will:
+Copilot CLI jest już zainstalowany i przetestowany w rozmowie — czas na pierwszą zmianę w projekcie. Zaczniemy od czegoś drobnego: gry mają już w danych ocenę w gwiazdkach, ale karty gier na stronie głównej jeszcze jej nie pokazują. Poprosisz agenta, żeby ją wyświetlił, przejrzysz zmianę i zmergujesz ją jako swojego pierwszego pull requesta.
 
-- start a focused Copilot conversation on a feature branch.
-- ask the agent to make a small change to the project.
-- review the change with `/diff`.
-- run the app to confirm the change in a forwarded browser.
-- open and merge your first pull request.
+W tej lekcji:
 
-## Scenario
+- rozpoczniesz osobną rozmowę z Copilotem na gałęzi funkcjonalności,
+- poprosisz agenta o drobną zmianę w projekcie,
+- przejrzysz zmianę przez `/diff`,
+- uruchomisz aplikację, żeby potwierdzić efekt w przekierowanej przeglądarce,
+- otworzysz i zmergujesz swojego pierwszego pull requesta.
 
-Each game in Tailspin Toys can have a star rating, and it already appears on the game details page. The game cards on the home page, though, only show the title, category, publisher, and description. As a warm-up, you'll have the agent display the existing rating on each card — a tiny, self-contained change that's perfect for your first session.
+## Scenariusz
 
-## Anatomy of a conversation
+Każda gra w Tailspin Toys może mieć ocenę w gwiazdkach i widać ją już na stronie szczegółów gry. Karty gier na stronie głównej pokazują natomiast tylko tytuł, kategorię, wydawcę i opis. Na rozgrzewkę zlecisz agentowi wyświetlenie istniejącej oceny na każdej karcie — to niewielka, samowystarczalna zmiana, idealna na pierwszą sesję.
 
-A **conversation** is where you work with Copilot CLI on a task. Unlike the Copilot app, a normal CLI conversation uses the repository and Git branch currently checked out in your terminal rather than creating a dedicated worktree. Saved conversations let you return to the same discussion later, while the files and branch remain ordinary Git state on disk.
+## Anatomia rozmowy
 
-Inside a conversation you'll see three things: your prompts and the agent's responses, the agent's tool activity as it explores and edits files, and the changes you can inspect with `/diff`.
+**Rozmowa** to miejsce, w którym pracujesz z Copilot CLI nad zadaniem. W odróżnieniu od aplikacji Copilot, zwykła rozmowa w CLI korzysta z repozytorium i gałęzi Gita aktualnie wybranych w Twoim terminalu, zamiast tworzyć dedykowane worktree. Zapisane rozmowy pozwalają wrócić do tej samej dyskusji później, a pliki i gałąź pozostają zwykłym stanem Gita na dysku.
 
-## Start a conversation and request our change
+Wewnątrz rozmowy zobaczysz trzy rzeczy: swoje prompty i odpowiedzi agenta, aktywność narzędzi, gdy agent przegląda i edytuje pliki, oraz zmiany, które możesz obejrzeć przez `/diff`.
 
-Let's start a new conversation to begin implementing our feature.
+## Rozpocznij rozmowę i zleć zmianę
 
-1. Return to your Codespace.
-2. If the terminal isn't open from before, select <kbd>Ctl</kbd>+<kbd>\`</kbd>.
-3. If not already open, start Copilot by using the following command:
+Zacznijmy nową rozmowę, żeby przystąpić do implementacji funkcjonalności.
+
+1. Wróć do swojego codespace'a.
+2. Jeśli terminal nie jest jeszcze otwarty, naciśnij <kbd>Ctrl</kbd>+<kbd>\`</kbd>.
+3. Jeśli Copilot nie działa, uruchom go:
 
    ```bash
    copilot --yolo
    ```
 
-4. Ensure a new session is started by using the slash command `/new` and selecting <kbd>Enter</kbd>.
-4. Use the following prompt to request the change:
+4. Rozpocznij nową sesję komendą `/new` i naciśnij <kbd>Enter</kbd>.
+5. Zleć zmianę tym promptem:
 
    ```plaintext
    Show each game's starRating out of 5 in the game cards on the list page. If the rating is null, show "No rating yet". Keep the card layout as it is, add tests, and run the relevant checks.
    ```
 
-Copilot explores the project, locates the files used to display game details, and creates the necessary code. You've now added a new feature with Copilot CLI!
+Copilot przegląda projekt, odnajduje pliki odpowiedzialne za wyświetlanie szczegółów gry i tworzy potrzebny kod. Właśnie dodałeś nową funkcjonalność za pomocą Copilot CLI!
 
-## Review the diff
+## Przejrzyj diff
 
-All AI-generated changes deserve a review before they're merged, even small ones. Let's explore the changes right here in Copilot CLI.
+Każda zmiana wygenerowana przez AI zasługuje na przegląd przed mergem — nawet ta drobna. Obejrzyjmy ją od razu w Copilot CLI.
 
-1. Enter `/diff` and inspect every changed file.
-2. Confirm the game card displays the numeric rating when it is present and `No rating yet` when `starRating` is `null`.
-3. Confirm the tests cover both states.
-4. Review the results of the checks Copilot ran and ask it to fix any failures.
-5. Once your review is complete, select <kbd>Esc</kbd> to exit the diff screen.
+1. Wpisz `/diff` i przejrzyj każdy zmieniony plik.
+2. Sprawdź, czy karta gry pokazuje liczbową ocenę, kiedy ta istnieje, oraz `No rating yet`, kiedy `starRating` ma wartość `null`.
+3. Sprawdź, czy testy pokrywają oba przypadki.
+4. Przejrzyj wyniki kontroli uruchomionych przez Copilota i poproś go o naprawienie ewentualnych błędów.
+5. Po zakończeniu przeglądu naciśnij <kbd>Esc</kbd>, żeby wyjść z ekranu diffa.
 
 > [!NOTE]
-> Because Copilot, like all generative AI tools, is probabilistic rather than deterministic, your exact code may vary. Review the behavior rather than expecting one exact implementation.
+> Copilot, jak wszystkie narzędzia generatywnej AI, jest probabilistyczny, a nie deterministyczny, więc Twój kod może wyglądać nieco inaczej. Oceniaj zachowanie aplikacji, a nie zgodność z jedną konkretną implementacją.
 
-## Check the changes
+## Sprawdź zmiany w działaniu
 
-Of course we shouldn't just read the code and assume it works. Let's ask Copilot to start our website so we can examine the updated user interface (UI) in the browser forwarded by Codespaces.
+Nie powinniśmy oczywiście poprzestać na przeczytaniu kodu i założeniu, że działa. Poprośmy Copilota o uruchomienie strony, żeby obejrzeć zaktualizowany interfejs w przeglądarce przekierowanej przez Codespaces.
 
-1. Ask Copilot to start the app:
+1. Poproś Copilota o uruchomienie aplikacji:
 
    ```plaintext
    Start the app so I can inspect the star-rating change in my browser. Tell me the URL and leave the server running.
    ```
 
-2. When Codespaces reports that port `4321` is available, select **Open in Browser**.
-3. Confirm game cards display their ratings out of five.
-4. Return to Copilot and ask it to stop the server it started:
+2. Kiedy Codespaces zgłosi, że port `4321` jest dostępny, wybierz **Open in Browser**.
+3. Sprawdź, czy karty gier pokazują oceny w skali do pięciu.
+4. Wróć do Copilota i poproś go o zatrzymanie uruchomionego serwera:
 
    ```plaintext
    Stop the development server you started.
    ```
 
-## Open and merge your first pull request
+## Otwórz i zmerguj swojego pierwszego pull requesta
 
-You've now created the feature! It's time to create a pull request (PR) to merge the new code into the project.
+Funkcjonalność gotowa! Czas utworzyć pull requesta (PR), żeby wlać nowy kod do projektu.
 
-1. Ask the default agent to commit the change:
+1. Poproś domyślnego agenta o zacommitowanie zmiany:
 
    ```plaintext
    Commit the reviewed star-rating changes with an appropriate commit message.
    ```
 
-2. Enter `/pr create`. Copilot CLI pushes the existing commit when it creates the PR and displays the PR URL.
-3. Open the PR by holding <kbd>Command</kbd> (Mac) or <kbd>Ctrl</kbd> (Windows/Linux) and selecting the URL displayed by Copilot CLI.
-4. Review the changed files and checks.
-5. Once ready, select **Merge pull request**, then confirm the merge.
-6. Return to your Codespace and exit Copilot CLI with `/exit`.
-7. Update your local `main`:
+2. Wpisz `/pr create`. Copilot CLI wypchnie istniejący commit przy tworzeniu PR-a i pokaże jego URL.
+3. Otwórz PR-a, przytrzymując <kbd>Command</kbd> (Mac) albo <kbd>Ctrl</kbd> (Windows/Linux) i klikając URL wyświetlony przez Copilot CLI.
+4. Przejrzyj zmienione pliki i wyniki kontroli.
+5. Gdy będzie gotowe, wybierz **Merge pull request** i potwierdź merge.
+6. Wróć do codespace'a i wyjdź z Copilot CLI przez `/exit`.
+7. Zaktualizuj lokalną gałąź `main`:
 
    ```bash
    git checkout main
    git pull
    ```
 
-## Summary and next steps
+## Podsumowanie i co dalej
 
-Congratulations! You shipped your first change using GitHub Copilot CLI! Specifically, you:
+Gratulacje! Dowiozłeś swoją pierwszą zmianę przy pomocy GitHub Copilot CLI. Konkretnie:
 
-- started a focused Copilot conversation on a feature branch.
-- directed the agent to make a small change to the game cards.
-- reviewed the change with `/diff`.
-- ran the app to confirm the star rating in a forwarded browser.
-- opened and merged your first pull request.
+- rozpocząłeś osobną rozmowę z Copilotem na gałęzi funkcjonalności,
+- zleciłeś agentowi drobną zmianę na kartach gier,
+- przejrzałeś zmianę przez `/diff`,
+- uruchomiłeś aplikację i potwierdziłeś ocenę w gwiazdkach w przekierowanej przeglądarce,
+- otworzyłeś i zmergowałeś swojego pierwszego pull requesta.
 
-Next, you'll [start from the filtering issue and use Plan and Autopilot modes][next-lesson] to build a larger feature.
+W następnym kroku [wyjdziesz od zgłoszenia o filtrowaniu i użyjesz trybów Plan oraz Autopilot][next-lesson], żeby zbudować większą funkcjonalność.
 
-## Resources
+## Materiały
 
-- [About GitHub Copilot CLI][about-copilot-cli]
-- [Copilot CLI command reference][cli-reference]
+- [O GitHub Copilot CLI][about-copilot-cli]
+- [Dokumentacja komend Copilot CLI][cli-reference]
 
 [previous-lesson]: ../1-install-copilot-cli/
 [next-lesson]: ../3-agent-modes/
