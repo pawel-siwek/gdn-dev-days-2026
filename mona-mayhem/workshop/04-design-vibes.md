@@ -1,82 +1,113 @@
-# Part 4: Design-First Theming
+<!-- l10n-sync: english-commit-sha="d376143ca3e6c0b3c63980402deaf1c4ac0a1b19" -->
+<!-- Motyw przepisany na Dev Days Gdańsk 2026: zamiast generycznego retro-arcade
+     brief prowadzi do estetyki gdańskiej stoczni z plakatu wydarzenia. -->
+# Część 4: Motyw wizualny — design first
 
 ---
 
-In this part, you'll use Copilot's planning and implementation loops to design a comprehensive theme transformation. This is design-first development — start with the vision, iterate on the visuals, and let Copilot handle the CSS heavy lifting.
+W tej części użyjesz pętli planowania i implementacji Copilota, żeby zaprojektować kompletną przebudowę wizualną. To jest **design-first development** — zaczynasz od wizji, iterujesz na warstwie graficznej, a ciężką robotę w CSS zostawiasz Copilotowi.
 
-## Task 1: Plan the Retro Theme
+Na Dev Days Gdańsk nie budujemy generycznego automatu z salonu gier. Budujemy **noc nad gdańską stocznią**: zielone żurawie portowe na tle ciemnego nieba, bursztynowy dach Żurawia, ceglany gotyk Głównego Miasta i skrzynie na nabrzeżu — wszystko w pixel arcie 8/16-bit.
+
+## Zadanie 1: Zaplanuj motyw stoczniowy
 
 <!-- track:vscode:start -->
-Switch to **Plan** mode in GitHub Copilot Chat.
+Przełącz się na tryb **Plan** w GitHub Copilot Chat.
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-Use `/plan` in GitHub Copilot CLI, or press **Shift+Tab** until plan mode is active.
+Użyj `/plan` w GitHub Copilot CLI albo naciskaj **Shift+Tab**, aż tryb plan będzie aktywny.
 <!-- track:cli:end -->
 
-Enter this prompt:
+Wpisz ten prompt:
 
-> I want to transform this page into a full retro arcade experience. Plan a comprehensive visual overhaul that includes: CRT scanline effects on the background, neon glow on the title that pulses like a neon sign, animated VS badge with gradient color shifts, shine/shimmer overlay on the user result cards, float-in animations for input fields, color-shifting loading text between green and purple, and hover glow effects on contribution squares. Keep the dark background (`#0a0a1a`) with green (`#5fed83`) and purple (`#8a2be2`) accent colors. Use a dark theme with the Press Start 2P retro gaming font from Google Fonts.
+> I want to transform this page into a pixel-art tribute to the Gdańsk shipyard at night — a retro 8/16-bit arcade look, but themed around a Baltic port instead of a generic arcade cabinet.
+>
+> Plan a comprehensive visual overhaul that includes:
+> - a dark night-sky background with a subtle pixel-grid overlay and a faint parallax skyline of Gdańsk Old Town (brick Gothic towers, spires)
+> - animated green gantry cranes framing the two player cards, with lattice/truss detailing
+> - the VS badge styled as a swinging shipping container suspended from a crane hook, with a gentle pendulum animation
+> - player result cards styled as amber-lit warehouse crates stacked on a quay
+> - contribution squares rendered as stacked cargo crates; hover raises the crate slightly and lights it amber
+> - loading state shown as a crane hook lowering and raising
+> - the title rendered in a chunky pixel font with a warm amber glow, like a shipyard floodlight
+>
+> Use exactly this palette as CSS custom properties:
+> ```css
+> --bg:        #0d1117;  /* night over the shipyard */
+> --crane:     #3fb950;  /* crane green */
+> --crane-dim: #2ea043;
+> --amber:     #e3b341;  /* Żuraw roof, crates */
+> --rust:      #b45309;  /* brick, rust */
+> --steel:     #8b949e;  /* structures, quay */
+> --text:      #e6edf3;
+> ```
+>
+> Use the "Press Start 2P" pixel font from Google Fonts for headings and JetBrains Mono for body text. Keep all animation subtle enough that the contribution data stays readable.
 
-Copilot will generate a detailed implementation plan covering all the visual effects. **Don't accept it immediately** — review the plan and iterate:
+Copilot wygeneruje szczegółowy plan implementacji obejmujący wszystkie efekty. **Nie akceptuj go od razu** — przejrzyj i iteruj:
 
-- Suggest adjustments to animation timing (for example, *"Make the neon pulse slower, around 3 seconds"*)
-- Ask about specific effects (for example, *"How will the shimmer overlay work on the cards?"*)
-- Request changes to the approach if something doesn't feel right
+- Zaproponuj korekty czasów animacji (np. *„Spowolnij wahanie kontenera do jakichś 4 sekund"*)
+- Dopytaj o konkretne efekty (np. *„Jak dokładnie zadziała podnoszenie skrzyni przy hover?"*)
+- Poproś o zmianę podejścia, jeśli coś Ci nie leży
 
-## Task 2: Implement the Theme
+> 💡 **Wskazówka:** jeśli chcesz, żeby Copilot lepiej trafił w klimat, dorzuć do promptu zdanie o konkretnym motywie: *Żuraw* (średniowieczny dźwig portowy z bursztynowym dachem), fontanna Neptuna albo sylweta Bazyliki Mariackiej.
 
-When you're satisfied with the plan, tell Copilot to implement it.
+## Zadanie 2: Zaimplementuj motyw
 
-> Implement the retro arcade theme plan we just designed.
+Kiedy plan Ci odpowiada, zleć Copilotowi jego wdrożenie.
 
-Copilot will add multiple CSS animations, pseudo-elements, and transitions across your stylesheet. This may include:
+> Implement the Gdańsk shipyard theme plan we just designed.
 
-- `@keyframes` for scanlines, neon pulse, shimmer, and float-in effects
-- Pseudo-elements (`::before`, `::after`) for overlay effects
-- CSS custom properties for theme colors
-- Transition and hover states for interactive elements
+Copilot doda wiele animacji CSS, pseudoelementów i przejść w arkuszu stylów. Może to obejmować:
+
+- `@keyframes` dla wahania kontenera, opuszczania haka, świecenia reflektora i podnoszenia skrzyń
+- Pseudoelementy (`::before`, `::after`) na kratownice żurawi i siatkę pikseli
+- Zmienne CSS na kolory motywu
+- Stany `transition` i `hover` dla elementów interaktywnych
 
 <!-- track:cli:start -->
-After the changes land, use `/diff` to review the styling changes before you approve them.
+Kiedy zmiany wylądują, przejrzyj je przez `/diff`, zanim je zatwierdzisz.
 <!-- track:cli:end -->
 
-## Task 3: Fine-Tune the Vibes
+## Zadanie 3: Dopieszcz klimat
 
-> **⚠️ Not seeing changes?** If the new theme or animations aren't showing up, stop the dev server (`Ctrl+C`) and restart with `npm run dev`, then do a hard refresh (`Ctrl+Shift+R`) in your browser.
+> **⚠️ Nie widzisz zmian?** Jeśli nowy motyw albo animacje się nie pojawiają, zatrzymaj serwer deweloperski (`Ctrl+C`), uruchom go ponownie przez `npm run dev`, a potem zrób twarde odświeżenie (`Ctrl+Shift+R`) w przeglądarce.
 
-Keep the browser preview open and iterate on the design. Try prompts like:
+Trzymaj podgląd w przeglądarce otwarty i iteruj na designie. Wypróbuj prompty w rodzaju:
 
-> The scanline effect is too strong, reduce opacity to 0.03
+> The pixel grid overlay is too strong, reduce opacity to 0.03
 
-> Add a subtle electrical flicker to the title text
+> Add a slow blinking red aircraft warning light on top of the tallest crane
 
-> The VS badge should pulse more dramatically
+> The container should swing more dramatically when the battle starts
 
-This is **design-first development** — you're iterating on the visual output in real time. Each prompt refines the experience until it feels right. Don't settle for "good enough" — push the vibes until the page looks like it belongs in an arcade cabinet.
+> Make the crates cast a short pixel shadow on the quay
 
-## Task 4: Update Instructions
+To jest właśnie **design-first development** — iterujesz na wyniku wizualnym w czasie rzeczywistym. Każdy prompt dociąga doświadczenie bliżej celu. Nie zadowalaj się „wystarczająco dobrze" — dociśnij, aż strona będzie wyglądać jak kadr z gry o gdańskiej stoczni.
 
-Your instructions should reflect major design decisions so later prompts stay aligned.
+## Zadanie 4: Zaktualizuj instrukcje
+
+Twoje instrukcje powinny odzwierciedlać najważniejsze decyzje projektowe, żeby kolejne prompty trzymały linię.
 
 <!-- track:vscode:start -->
-Ask Copilot Chat:
+Poproś Copilot Chat:
 
-> Add a design guide section to copilot-instructions.md describing our retro arcade theme: colors, fonts, animation style
+> Add a design guide section to copilot-instructions.md describing our Gdańsk shipyard theme: the exact colour palette, pixel fonts, animation style, and the rule that any new UI must keep the shipyard aesthetic.
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-Ask Copilot CLI:
+Poproś Copilot CLI:
 
-> Update our repository instructions with a short design guide for the retro arcade theme: colors, fonts, animation style, and the rule that new UI should keep the neon aesthetic.
+> Update our repository instructions with a short design guide for the Gdańsk shipyard theme: the exact colour palette, pixel fonts, animation style, and the rule that any new UI must keep the shipyard aesthetic.
 <!-- track:cli:end -->
 
-Commit your updated instructions and design changes once the page looks right.
+Zacommituj zaktualizowane instrukcje i zmiany w designie, kiedy strona będzie już wyglądać jak trzeba.
 
-## ✅ Part 4 Complete
+## ✅ Część 4 zaliczona
 
-**What you learned:**
+**Czego się nauczyłeś:**
 
-- Use planning workflows to sketch a **design system before implementation**
-- **Iterate on visual output** with quick follow-up prompts
-- **Update instructions after major decisions** so Copilot keeps the visual identity consistent
+- Używać planowania do naszkicowania **systemu designu przed implementacją**
+- **Iterować na wyniku wizualnym** szybkimi promptami uzupełniającymi
+- **Aktualizować instrukcje po istotnych decyzjach**, żeby Copilot trzymał spójną tożsamość wizualną

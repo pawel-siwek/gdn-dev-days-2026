@@ -1,20 +1,21 @@
-# Part 3: Build the Game with Agentic Workflows
+<!-- l10n-sync: english-commit-sha="d376143ca3e6c0b3c63980402deaf1c4ac0a1b19" -->
+# Część 3: Budowa gry w trybie agentowym
 
 ---
 
-This part is where Copilot goes from planner to implementer. Instead of writing code line by line, you describe what you want and let Copilot carry out the work across the files it needs to change.
+W tej części Copilot przestaje być planistą, a staje się wykonawcą. Zamiast pisać kod linijka po linijce, opisujesz czego chcesz, a Copilot przeprowadza pracę przez wszystkie pliki, które trzeba zmienić.
 
-## Task 1: Wire Up the Battle
+## Zadanie 1: Podłącz pojedynek
 
 <!-- track:vscode:start -->
-1. Switch to **Agent** mode in Copilot Chat.
-2. Enter this prompt:
+1. Przełącz się na tryb **Agent** w Copilot Chat.
+2. Wpisz ten prompt:
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-1. Return Copilot CLI to its standard coding flow (or stay in autopilot if you want Copilot to keep moving until you stop it).
-2. Mention the page file for extra context if helpful: `@src/pages/index.astro`
-3. Enter this prompt:
+1. Wróć w Copilot CLI do standardowego trybu kodowania (albo zostań w autopilocie, jeśli chcesz, żeby Copilot pracował dalej, dopóki go nie zatrzymasz).
+2. Dla dodatkowego kontekstu możesz wskazać plik strony: `@src/pages/index.astro`
+3. Wpisz ten prompt:
 <!-- track:cli:end -->
 
    > Add client-side JavaScript to the battle page that:
@@ -31,53 +32,53 @@ This part is where Copilot goes from planner to implementer. Instead of writing 
    > Use TypeScript interfaces for the contribution data structure.
 
 <!-- track:vscode:start -->
-3. Let Agent Mode work through the implementation across `index.astro`.
-4. Review the proposed changes in the diff view before accepting them.
+3. Pozwól trybowi Agent przeprowadzić implementację w `index.astro`.
+4. Przejrzyj proponowane zmiany w widoku diff, zanim je zaakceptujesz.
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-4. Let Copilot CLI work through the implementation across `src/pages/index.astro`.
-5. Use `/diff` to inspect the generated changes, then approve them.
+4. Pozwól Copilot CLI przeprowadzić implementację w `src/pages/index.astro`.
+5. Obejrzyj wygenerowane zmiany przez `/diff`, a potem je zatwierdź.
 <!-- track:cli:end -->
 
-## Task 2: Test the Battle
+## Zadanie 2: Przetestuj pojedynek
 
-> **⚠️ Not seeing changes?** If the battle page hasn't updated, stop the dev server (`Ctrl+C`) and restart with `npm run dev`, then refresh your browser.
+> **⚠️ Nie widzisz zmian?** Jeśli strona pojedynku się nie odświeżyła, zatrzymaj serwer deweloperski (`Ctrl+C`), uruchom go ponownie przez `npm run dev` i odśwież przeglądarkę.
 
-1. Enter `octocat` and `torvalds` as the two usernames, then click **Battle**.
-2. You should see both contribution graphs rendered side by side with colored grids.
-3. Test error cases:
-   - Leave one or both fields empty and click Battle — you should see a validation error.
-   - Enter an invalid username — the app should display an error from the API.
-4. Test pressing **Enter** in either input field — it should trigger the battle just like clicking the button.
+1. Wpisz `octocat` i `torvalds` jako dwie nazwy użytkowników, a potem kliknij **Battle**.
+2. Powinieneś zobaczyć oba wykresy kontrybucji obok siebie, jako kolorowe siatki.
+3. Przetestuj ścieżki błędów:
+   - Zostaw jedno albo oba pola puste i kliknij Battle — powinien pojawić się błąd walidacji.
+   - Wpisz nieistniejącą nazwę użytkownika — aplikacja powinna pokazać błąd z API.
+4. Sprawdź **Enter** w polach tekstowych — powinien uruchamiać pojedynek tak samo jak kliknięcie przycisku.
 
-## Task 3: Iterate with Copilot
+## Zadanie 3: Iteruj razem z Copilotem
 
-If anything isn't quite right, give Copilot follow-up feedback directly. For example:
+Jeśli coś nie do końca gra, po prostu daj Copilotowi informację zwrotną. Na przykład:
 
-- *"The contribution squares are too large, make them 12x12px"*
-- *"Add a hover tooltip showing the date and contribution count"*
-- *"The loading state needs a pulse animation"*
+- *„Kwadraciki kontrybucji są za duże, zrób je 12x12px"*
+- *„Dodaj tooltip pokazujący datę i liczbę kontrybucji po najechaniu myszą"*
+- *„Stan ładowania potrzebuje animacji pulsowania"*
 
 <!-- track:vscode:start -->
-Agent Mode handles multi-file changes and iterations naturally. Each follow-up prompt builds on the previous conversation, so you can refine the implementation incrementally without starting over.
+Tryb Agent naturalnie radzi sobie ze zmianami w wielu plikach i z iteracjami. Każdy kolejny prompt buduje na poprzedniej rozmowie, więc możesz doszlifowywać implementację przyrostowo, bez zaczynania od zera.
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-Copilot CLI sessions keep their history, so each follow-up prompt builds on the last one. Use `/session` or `/context` if you want to inspect what Copilot is carrying forward, and `/review` after a larger iteration if you want an extra pass for bugs or polish.
+Sesje Copilot CLI zachowują historię, więc każdy kolejny prompt buduje na poprzednim. Użyj `/session` albo `/context`, żeby podejrzeć, co Copilot ze sobą niesie, a po większej iteracji uruchom `/review`, jeśli chcesz dodatkowego przebiegu pod kątem błędów i wykończenia.
 <!-- track:cli:end -->
 
-## Tips for This Part
+## Wskazówki do tej części
 
-- **Be specific about what you want** — clear requirements lead to better results.
-- **Break down large tasks into smaller prompts** if Copilot goes off track.
-- **Review changes before accepting** — generated code is faster to inspect than to rewrite later.
-- **Test the app immediately after each implementation pass** so issues stay localized.
+- **Mów konkretnie, czego chcesz** — jasne wymagania dają lepsze wyniki.
+- **Rozbijaj duże zadania na mniejsze prompty**, jeśli Copilot zaczyna odpływać.
+- **Przeglądaj zmiany przed akceptacją** — wygenerowany kod szybciej się sprawdza, niż potem przepisuje.
+- **Testuj aplikację od razu po każdym przebiegu implementacji**, żeby problemy zostawały lokalne.
 
-## ✅ Part 3 Complete
+## ✅ Część 3 zaliczona
 
-You've learned how to:
+Nauczyłeś się:
 
-- Use Copilot for **multi-file implementation work**
-- **Iterate on results** with focused follow-up prompts
-- Handle the **full feature loop** — implementation, review, testing, and refinement
+- Używać Copilota do **implementacji obejmującej wiele plików**
+- **Iterować na wynikach** za pomocą precyzyjnych promptów uzupełniających
+- Prowadzić **pełną pętlę funkcjonalności** — implementacja, review, testy i dopracowanie

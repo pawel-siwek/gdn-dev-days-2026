@@ -1,20 +1,21 @@
-# Part 2: Plan & Scaffold
+<!-- l10n-sync: english-commit-sha="d376143ca3e6c0b3c63980402deaf1c4ac0a1b19" -->
+# Część 2: Plan i szkielet projektu
 
 ---
 
-Before writing any code, let's use Copilot's planning workflows to think through the architecture. Planning first helps you design better systems and gives Copilot the context it needs to generate higher-quality code.
+Zanim napiszemy choć linijkę kodu, przemyślimy architekturę przy pomocy trybu planowania Copilota. Zaczynanie od planu pomaga projektować lepsze systemy i daje Copilotowi kontekst potrzebny do generowania kodu wyższej jakości.
 
-## Task 1: Plan the API Architecture
+## Zadanie 1: Zaplanuj architekturę API
 
 <!-- track:vscode:start -->
-1. Switch to **Plan** mode in Copilot Chat (click the mode selector at the bottom of the chat panel)
+1. Przełącz się na tryb **Plan** w Copilot Chat (selektor trybu na dole panelu czatu)
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-1. Enter **plan mode** in Copilot CLI by pressing **Shift+Tab** until the mode changes, or by using `/plan`.
+1. Wejdź w **tryb plan** w Copilot CLI, naciskając **Shift+Tab**, aż tryb się zmieni, albo komendą `/plan`.
 <!-- track:cli:end -->
 
-2. Enter this prompt:
+2. Wpisz ten prompt:
 
    ```
    I need to build a server-side API proxy that fetches GitHub contribution data
@@ -23,47 +24,47 @@ Before writing any code, let's use Copilot's planning workflows to think through
    including the route structure, error handling, and caching strategy.
    ```
 
-3. **Review the plan** — this is where planning shines. Don't just accept the first response:
-   - Ask for clarifications on anything unclear
-   - Suggest changes if something doesn't feel right
-   - Iterate until you're satisfied with the approach
+3. **Przejrzyj plan** — to tutaj planowanie pokazuje swoją wartość. Nie akceptuj pierwszej odpowiedzi bezrefleksyjnie:
+   - Dopytaj o wszystko, co jest niejasne
+   - Zaproponuj zmiany, jeśli coś Ci nie pasuje
+   - Iteruj, aż podejście będzie Cię satysfakcjonować
 
 <!-- track:vscode:start -->
-4. Once you're happy with the plan, ask Copilot to implement it — switch to **Agent** mode and tell it to go ahead.
+4. Kiedy plan Ci odpowiada, poproś Copilota o implementację — przełącz się na tryb **Agent** i daj zielone światło.
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-4. Once you're happy with the plan, tell Copilot CLI to proceed with implementation.
-5. Review the resulting file edits with `/diff` before approving them.
+4. Kiedy plan Ci odpowiada, powiedz Copilot CLI, żeby przeszedł do implementacji.
+5. Przejrzyj powstałe zmiany w plikach przez `/diff`, zanim je zatwierdzisz.
 <!-- track:cli:end -->
 
-6. **Result:** You should now have an API route created at:
+6. **Efekt:** powinieneś mieć utworzoną trasę API w:
 
    ```
    src/pages/api/contributions/[username].ts
    ```
 
-## Task 2: Test the API
+## Zadanie 2: Przetestuj API
 
-> **⚠️ Not seeing changes?** If the dev server doesn't pick up the new route, stop it (`Ctrl+C`) and restart with `npm run dev`.
+> **⚠️ Nie widzisz zmian?** Jeśli serwer deweloperski nie podchwycił nowej trasy, zatrzymaj go (`Ctrl+C`) i uruchom ponownie przez `npm run dev`.
 
-1. Make sure your dev server is running, then test the endpoint:
+1. Upewnij się, że serwer deweloperski działa, a potem przetestuj endpoint:
 
    ```bash
    curl http://localhost:4321/api/contributions/octocat
    ```
 
-2. You should see JSON with contribution data returned.
-3. Test the error case too — try an invalid username and confirm it returns an appropriate error response.
+2. Powinieneś zobaczyć JSON z danymi o kontrybucjach.
+3. Przetestuj też ścieżkę błędu — podaj nieistniejącą nazwę użytkownika i sprawdź, czy wraca sensowna odpowiedź błędu.
 
-## Task 3: Plan the Battle Page
+## Zadanie 3: Zaplanuj stronę pojedynku
 
 <!-- track:vscode:start -->
-1. Stay in **Plan** mode and enter this prompt:
+1. Zostań w trybie **Plan** i wpisz ten prompt:
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-1. Stay in plan mode (or run `/plan`) and enter this prompt:
+1. Zostań w trybie plan (albo uruchom `/plan`) i wpisz ten prompt:
 <!-- track:cli:end -->
 
    ```
@@ -74,34 +75,34 @@ Before writing any code, let's use Copilot's planning workflows to think through
    and how the battle interaction will work.
    ```
 
-2. **Review and iterate** on the plan — ask questions, suggest changes, refine the approach.
+2. **Przejrzyj plan i iteruj** — dopytuj, proponuj zmiany, doprecyzowuj podejście.
 
 <!-- track:vscode:start -->
-3. When you're satisfied, switch to **Agent** mode and let Copilot build the page.
+3. Kiedy będziesz zadowolony, przełącz się na tryb **Agent** i pozwól Copilotowi zbudować stronę.
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-3. When you're satisfied, have Copilot CLI implement the approved plan.
-4. Use `/diff` again to inspect the HTML and CSS scaffolding before approving.
+3. Kiedy będziesz zadowolony, zleć Copilot CLI implementację zatwierdzonego planu.
+4. Ponownie użyj `/diff`, żeby obejrzeć szkielet HTML i CSS przed zatwierdzeniem.
 <!-- track:cli:end -->
 
-## Task 4: Verify the Scaffold
+## Zadanie 4: Sprawdź szkielet
 
-> **⚠️ Not seeing changes?** If the page doesn't look right or hasn't updated, stop the dev server (`Ctrl+C`) and restart with `npm run dev`, then refresh your browser.
+> **⚠️ Nie widzisz zmian?** Jeśli strona wygląda źle albo się nie odświeżyła, zatrzymaj serwer deweloperski (`Ctrl+C`), uruchom go ponownie przez `npm run dev` i odśwież przeglądarkę.
 
-1. Open http://localhost:4321 in your browser.
-2. You should see:
-   - The game title
-   - Two username input fields (Player 1 and Player 2)
-   - A battle button
-3. The button won't work yet — that's expected! We haven't wired up the interaction logic. That comes next.
+1. Otwórz http://localhost:4321 w przeglądarce.
+2. Powinieneś zobaczyć:
+   - Tytuł gry
+   - Dwa pola na nazwy użytkowników (Gracz 1 i Gracz 2)
+   - Przycisk rozpoczynający pojedynek
+3. Przycisk jeszcze nie działa — i tak ma być! Nie podłączyliśmy logiki interakcji. To kolejny krok.
 
 ---
 
-## ✅ Part 2 Complete!
+## ✅ Część 2 zaliczona!
 
-You've learned how to:
+Nauczyłeś się:
 
-- **Plan before coding** instead of jumping straight into implementation
-- **Iterate on plans** until the architecture feels right
-- **Move from plan to implementation** with a clearer, safer workflow
+- **Planować przed kodowaniem** zamiast rzucać się od razu na implementację
+- **Iterować plan**, aż architektura zacznie wyglądać sensownie
+- **Przechodzić z planu do implementacji** w sposób bardziej przejrzysty i bezpieczny

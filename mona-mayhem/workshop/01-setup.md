@@ -1,58 +1,59 @@
-# Part 1: Setup & Context Engineering
+<!-- l10n-sync: english-commit-sha="d376143ca3e6c0b3c63980402deaf1c4ac0a1b19" -->
+# Część 1: Setup i inżynieria kontekstu
 
 ---
 
-In this part you'll set up your development environment **and** teach Copilot about the codebase — so every future prompt starts with the right context.
+W tej części skonfigurujesz środowisko **i** nauczysz Copilota Twojego repozytorium — tak, żeby każdy kolejny prompt startował z właściwym kontekstem.
 
-## Section 1: Initial Setup
+## Sekcja 1: Konfiguracja początkowa
 
-### Step 1: Create Your Repository
+### Krok 1: Załóż własne repozytorium
 
-1. Open [github.com/copilot-dev-days/mona-mayhem](https://github.com/copilot-dev-days/mona-mayhem)
-2. Create your own repository by either:
-   - clicking **Use this template** → **Create a new repository**, or
-   - forking the repository.
-3. Name it `my-mona-mayhem` and set visibility to **Public** (if you created from template)
+1. Otwórz [github.com/pawelsiwek/mona-mayhem-starter](https://github.com/pawelsiwek/mona-mayhem-starter)
+2. Utwórz własne repozytorium, klikając **Use this template** → **Create a new repository**
+3. Nazwij je `moj-mayhem` i ustaw widoczność na **Public**
+
+> 💡 To jest zamrożona kopia projektu przygotowana na Dev Days Gdańsk 2026 — dzięki temu wszyscy startujemy z identycznego kodu.
 
 <!-- track:vscode:start -->
-### Step 2: Choose Your Development Environment
+### Krok 2: Wybierz środowisko pracy
 
-#### Option A: Local VS Code
+#### Opcja A: lokalny VS Code
 
-1. Open VS Code and run **Git: Clone** → **Clone from GitHub**
-2. Select your `my-mona-mayhem` repository
-3. When prompted, install the **recommended extensions**
+1. Otwórz VS Code i uruchom **Git: Clone** → **Clone from GitHub**
+2. Wybierz swoje repozytorium `moj-mayhem`
+3. Gdy pojawi się pytanie, zainstaluj **rekomendowane rozszerzenia**
 
-#### Option B: GitHub Codespaces
+#### Opcja B: GitHub Codespaces
 
-1. Open your repository on GitHub
-2. Click **Code** → **Codespaces** → **Create codespace on main**
-3. Wait for the environment to boot and dependencies to install
+1. Otwórz swoje repozytorium na GitHubie
+2. Kliknij **Code** → **Codespaces** → **Create codespace on main**
+3. Poczekaj, aż środowisko wstanie i zainstalują się zależności
 
-### Step 3: Install Dependencies and Start the App
+### Krok 3: Zainstaluj zależności i uruchom aplikację
 
-1. Open the integrated terminal in your repository.
-2. Install dependencies:
+1. Otwórz wbudowany terminal w swoim repozytorium.
+2. Zainstaluj zależności:
 
    ```bash
    npm install
    ```
 
-3. Start the app:
+3. Uruchom aplikację:
 
    ```bash
    npm run dev
    ```
 
-> ✅ **App is running in your browser!**
+> ✅ **Aplikacja działa w Twojej przeglądarce!**
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-### Step 2: Install GitHub Copilot CLI
+### Krok 2: Zainstaluj GitHub Copilot CLI
 
-Use the installation path that matches your machine:
+Wybierz sposób instalacji pasujący do Twojej maszyny:
 
-- **npm (cross-platform, requires Node.js 22+)**
+- **npm (wieloplatformowo, wymaga Node.js 22+)**
 
   ```bash
   npm install -g @github/copilot
@@ -70,139 +71,139 @@ Use the installation path that matches your machine:
   winget install GitHub.Copilot
   ```
 
-### Step 3: Start the App and Authenticate the CLI
+### Krok 3: Uruchom aplikację i zaloguj się w CLI
 
-1. Clone your repo locally and open a terminal in the project root.
-2. Install dependencies and start the app:
+1. Sklonuj repozytorium lokalnie i otwórz terminal w katalogu głównym projektu.
+2. Zainstaluj zależności i uruchom aplikację:
 
    ```bash
    npm install
    npm run dev
    ```
 
-3. Open a **second terminal** in the same repo and start Copilot CLI:
+3. Otwórz **drugi terminal** w tym samym repozytorium i uruchom Copilot CLI:
 
    ```bash
    copilot
    ```
 
-4. In the interactive session, enter:
+4. W sesji interaktywnej wpisz:
 
    ```
    /login
    ```
 
-5. Follow the device flow prompts, then confirm that you trust the repository when the CLI asks for approval.
+5. Przejdź przez logowanie device flow, a potem potwierdź zaufanie do repozytorium, kiedy CLI o to poprosi.
 
-> ✅ **You now have the app preview in one terminal and Copilot CLI ready in another.**
+> ✅ **Masz teraz podgląd aplikacji w jednym terminalu i gotowe Copilot CLI w drugim.**
 <!-- track:cli:end -->
 
-## Section 2: Context Engineering
+## Sekcja 2: Inżynieria kontekstu
 
-Context engineering is how you teach AI about your codebase. The better the context, the better every future response will be.
+Inżynieria kontekstu to sposób, w jaki uczysz AI swojego repozytorium. Im lepszy kontekst, tym lepsza każda kolejna odpowiedź.
 
 <!-- track:vscode:start -->
-### Task 1: Generate Workspace Instructions with /init
+### Zadanie 1: Wygeneruj instrukcje projektu przez /init
 
-Let's use the built-in `/init` command to generate a workspace instructions file for Copilot:
+Użyjemy wbudowanej komendy `/init`, żeby wygenerować plik z instrukcjami dla Copilota:
 
-1. Open **Copilot Chat** and type:
+1. Otwórz **Copilot Chat** i wpisz:
 
    ```
    /init simple instructions with a project overview, build/dev commands, and Astro best practices, (ignore the workshop).
    ```
 
-2. Review the generated file — Copilot will analyze your project and create a `.github/copilot-instructions.md`.
-3. Accept the changes, then **commit** the instructions file.
+2. Przejrzyj wygenerowany plik — Copilot przeanalizuje projekt i utworzy `.github/copilot-instructions.md`.
+3. Zaakceptuj zmiany, a potem **zacommituj** plik z instrukcjami.
 
-> **Result:** All future Copilot requests now have a map of your workspace baked in.
+> **Efekt:** każde kolejne zapytanie do Copilota ma już wbudowaną mapę Twojego projektu.
 
-### Task 2: Background Agents
+### Zadanie 2: Agenci w tle
 
-**Local background agent:**
+**Lokalny agent w tle:**
 
-1. In the Chat panel, click **+** for a new chat
-2. In the bottom of the window you will see **Local** change to **Copilot CLI**
-3. Enter the prompt:
+1. W panelu Chat kliknij **+**, żeby otworzyć nowy czat
+2. Na dole okna przestaw **Local** na **Copilot CLI**
+3. Wpisz prompt:
 
-   > "Add linting rules for unused vars and improve code style; fix any errors"
+   > „Dodaj reguły lintowania dla nieużywanych zmiennych i popraw styl kodu; napraw wszystkie błędy"
 
-4. When it finishes, **Review and Apply** the changes, then archive the session if you desire.
+4. Kiedy skończy, użyj **Review and Apply**, a potem w razie potrzeby zarchiwizuj sesję.
 
-**Cloud agent:**
+**Agent w chmurze:**
 
-1. In the Chat panel, click **+** for a new chat
-2. In the bottom of the window you will see **Local** change to **Cloud**
+1. W panelu Chat kliknij **+**, żeby otworzyć nowy czat
+2. Na dole okna przestaw **Local** na **Cloud**
 
-   > "Make the README more engaging as a landing page"
+   > „Przerób README tak, żeby czytało się jak atrakcyjna strona projektu"
 
-> **Result:** Linting rules added, errors fixed, README improved — all without leaving your editor.
+> **Efekt:** reguły lintowania dodane, błędy naprawione, README lepsze — i to bez wychodzenia z edytora.
 
-### Task 3: Explore the Project
+### Zadanie 3: Poznaj projekt
 
-Open **Copilot Chat** in **Ask mode** and try these prompts:
+Otwórz **Copilot Chat** w **trybie Ask** i wypróbuj te prompty:
 
-- `"Explain the architecture of this project"`
-- `"What files are in the src directory and what do they do?"`
-- `"What would I need to build to make the Battle button work?"`
+- `„Wyjaśnij architekturę tego projektu"`
+- `„Jakie pliki są w katalogu src i za co odpowiadają?"`
+- `„Co trzeba zbudować, żeby przycisk Battle zaczął działać?"`
 
-> 💡 Use **@workspace** to give Copilot project-wide context for more accurate answers.
+> 💡 Użyj **@workspace**, żeby dać Copilotowi kontekst całego projektu i dostać dokładniejsze odpowiedzi.
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-### Task 1: Generate Repository Instructions with /init
+### Zadanie 1: Wygeneruj instrukcje repozytorium przez /init
 
-Let's use `/init` to generate a workspace instructions file for Copilot:
+Użyjemy `/init`, żeby wygenerować plik z instrukcjami dla Copilota:
 
-1. In Copilot CLI, type:
+1. W Copilot CLI wpisz:
 
    ```
    /init simple instructions with a project overview, build/dev commands, and Astro best practices, (ignore the workshop).
    ```
 
-2. Review the generated file — Copilot will analyze your project and create a `.github/copilot-instructions.md`.
-3. Commit the instructions file.
+2. Przejrzyj wygenerowany plik — Copilot przeanalizuje projekt i utworzy `.github/copilot-instructions.md`.
+3. Zacommituj plik z instrukcjami.
 
-> **Result:** Future CLI sessions automatically inherit repository-specific instructions from `.github/copilot-instructions.md`.
+> **Efekt:** kolejne sesje CLI automatycznie dziedziczą instrukcje specyficzne dla repozytorium z `.github/copilot-instructions.md`.
 
-### Task 2: Tune Your CLI Environment
+### Zadanie 2: Dostrój swoje środowisko CLI
 
-Practice the CLI controls that make later steps smoother:
+Poćwicz mechanizmy CLI, które ułatwią Ci kolejne kroki:
 
-1. Run `/help` to scan the available slash commands.
-2. Use `/model` to inspect the models available to you.
-3. If Copilot has learned too many approvals during experimentation, reset them with:
+1. Uruchom `/help`, żeby przejrzeć dostępne komendy slash.
+2. Użyj `/model`, żeby sprawdzić, jakie modele masz do dyspozycji.
+3. Jeśli podczas eksperymentów Copilot nazbierał zbyt wiele zgód, zresetuj je:
 
    ```
    /reset-allowed-tools
    ```
 
-4. If your repository lives inside a larger parent directory, use `/add-dir PATH` to explicitly widen the allowed workspace.
+4. Jeśli Twoje repozytorium leży wewnątrz większego katalogu nadrzędnego, użyj `/add-dir ŚCIEŻKA`, żeby świadomie poszerzyć dozwolony obszar pracy.
 
-> 💡 The CLI docs recommend concise custom instructions plus explicit tool permissions so Copilot stays fast and predictable.
+> 💡 Dokumentacja CLI zaleca zwięzłe własne instrukcje plus jawne uprawnienia do narzędzi — dzięki temu Copilot pozostaje szybki i przewidywalny.
 
-### Task 3: Explore the Project from the Terminal
+### Zadanie 3: Poznaj projekt z terminala
 
-Try these prompts inside Copilot CLI:
+Wypróbuj te prompty w Copilot CLI:
 
-- `Give me an overview of this project.`
-- `@src/pages/api/contributions/[username].ts What is this file for and what needs to be built here?`
-- `@src/pages/index.astro What exists here and what would I need to add to build the battle page?`
+- `Daj mi przegląd tego projektu.`
+- `@src/pages/api/contributions/[username].ts Do czego służy ten plik i co trzeba tu dobudować?`
+- `@src/pages/index.astro Co tu już jest i co musiałbym dodać, żeby zbudować stronę pojedynku?`
 
-If you want a quick one-shot answer outside the interactive session, try:
+Jeśli chcesz szybką odpowiedź jednorazową, poza sesją interaktywną, spróbuj:
 
 ```bash
-copilot -p "Summarize the architecture of this repo in 5 bullet points"
+copilot -p "Podsumuj architekturę tego repozytorium w 5 punktach"
 ```
 
-> **Result:** You now have instructions, command awareness, and a feel for how to feed files into Copilot CLI context.
+> **Efekt:** masz już instrukcje, orientację w komendach i wyczucie, jak podawać pliki do kontekstu Copilot CLI.
 <!-- track:cli:end -->
 
-## ✅ Part 1 Complete
+## ✅ Część 1 zaliczona
 
-You've learned how to:
+Nauczyłeś się:
 
-- **Set up** the repo and local development environment
-- **Generate instructions** with `/init` so Copilot understands your project and design direction
-- **Establish a review habit** before applying generated changes
-- **Explore the codebase** with context-rich prompts
+- **Konfigurować** repozytorium i lokalne środowisko pracy
+- **Generować instrukcje** przez `/init`, żeby Copilot rozumiał Twój projekt i kierunek, w którym idziesz
+- **Wyrabiać nawyk review** przed zastosowaniem wygenerowanych zmian
+- **Zwiedzać repozytorium** promptami bogatymi w kontekst

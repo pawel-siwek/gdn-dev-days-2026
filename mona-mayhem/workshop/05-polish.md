@@ -1,15 +1,16 @@
-# Part 5: Polish & Parallel Work
+<!-- l10n-sync: english-commit-sha="d376143ca3e6c0b3c63980402deaf1c4ac0a1b19" -->
+# Część 5: Szlify i praca równoległa
 
 ---
 
-Now that the app works and looks great, it's time to polish. This part is about splitting work up so you can improve responsiveness, error handling, and quality without doing everything in a single serial loop.
+Aplikacja już działa i dobrze wygląda — czas na wykończenie. Ta część jest o rozbijaniu pracy tak, żeby poprawić responsywność, obsługę błędów i jakość bez przepychania wszystkiego przez jedną, szeregową pętlę.
 
 <!-- track:vscode:start -->
-## Task 1: Background Agent for Responsive Design
+## Zadanie 1: Agent w tle do responsywności
 
-1. In the Chat panel, click **+** for a new chat
-2. In the bottom of the window you will see **Local** change to **Copilot CLI**
-3. Enter this prompt:
+1. W panelu Chat kliknij **+**, żeby otworzyć nowy czat
+2. Na dole okna przestaw **Local** na **Copilot CLI**
+3. Wpisz ten prompt:
 
    ```
    Add responsive CSS media queries: at 1024px switch comparison to single column,
@@ -18,105 +19,106 @@ Now that the app works and looks great, it's time to polish. This part is about 
    Enter triggers battle, and focus states are visible.
    ```
 
-4. Let it run independently — you don't need to watch it.
-5. When it finishes, **Review** the changes and click **Apply**.
+4. Pozwól mu pracować niezależnie — nie musisz go pilnować.
+5. Kiedy skończy, użyj **Review**, a potem kliknij **Apply**.
 
-## Task 2: Background Agent for Error UX
+## Zadanie 2: Agent w tle do obsługi błędów
 
-1. Start another background agent.
-2. Enter this prompt:
+1. Uruchom kolejnego agenta w tle.
+2. Wpisz ten prompt:
 
    ```
    Improve the error experience: add a shake animation for errors, styled error
-   messages with red (#ff3366) neon glow effects matching the arcade theme, and
-   better input validation feedback. Show clear error messages when usernames are
-   empty or invalid.
+   messages with a warning-red (#f85149) glow that fits the Gdańsk shipyard
+   theme, and better input validation feedback. Show clear error messages when
+   usernames are empty or invalid.
    ```
 
-3. Review the changes when the agent completes and click **Apply**.
+3. Przejrzyj zmiany, kiedy agent skończy, i kliknij **Apply**.
 
-## Task 3: Cloud Agent for Variations (Optional)
+## Zadanie 3: Agent w chmurze do wariantów (opcjonalnie)
 
-1. In the Chat panel, click **+** for a new chat
-2. In the bottom of the window you will see **Local** change to **Cloud**
-3. Enter this prompt:
+1. W panelu Chat kliknij **+**, żeby otworzyć nowy czat
+2. Na dole okna przestaw **Local** na **Cloud**
+3. Wpisz ten prompt:
 
    ```
-   Create an alternative color theme for the battle page — keep the retro arcade
-   style but use blue (#00f5ff) and orange (#ff6b35) instead of green and purple.
-   Create it as a CSS custom property theme that could be toggled.
+   Create an alternative colour theme for the battle page — keep the pixel-art
+   shipyard style but shift it to a cold Baltic dawn: steel blue (#58a6ff) and
+   pale amber (#f2cc60) instead of crane green. Implement it as a CSS custom
+   property theme that could be toggled.
    ```
 
-4. Check **agent sessions** to monitor progress.
-5. Review the design variation in the PR the cloud agent creates.
+4. Zajrzyj do **agent sessions**, żeby śledzić postęp.
+5. Przejrzyj wariant designu w pull requeście, który założy agent chmurowy.
 
-## Task 4: Verify Everything
+## Zadanie 4: Sprawdź całość
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-## Task 1: Split the Work with `/fleet`
+## Zadanie 1: Rozbij pracę przez `/fleet`
 
-In Copilot CLI, use `/fleet` to split the work across parallel subagents, then review the combined output:
+W Copilot CLI użyj `/fleet`, żeby rozdzielić robotę na równoległych subagentów, a potem przejrzyj złożony wynik:
 
 ```text
 /fleet Improve the app in parallel:
 1. Add responsive CSS media queries so the comparison collapses to one column at 1024px and the inputs stack on small screens.
 2. Improve keyboard accessibility and focus visibility.
-3. Improve the error experience with stronger validation feedback and arcade-style neon error states.
+3. Improve the error experience with stronger validation feedback and shipyard-style error states.
 ```
 
-Let the CLI orchestrate the work, then inspect the combined result with `/diff` before approving anything.
+Pozwól CLI zorganizować pracę, a potem obejrzyj złożony efekt przez `/diff`, zanim cokolwiek zatwierdzisz.
 
-## Task 2: Delegate a Variation (Optional)
+## Zadanie 2: Zdeleguj wariant (opcjonalnie)
 
-If you want to try an asynchronous cloud workflow, delegate a design variation:
+Jeśli chcesz sprawdzić asynchroniczny przepływ w chmurze, zdeleguj wariant designu:
 
 ```text
-/delegate Create an alternative color theme for the battle page that keeps the retro arcade look but swaps in blue (#00f5ff) and orange (#ff6b35). Make it easy to toggle.
+/delegate Create an alternative colour theme for the battle page that keeps the pixel-art shipyard look but shifts it to a cold Baltic dawn: steel blue (#58a6ff) and pale amber (#f2cc60). Make it easy to toggle.
 ```
 
-That delegated task should create a pull request you can review separately while you keep working locally.
+Zdelegowane zadanie powinno założyć pull requesta, którego przejrzysz osobno, pracując dalej lokalnie.
 
-## Task 3: Run an Agentic Review
+## Zadanie 3: Uruchom agentowe review
 
-Before you wrap up, ask Copilot CLI for a review pass:
+Zanim domkniesz pracę, poproś Copilot CLI o przebieg recenzyjny:
 
 ```text
 /review Focus on potential bugs, accessibility issues, and UX regressions in the current branch.
 ```
 
-Review the findings, fix anything you agree with, then run `/diff` again so you're clear on what changed.
+Przejrzyj znaleziska, popraw to, z czym się zgadzasz, a potem uruchom `/diff` jeszcze raz, żeby mieć jasność, co się zmieniło.
 
-## Task 4: Verify Everything
+## Zadanie 4: Sprawdź całość
 <!-- track:cli:end -->
 
-> **⚠️ Not seeing changes?** If any of the polish updates aren't showing up, stop the dev server (`Ctrl+C`) and restart with `npm run dev`, then do a hard refresh (`Ctrl+Shift+R`) in your browser.
+> **⚠️ Nie widzisz zmian?** Jeśli któraś z poprawek się nie pojawia, zatrzymaj serwer deweloperski (`Ctrl+C`), uruchom go ponownie przez `npm run dev`, a potem zrób twarde odświeżenie (`Ctrl+Shift+R`) w przeglądarce.
 
-Run through these test scenarios to make sure everything works:
+Przejdź przez te scenariusze testowe, żeby upewnić się, że wszystko działa:
 
-| Test | Expected Result |
-|------|----------------|
-| Empty fields, click Battle | Styled error with shake animation |
-| Valid usernames | Contribution graphs displayed |
-| Invalid username | Error from API with retro styling |
-| Enter key in input | Triggers battle |
-| Mobile width | Single-column responsive layout |
-| Hover contribution squares | Tooltip with date and count |
+| Test | Oczekiwany wynik |
+|------|------------------|
+| Puste pola, kliknięcie Battle | Ostylowany błąd z animacją potrząśnięcia |
+| Poprawne nazwy użytkowników | Wyświetlone wykresy kontrybucji |
+| Nieistniejąca nazwa użytkownika | Błąd z API w stylistyce motywu |
+| Enter w polu tekstowym | Uruchamia pojedynek |
+| Szerokość mobilna | Responsywny układ jednokolumnowy |
+| Hover na kwadratach kontrybucji | Tooltip z datą i liczbą |
 
-Build for production and confirm there are no errors:
+Zbuduj wersję produkcyjną i sprawdź, że nie ma błędów:
 
 ```bash
 npm run build && npm run preview
 ```
 
-Once everything looks good, commit your working code.
+Kiedy wszystko wygląda dobrze, zacommituj działający kod.
 
 ---
 
-## ✅ Part 5 Complete!
+## ✅ Część 5 zaliczona!
 
-**What you learned:**
+**Czego się nauczyłeś:**
 
-- Break polish work into **smaller parallel tasks**
-- Review generated changes before merging them into your main branch
-- Use Copilot for **quality passes and optional explorations**, not just implementation
+- Rozbijać wykańczanie na **mniejsze, równoległe zadania**
+- Przeglądać wygenerowane zmiany przed wlaniem ich do głównej gałęzi
+- Używać Copilota do **przebiegów jakościowych i opcjonalnych eksploracji**, nie tylko do implementacji

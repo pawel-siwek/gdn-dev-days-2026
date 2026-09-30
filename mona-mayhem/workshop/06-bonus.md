@@ -1,167 +1,172 @@
-# 🎉 Bonus & Extensions
+<!-- l10n-sync: english-commit-sha="d376143ca3e6c0b3c63980402deaf1c4ac0a1b19" -->
+# 🎉 Bonus i rozszerzenia
 
 ---
 
-You've built a fully functional GitHub Battle app! Now it's time to push further with **open-ended challenges**.
+Masz w pełni działającą aplikację do pojedynków na wykresy kontrybucji! Czas pociągnąć temat dalej — **otwartymi wyzwaniami**.
 
 <!-- track:vscode:start -->
-Use **Agent Mode** for all of these — describe what you want, and let Copilot help you build it.
+Do wszystkich poniższych użyj **trybu Agent** — opisz, czego chcesz, i pozwól Copilotowi to zbudować.
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-Use Copilot CLI for all of these — mix `@file` context, `/plan`, normal mode, and `/review` as needed.
+Do wszystkich poniższych użyj Copilot CLI — mieszaj kontekst przez `@file`, `/plan`, tryb zwykły i `/review`, według potrzeb.
 <!-- track:cli:end -->
 
 ---
 
-## 🏆 Challenge 1: Winner Banner
+## 🏆 Wyzwanie 1: Baner zwycięzcy
 
-After both contribution graphs load, compare the totals and display a dynamic winner announcement.
+Kiedy oba wykresy kontrybucji się załadują, porównaj sumy i pokaż dynamiczne ogłoszenie zwycięzcy.
 
-**What to build:**
-- Compare total contributions for both users
-- Show **"🏆 {username} WINS! 🏆"** with a celebratory style if there's a clear winner
-- Show **"🤝 IT'S A TIE! 🤝"** if contributions are equal
-- Add animation or confetti for extra flair
+**Co zbudować:**
+- Porównanie łącznej liczby kontrybucji obu użytkowników
+- **„🏆 {username} WYGRYWA! 🏆"** w świątecznej oprawie, jeśli jest wyraźny zwycięzca
+- **„🤝 REMIS! 🤝"**, jeśli liczby są równe
+- Animacja albo konfetti dla efektu
 
-**Prompt suggestion:**
+**Propozycja promptu:**
 > After both users' contribution data loads, compare total contributions and display a winner banner. Show "🏆 {username} WINS! 🏆" if one user has more contributions, or "🤝 IT'S A TIE! 🤝" if equal. Make it visually exciting with CSS animations.
 
 ---
 
-## 🏆 Challenge 2: Streak Counter
+## 🏆 Wyzwanie 2: Licznik serii
 
-Calculate and display each user's longest consecutive contribution streak.
+Policz i pokaż najdłuższą serię kolejnych dni z kontrybucjami dla każdego użytkownika.
 
-**What to build:**
-- Analyze the contribution data day by day
-- Find the longest run of consecutive days with at least one contribution
-- Display the streak count prominently for each user
-- Highlight who has the longer streak
+**Co zbudować:**
+- Analiza danych o kontrybucjach dzień po dniu
+- Znalezienie najdłuższego ciągu kolejnych dni z co najmniej jedną kontrybucją
+- Wyraźne wyświetlenie długości serii dla każdego użytkownika
+- Wyróżnienie tego, kto ma dłuższą serię
 
-**Prompt suggestion:**
+**Propozycja promptu:**
 > Add a streak counter feature that analyzes each user's contribution data to find their longest consecutive contribution streak. Display "🔥 Longest Streak: X days" for each user below their contribution graph.
 
 ---
 
-## 🏆 Challenge 3: Battle History
+## 🏆 Wyzwanie 3: Historia pojedynków
 
-Persist battle results so users can see their previous matchups.
+Zapisuj wyniki pojedynków, żeby użytkownicy widzieli swoje wcześniejsze starcia.
 
-**What to build:**
-- Save each battle result to `localStorage` (usernames, totals, winner, timestamp)
-- Add a **"Recent Battles"** section below the main battle area
-- Show the last 5–10 battles with results
-- Add a "Clear History" button
+**Co zbudować:**
+- Zapis każdego wyniku do `localStorage` (nazwy, sumy, zwycięzca, znacznik czasu)
+- Sekcja **„Ostatnie pojedynki"** pod główną areną
+- Pokazanie ostatnich 5–10 pojedynków z wynikami
+- Przycisk „Wyczyść historię"
 
-**Prompt suggestion:**
+**Propozycja promptu:**
 > Save battle results to localStorage after each comparison. Add a "Recent Battles" section that displays the last 10 battles with usernames, contribution totals, the winner, and when the battle happened. Include a "Clear History" button.
 
 ---
 
-## 🏆 Challenge 4: Sound Effects
+## 🏆 Wyzwanie 4: Efekty dźwiękowe
 
-Add retro arcade sound effects using the Web Audio API — no external files needed.
+Dodaj retro efekty dźwiękowe przez Web Audio API — bez żadnych plików zewnętrznych.
 
-**What to build:**
-- **Coin insert** sound when the "Battle!" button is clicked
-- **Power up** sound when results load successfully
-- **Explosion** sound when an error occurs (user not found, API failure)
-- A mute/unmute toggle button
+**Co zbudować:**
+- Dźwięk **wrzucanej monety** przy kliknięciu przycisku „Battle!"
+- Dźwięk **power up** przy udanym załadowaniu wyników
+- Dźwięk **eksplozji** przy błędzie (nie znaleziono użytkownika, awaria API)
+- Przycisk wyciszania
 
-**Prompt suggestion:**
+**Propozycja promptu:**
 > Add retro arcade sound effects using the Web Audio API (no audio files). Play a coin insert sound on battle start, a power-up sound when results load, and an explosion sound on errors. Generate the sounds programmatically with oscillators and gain nodes. Include a mute toggle.
+
+> 💡 W klimacie stoczniowym możesz zamiast monety użyć **syreny okrętowej**, a zamiast power-upa — **dzwonu z nabrzeża**.
 
 ---
 
-## 🏆 Challenge 5: Animated Battle Sequence
+## 🏆 Wyzwanie 5: Animowana sekwencja pojedynku
 
-Build suspense with a dramatic countdown before revealing results.
+Zbuduj napięcie efektownym odliczaniem przed pokazaniem wyników.
 
-**What to build:**
-- When "Battle!" is clicked, show a full-screen overlay
-- Animate: **"3..."** → **"2..."** → **"1..."** → **"⚡ FIGHT! ⚡"**
-- Then reveal the contribution graphs with a dramatic entrance
-- Use CSS animations or JavaScript timing
+**Co zbudować:**
+- Po kliknięciu „Battle!" pełnoekranowa nakładka
+- Animacja: **„3..."** → **„2..."** → **„1..."** → **„⚡ WALCZ! ⚡"**
+- Potem efektowne wejście wykresów kontrybucji
+- Animacje CSS albo sterowanie czasem w JavaScripcie
 
-**Prompt suggestion:**
+**Propozycja promptu:**
 > Add an animated battle sequence when the user clicks "Battle!". Show a countdown overlay: "3..." then "2..." then "1..." then "⚡ FIGHT! ⚡" with each step lasting about 1 second. After the countdown, reveal the results with a slide-in animation.
 
 ---
 
-## 🏆 Challenge 6: Contribution Legend
+## 🏆 Wyzwanie 6: Legenda kontrybucji
 
-Add a color scale legend that matches the contribution graph's color palette.
+Dodaj legendę skali kolorów pasującą do palety wykresu kontrybucji.
 
-**What to build:**
-- A horizontal legend showing contribution intensity levels
-- Labels from **"Less"** to **"More"**
-- Use the actual color palette from the GitHub contribution API response
-- Position it near the contribution graphs
+**Co zbudować:**
+- Poziomą legendę pokazującą poziomy intensywności kontrybucji
+- Etykiety od **„Mniej"** do **„Więcej"**
+- Użycie faktycznej palety z odpowiedzi API kontrybucji
+- Umieszczenie legendy blisko wykresów
 
-**Prompt suggestion:**
+**Propozycja promptu:**
 > Add a contribution legend below the graphs showing the color scale from the API's color palette. Display a row of colored squares ranging from "Less" (lightest) to "More" (darkest), matching the actual contribution level colors returned by the API.
 
 ---
 
-## 🏆 Challenge 7: Share Results
+## 🏆 Wyzwanie 7: Udostępnianie wyników
 
-Let users share their battle results with a single click.
+Pozwól użytkownikom udostępnić wynik pojedynku jednym kliknięciem.
 
-**What to build:**
-- A **"📋 Share Results"** button that appears after a battle
-- Copies a formatted text summary to the clipboard
-- Include usernames, contribution totals, and the winner
-- Show a brief "Copied!" confirmation message
+**Co zbudować:**
+- Przycisk **„📋 Udostępnij wynik"** pojawiający się po pojedynku
+- Kopiowanie sformatowanego podsumowania do schowka
+- Nazwy użytkowników, sumy kontrybucji i zwycięzca w treści
+- Krótkie potwierdzenie „Skopiowano!"
 
-**Prompt suggestion:**
+**Propozycja promptu:**
 > Add a "📋 Share Results" button that copies a formatted battle summary to the clipboard. The summary should include both usernames, their contribution totals, and who won. Use the Clipboard API and show a brief "Copied to clipboard!" confirmation.
 
 ---
 
 <!-- track:cli:start -->
-## 💻 CLI Extras
+## 💻 Dodatki dla CLI
 
-If you want to explore more of Copilot CLI's feature set after the core workshop:
+Jeśli po głównej części warsztatu chcesz poznać więcej możliwości Copilot CLI:
 
-- Use `copilot -p "Write a conventional commit message for the current git diff"` to generate a one-shot, response-only answer you can paste into Git.
-- Run `/share file` to save your session as Markdown for later reference.
-- Use `/session` and `/session plan` to inspect how the CLI is tracking your current work.
+- Użyj `copilot -p "Write a conventional commit message for the current git diff"`, żeby dostać jednorazową odpowiedź, którą wkleisz do Gita.
+- Uruchom `/share file`, żeby zapisać sesję jako Markdown na później.
+- Użyj `/session` i `/session plan`, żeby zobaczyć, jak CLI śledzi Twoją bieżącą pracę.
 <!-- track:cli:end -->
 
-## 🎊 Congratulations!
+## 🎊 Gratulacje!
 
-You've completed the **Mona Mayhem: GitHub Battle** workshop! Here's what you accomplished:
+Ukończyłeś warsztat **Mayhem w Stoczni**! Oto, co udało Ci się zrobić:
 
-### What You Built
+### Co zbudowałeś
 
-- ✅ A complete **multi-page web application** from a design specification
-- ✅ A **landing page** with retro arcade theming and responsive layout
-- ✅ A **battle arena** that fetches and compares real GitHub contribution data
-- ✅ **Interactive contribution graphs** with color-coded activity levels
-- ✅ **Error handling, loading states, and accessibility** improvements
-- ✅ **Responsive design** that works across devices
+- ✅ Kompletną **aplikację webową** na podstawie specyfikacji projektowej
+- ✅ **Stronę główną** w motywie gdańskiej stoczni, z responsywnym układem
+- ✅ **Arenę pojedynków**, która pobiera i porównuje prawdziwe dane o kontrybucjach z GitHuba
+- ✅ **Interaktywne wykresy kontrybucji** z kolorowaniem wg poziomu aktywności
+- ✅ Poprawioną **obsługę błędów, stany ładowania i dostępność**
+- ✅ **Responsywny design** działający na różnych urządzeniach
 
-### What You Practiced
+### Co przećwiczyłeś
 
-| Skill | What You Practiced |
+| Umiejętność | Co przećwiczyłeś |
 |---|---|
-| **Context Engineering** | Giving Copilot the right files, instructions, and constraints |
-| **Planning** | Generating and refining implementation plans before coding |
-| **Agentic Coding** | Delegating multi-file, multi-step work to Copilot |
-| **Design Iteration** | Starting from a visual direction and refining toward a polished result |
-| **Review Discipline** | Inspecting AI-generated changes before you commit them |
+| **Inżynieria kontekstu** | Podawanie Copilotowi właściwych plików, instrukcji i ograniczeń |
+| **Planowanie** | Generowanie i dopracowywanie planów przed kodowaniem |
+| **Kodowanie agentowe** | Oddawanie Copilotowi wieloplikowej, wieloetapowej pracy |
+| **Iteracja designu** | Wyjście od kierunku wizualnego i dociąganie go do dopracowanego efektu |
+| **Dyscyplina review** | Sprawdzanie zmian wygenerowanych przez AI przed commitem |
 
-### 🚀 Keep Going
+### 🚀 Co dalej
 
-- 📺 [VS Code YouTube Channel](https://www.youtube.com/@code) — Tips, tutorials, and what's new
-- 📖 [GitHub Copilot Documentation](https://docs.github.com/en/copilot) — Official docs and guides
-- 💻 [GitHub Copilot CLI Docs](https://docs.github.com/en/copilot/how-tos/copilot-cli) — Installation, slash commands, and best practices
-- 🌟 [Awesome GitHub Copilot](https://github.com/stefanprodan/awesome-github-copilot) — Community resources and examples
-- 🛠️ [Copilot Dev Days Workshops](https://github.com/github/copilot-dev-days) — More hands-on workshops like this one
+- 📺 [Kanał VS Code na YouTube](https://www.youtube.com/@code) — wskazówki, tutoriale i nowości
+- 📖 [Dokumentacja GitHub Copilot](https://docs.github.com/en/copilot) — oficjalne materiały i przewodniki
+- 💻 [Dokumentacja GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli) — instalacja, komendy slash i dobre praktyki
+- 🌟 [Awesome GitHub Copilot](https://github.com/github/awesome-copilot) — materiały i przykłady od społeczności
+- 🛠️ [Warsztaty Copilot Dev Days](https://github.com/copilot-dev-days) — więcej praktycznych warsztatów takich jak ten
 
 ---
 
-## 🙏 Thank You!
+## 🙏 Dzięki!
 
-Thanks for joining this workshop! You've experienced how GitHub Copilot can accelerate every phase of development — from planning and design to implementation and polish. The techniques you practiced here apply to any project, any framework, and any scale. Now go build something amazing! 🚀
+Dzięki za udział w warsztacie! Zobaczyłeś na własne oczy, jak GitHub Copilot potrafi przyspieszyć każdą fazę pracy — od planowania i designu po implementację i wykończenie. Techniki, które tu przećwiczyłeś, działają w dowolnym projekcie, dowolnym frameworku i dowolnej skali. Teraz idź zbudować coś świetnego! 🚀
+
+*GitHub Dev Days Gdańsk · 28.10.2026 · Capgemini, Olivia Six*
