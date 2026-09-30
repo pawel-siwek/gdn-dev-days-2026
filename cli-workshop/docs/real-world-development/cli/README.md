@@ -47,10 +47,10 @@ Zanim zaczniesz warsztat, upewnij się, że masz:
 - [ ] Uprawnienia do utworzenia repozytorium i codespace'a
 - [ ] Podstawową znajomość pracy w terminalu
 
-> [!TIP]
+> 💡 **Wskazówka**  
 > Nie masz płatnego planu? Zweryfikowani studenci dostają GitHub Copilota za darmo przez [GitHub Education][student-plan]. Plan **Copilot Student** obejmuje agenta, MCP, code review i Copilot CLI — czyli wszystko, czego używamy na tym warsztacie.
 
-> [!NOTE]
+> ℹ️ **Uwaga**  
 > Jeśli korzystasz z Copilot Business albo Copilot Enterprise, upewnij się, że administrator włączył u Was Copilot CLI.
 
 ## Zaczynamy

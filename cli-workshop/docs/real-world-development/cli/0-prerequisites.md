@@ -22,10 +22,10 @@ Będziesz pracować na własnej kopii projektu Tailspin Toys. Utwórz ją teraz 
 3. Jeśli robisz warsztat w ramach wydarzenia, trzymaj się wskazówek prowadzących. W innym przypadku utwórz repozytorium tam, gdzie masz dostęp do GitHub Copilota.
 4. Zanotuj ścieżkę utworzonego repozytorium (`nazwa-organizacji-lub-użytkownika/nazwa-repozytorium`) — będziesz się do niej odwoływać w dalszej części warsztatu.
 
-> [!NOTE]
+> ℹ️ **Uwaga**  
 > Kiedy tworzysz repozytorium z szablonu, backlog zgłoszeń na GitHubie powstaje automatycznie. Będziesz z nich korzystać przez cały warsztat — nie musisz sam niczego zakładać.
 
-> [!IMPORTANT]
+> ❗ **Ważne**  
 > To jest **zamrożona kopia** szablonu przygotowana na GitHub Dev Days Gdańsk 2026, z backlogiem po polsku. Dzięki temu wszyscy uczestnicy startują z identycznego kodu i tych samych zgłoszeń.
 
 Używaj świeżej kopii szablonu. Zawiera instrukcje repozytorium, kod aplikacji, testy, skill `quality-checks` i backlog, z którego będziesz korzystać.

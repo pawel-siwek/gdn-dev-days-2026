@@ -1,62 +1,62 @@
 ---
-title: "Lesson 5 - Customize and use a quality-checks skill"
-description: "Explore the existing quality-checks skill, customize its report format, and use it to validate filtering."
-authors:
-  - geektrainer
-lastUpdated: 2026-09-29
+title: "Lekcja 5 — Skill do kontroli jakości"
+description: "Poznaj istniejący skill quality-checks, dostosuj format jego raportu i użyj go do weryfikacji filtrowania."
+lastUpdated: 2026-09-30
 ---
 
-There's more to writing code than just writing code. We've been able to validate the code works manually and used instruction files to ensure it follows our standards. But how about testing? Linting? All the other parts of continuous integration (CI)?
+<!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-For these types of tasks, **agent skills** are the best fit! Skills help Copilot understand how to properly run operations like these.
+Pisanie kodu to nie wszystko. Sprawdziliśmy już ręcznie, że kod działa, i użyliśmy plików instrukcji, żeby trzymał się naszych standardów. Ale co z testami? Lintowaniem? Całą resztą ciągłej integracji (CI)?
 
-In this lesson, you will:
+Do takich zadań najlepiej nadają się **agent skills**. Skille pomagają Copilotowi zrozumieć, jak poprawnie przeprowadzać tego typu operacje.
 
-- explore the existing `quality-checks` skill.
-- customize the format of its results.
-- reload and run the skill.
+W tej lekcji:
 
-## Scenario
+- poznasz istniejący skill `quality-checks`,
+- dostosujesz format jego wyników,
+- przeładujesz i uruchomisz skill.
 
-Tailspin Toys uses the `quality-checks` skill for unit tests, lint, and type checks. The team wants to improve the report to make the results easier to read.
+## Scenariusz
 
-## Instructions, scripts, and resources
+Tailspin Toys używa skilla `quality-checks` do testów jednostkowych, lintowania i kontroli typów. Zespół chce ulepszyć raport, żeby wyniki były czytelniejsze.
 
-Agent skills package reusable task instructions, executable scripts, and supporting resources that an agent loads on demand. At their core, they're a folder with the name of the skill, with a Markdown file named `SKILL.md`. The Markdown contains frontmatter with a name and description to define what the skill is, an overview of what it does, and guidance on when it should be called. The folder can also contain subfolders with scripts and other resources for the skill to use when called.
+## Instrukcje, skrypty i zasoby
 
-> [!NOTE]
-> Additional folders and files are not required for a skill. The Tailspin Toys `quality-checks` skill contains only `SKILL.md` because it uses the project's existing commands.
+Agent skills pakują wielokrotnego użytku instrukcje zadań, wykonywalne skrypty i zasoby pomocnicze, które agent ładuje na żądanie. W najprostszej postaci to katalog o nazwie skilla z plikiem Markdown `SKILL.md`. Ten plik zawiera frontmatter z nazwą i opisem definiującym, czym skill jest, przegląd tego, co robi, oraz wskazówki, kiedy powinien zostać wywołany. Katalog może też zawierać podkatalogi ze skryptami i innymi zasobami, z których skill korzysta.
 
-Skills can reside in a project's `.github/skills` folder to become a repository asset shared and reused by the team, or in the user skills folder at `~/.copilot/skills`.
+> ℹ️ **Uwaga**  
+> Dodatkowe katalogi i pliki nie są wymagane. Skill `quality-checks` w Tailspin Toys zawiera wyłącznie `SKILL.md`, bo korzysta z istniejących komend projektu.
 
-## Explore the skill
+Skille mogą mieszkać w katalogu `.github/skills` projektu — stają się wtedy zasobem repozytorium współdzielonym przez zespół — albo w katalogu skilli użytkownika, czyli `~/.copilot/skills`.
 
-Let's explore the skill the Tailspin Toys team created for running unit tests, lint, and type checks, named `quality-checks`.
+## Poznaj skill
 
-1. Return to your Codespace. In the Codespaces editor, open `.github/skills/quality-checks/SKILL.md`.
-2. Read the `name` and `description` at the top. The description helps Copilot understand when to call the skill.
-3. Read the instructions and note how they guide Copilot through the testing and linting process.
-4. Notice that the skill does not yet contain a **Results output formatting** section.
+Przyjrzyjmy się skillowi, który zespół Tailspin Toys stworzył do uruchamiania testów jednostkowych, lintowania i kontroli typów — nazywa się `quality-checks`.
 
-## Run the skill before making a change
+1. Wróć do swojego codespace'a. W edytorze Codespaces otwórz `.github/skills/quality-checks/SKILL.md`.
+2. Przeczytaj pola `name` i `description` na górze. Opis pomaga Copilotowi zrozumieć, kiedy wywołać skill.
+3. Przeczytaj instrukcje i zwróć uwagę, jak prowadzą Copilota przez proces testowania i lintowania.
+4. Zauważ, że skill nie zawiera jeszcze sekcji **Results output formatting**.
 
-Skills are callable directly through Copilot CLI or by using natural language. Let's ask Copilot to run the skill's three checks.
+## Uruchom skill przed zmianą
 
-1. Return to the filtering conversation in Interactive mode.
-2. Use the following prompt:
+Skille wywołuje się bezpośrednio w Copilot CLI albo językiem naturalnym. Poprośmy Copilota o uruchomienie trzech kontroli ze skilla.
+
+1. Wróć do rozmowy o filtrowaniu w trybie Interactive.
+2. Użyj tego promptu:
 
    ```plaintext
    Run the quality-checks skill for unit tests, lint, and type checks.
    ```
 
-3. Note the report at the end.
+3. Zwróć uwagę na raport na końcu.
 
-## Customize the report
+## Dostosuj raport
 
-OK, we'd like a better report that tells us what ran, whether it succeeded, and what the tools actually reported. Let's update our skill to create that report!
+Chcielibyśmy lepszego raportu — takiego, który mówi, co zostało uruchomione, czy się powiodło i co dokładnie zgłosiły narzędzia. Zaktualizujmy skill, żeby taki raport tworzył.
 
-1. Return to `.github/skills/quality-checks/SKILL.md`.
-2. Add the following section to the end of the file:
+1. Wróć do `.github/skills/quality-checks/SKILL.md`.
+2. Dodaj na końcu pliku poniższą sekcję:
 
    ```markdown
    ## Results output formatting
@@ -64,45 +64,45 @@ OK, we'd like a better report that tells us what ran, whether it succeeded, and 
    Upon completion, report each command that ran and whether it passed, failed, or was blocked. Include test counts, durations, errors, warnings, and other metrics only when the tool reports them. Identify the next action for any failure or blocker, and never describe a skipped or incomplete check as passed.
    ```
 
-3. The file is automatically saved.
+3. Plik zapisze się automatycznie.
 
-## Run the updated skill
+## Uruchom zaktualizowany skill
 
-With our change made, let's see it in action! Copilot CLI can reload edited skills without restarting the conversation.
+Zmiana wprowadzona — zobaczmy ją w akcji. Copilot CLI potrafi przeładować zmodyfikowane skille bez restartowania rozmowy.
 
-1. Enter:
+1. Wpisz:
 
    ```plaintext
    /skills reload
    ```
 
-2. Use the exact same prompt as before:
+2. Użyj dokładnie tego samego promptu co poprzednio:
 
    ```plaintext
    Run the quality-checks skill for unit tests, lint, and type checks.
    ```
 
-3. Note the report at the end and compare it with the first report.
+3. Zwróć uwagę na raport na końcu i porównaj go z pierwszym.
 
-## Summary and next steps
+## Podsumowanie i co dalej
 
-You've customized and used an existing agent skill. In this lesson, you:
+Dostosowałeś i wykorzystałeś istniejący agent skill. W tej lekcji:
 
-- explored the `quality-checks` skill for unit tests, lint, and type checks.
-- customized the format of its results.
-- reloaded and ran the skill.
+- poznałeś skill `quality-checks` do testów jednostkowych, lintowania i kontroli typów,
+- dostosowałeś format jego wyników,
+- przeładowałeś i uruchomiłeś skill.
 
-That change will accompany filtering in the feature PR. Next, you'll allow Copilot to interact with the site directly [via the Playwright MCP server][next-lesson].
+Ta zmiana pojedzie razem z filtrowaniem w pull requeście funkcjonalności. W następnym kroku pozwolisz Copilotowi wejść w bezpośrednią interakcję ze stroną [przez serwer Playwright MCP][next-lesson].
 
-## More skill examples
+## Więcej przykładów skilli
 
-These community examples are references, not additional tasks:
+Te przykłady od społeczności są materiałem referencyjnym, nie dodatkowymi zadaniami:
 
-- [Agent Skills specification][skill-spec]
-- [Contribution workflow: `make-repo-contribution`][contribution-example]
-- [Requirements documents: `prd`][prd-example]
-- [Diagrams and a bundled export script: `drawio`][drawio-example]
-- [Browser testing: `webapp-testing`][browser-example]
+- [Specyfikacja Agent Skills][skill-spec]
+- [Przepływ kontrybucji: `make-repo-contribution`][contribution-example]
+- [Dokumenty wymagań: `prd`][prd-example]
+- [Diagramy i dołączony skrypt eksportu: `drawio`][drawio-example]
+- [Testowanie w przeglądarce: `webapp-testing`][browser-example]
 
 [previous-lesson]: ../4-custom-instructions/
 [next-lesson]: ../6-mcp-playwright/

@@ -8,7 +8,7 @@ lastUpdated: 2026-09-30
 
 Zaczęliśmy od dodania do projektu niewielkiej funkcjonalności. Większe zmiany wymagają jednak solidniejszego procesu. Na szczęście GitHub Copilot CLI jest zbudowany tak, żeby wpasować się w istniejący proces organizacji — dzięki temu budujemy właściwe rzeczy we właściwy sposób. To pierwsza z kilku lekcji, w których przejdziesz przez typowy, agentowy proces wytwórczy: od zgłoszenia, przez wygenerowanie funkcjonalności, sprawdzenie poprawności kodu i jego zachowania, aż po udany merge do projektu.
 
-> [!NOTE]
+> ℹ️ **Uwaga**  
 > Przez cały ten przepływ pracy będziesz korzystać z tej samej rozmowy i tej samej gałęzi. Normalnie różne rodzaje plików trafiałyby na osobne gałęzie albo do osobnych PR-ów, ale tu idziemy na skróty, żeby skupić się na kluczowych pojęciach.
 
 W tej lekcji:
@@ -37,7 +37,7 @@ Wprowadzenie agentów AI do procesu wytwórczego nie zmienia podstaw. Wręcz prz
 6. Utworzenie pull requesta (PR).
 7. Merge po przejściu code review i procesu ciągłej integracji.
 
-> [!NOTE]
+> ℹ️ **Uwaga**  
 > W zależności od zespołu i organizacji szczegóły będą się różnić. Ale większość procesów to wariacja na powyższy temat.
 
 Trzymając się tego standardowego podejścia, masz pewność, że kod wygenerowany przez AI spełnia postawione wymagania i przechodzi przez dokładnie ten sam proces weryfikacji, co kod pisany ręcznie.
@@ -108,7 +108,7 @@ Autopilot pozwoli Copilotowi iterować nad problemem, dopóki nie uzna go za roz
 2. Sprawdź, czy wskaźnik trybu pod promptem pokazuje **Autopilot**.
 3. Obserwuj, jak Copilot przechodzi przez ustalony plan, generuje kod i uruchamia testy.
 
-> [!NOTE]
+> ℹ️ **Uwaga**  
 > Zatwierdzenie może od razu uruchomić implementację, więc najpierw przejrzyj plan. Jeśli Copilot zgłosi brakujące zależności albo konflikt portu, rozwiąż problem konfiguracyjny, zanim uznasz kontrole za zaliczone.
 
 ## Przejrzyj i zweryfikuj implementację

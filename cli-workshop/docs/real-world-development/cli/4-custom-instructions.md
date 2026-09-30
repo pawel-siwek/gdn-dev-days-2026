@@ -1,94 +1,94 @@
 ---
-title: "Lesson 4 - Guiding Copilot with custom instructions"
-description: "Explore repository instructions, add a documentation standard, and apply it to the filtering code."
-authors:
-  - geektrainer
-lastUpdated: 2026-09-18
+title: "Lekcja 4 — Sterowanie Copilotem przez własne instrukcje"
+description: "Poznaj instrukcje repozytorium, dodaj standard dokumentowania kodu i zastosuj go do kodu filtrowania."
+lastUpdated: 2026-09-30
 ---
 
-Context is key when working with generative AI. If a task needs to be done a particular way, you want that guidance available to Copilot. [Instruction files][instruction-files] describe not just *what* code you want but *how* it should be structured. Now that you've built filtering, you'll explore the instructions Copilot used, add a documentation standard, and apply it to your code.
+<!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-In this lesson, you will:
+W pracy z generatywną AI kluczowy jest kontekst. Jeśli zadanie ma być wykonane w konkretny sposób, ta wskazówka musi być dostępna dla Copilota. [Pliki instrukcji][instruction-files] opisują nie tylko *jaki* kod chcesz, ale też *jak* ma być zbudowany. Filtrowanie masz już zbudowane, więc teraz poznasz instrukcje, z których Copilot korzystał, dodasz standard dokumentowania i zastosujesz go do swojego kodu.
 
-- explore how repository instructions and path-scoped instruction files reach the agent.
-- update the instructions file to ensure coding standards are followed.
-- see the impact of instruction files on code.
+W tej lekcji:
 
-## Scenario
+- zobaczysz, jak instrukcje repozytorium i instrukcje przypisane do ścieżek trafiają do agenta,
+- zaktualizujesz plik instrukcji, żeby wymusić przestrzeganie standardów kodowania,
+- zobaczysz wpływ plików instrukcji na generowany kod.
 
-As any good dev shop, Tailspin Toys has a set of guidelines and requirements for development practices. These include:
+## Scenariusz
 
-- Comments should explain intent and non-obvious decisions rather than restate code.
-- Exported functions in `db/` and `src/lib/` should document their purpose, parameters, and return values with TSDoc/JSDoc, including an injectable `db` argument where present.
-- Reusable Astro components should document their `Props` contracts, and comments should stay current when related code changes.
-- Existing formatting and lint guidance should be preserved.
+Jak każdy porządny zespół, Tailspin Toys ma zestaw wytycznych i wymagań dotyczących praktyk wytwórczych. Należą do nich:
 
-Through the use of instruction files you'll ensure Copilot has the right information to perform the tasks in alignment with the practices highlighted.
+- Komentarze powinny wyjaśniać intencję i nieoczywiste decyzje, a nie powtarzać to, co widać w kodzie.
+- Eksportowane funkcje w `db/` i `src/lib/` powinny dokumentować swoje przeznaczenie, parametry i wartości zwracane w TSDoc/JSDoc, wraz z wstrzykiwanym argumentem `db`, jeśli występuje.
+- Komponenty Astro wielokrotnego użytku powinny dokumentować swoje kontrakty `Props`, a komentarze powinny pozostawać aktualne, kiedy zmienia się powiązany kod.
+- Istniejące wytyczne dotyczące formatowania i lintowania powinny zostać zachowane.
 
-## Instruction files
+Przy pomocy plików instrukcji zadbasz o to, żeby Copilot miał właściwe informacje i wykonywał zadania zgodnie z tymi praktykami.
 
-Custom instructions allow you to provide context and preferences to Copilot, so that it can better understand your coding style and requirements. This is a powerful feature that can help you steer Copilot to get more relevant suggestions and code snippets. You can specify your preferred coding conventions, libraries, and even the types of comments you like to include in your code. You can create instructions for your entire repository, or for specific types of files for task-level context.
+## Pliki instrukcji
 
-There are two types of instruction files:
+Własne instrukcje pozwalają przekazać Copilotowi kontekst i preferencje, dzięki czemu lepiej rozumie Twój styl kodowania i wymagania. To potężny mechanizm, który pomaga sterować Copilotem w stronę trafniejszych podpowiedzi i fragmentów kodu. Możesz określić preferowane konwencje, biblioteki, a nawet rodzaje komentarzy, jakie lubisz umieszczać w kodzie. Instrukcje możesz tworzyć dla całego repozytorium albo dla konkretnych typów plików, jako kontekst zadaniowy.
 
-- `.github/copilot-instructions.md`, a single instruction file sent to Copilot for **every** request for the repository. This file should contain project-level information relevant for most requests.
-- `.github/instructions/*.instructions.md` files, which provide guidelines for particular languages, file types, or tasks.
+Są dwa rodzaje plików instrukcji:
 
-> [!NOTE]
-> Other instruction formats and support vary by environment. Consult the [custom instructions support reference][custom-instructions-support] before relying on a particular format.
+- `.github/copilot-instructions.md` — pojedynczy plik wysyłany do Copilota przy **każdym** zapytaniu w tym repozytorium. Powinien zawierać informacje o projekcie istotne dla większości zapytań.
+- `.github/instructions/*.instructions.md` — pliki z wytycznymi dla konkretnych języków, typów plików albo zadań.
 
-## Explore the custom instructions files in this project
+> ℹ️ **Uwaga**  
+> Inne formaty instrukcji i zakres ich wsparcia różnią się w zależności od środowiska. Zanim oprzesz się na konkretnym formacie, sprawdź [dokumentację wsparcia dla własnych instrukcji][custom-instructions-support].
 
-To help get things started, a set of instruction files has already been included with the starter project. Let's explore what's already there before making a change to see the impact.
+## Poznaj pliki instrukcji w tym projekcie
 
-1. Return to your Codespace.
-2. In the Codespaces editor (not in the terminal), open `.github/copilot-instructions.md`.
-3. Explore the file, noting the brief description of the project and its coding guidance. These instructions apply to every interaction with Copilot in this repository.
-4. Open the `.github/instructions` folder and explore the files. Note there are instructions for Astro files, the Drizzle data layer, tests, and more.
-5. Open `.github/instructions/unit-tests.instructions.md`. Note the `applyTo` field at the top — this sets a glob that determines which files the instructions apply to.
-6. Open `.github/instructions/drizzle.instructions.md` and note its links to other instruction files and existing project files. This lets you break larger instruction sets into smaller, reusable files and point Copilot at examples to follow.
+Żeby ułatwić start, zestaw plików instrukcji jest już dołączony do projektu startowego. Zanim cokolwiek zmienimy, zobaczmy, co tam jest.
 
-## Update instructions files to match team's guidance
+1. Wróć do swojego codespace'a.
+2. W edytorze Codespaces (nie w terminalu) otwórz `.github/copilot-instructions.md`.
+3. Przejrzyj plik, zwracając uwagę na krótki opis projektu i wytyczne dotyczące kodu. Te instrukcje dotyczą każdej interakcji z Copilotem w tym repozytorium.
+4. Otwórz katalog `.github/instructions` i przejrzyj pliki. Zauważ, że są tam instrukcje dla plików Astro, warstwy danych Drizzle, testów i innych obszarów.
+5. Otwórz `.github/instructions/unit-tests.instructions.md`. Zwróć uwagę na pole `applyTo` na górze — ustawia glob decydujący o tym, których plików dotyczą te instrukcje.
+6. Otwórz `.github/instructions/drizzle.instructions.md` i zwróć uwagę na odwołania do innych plików instrukcji i do istniejących plików projektu. Dzięki temu możesz rozbijać większe zestawy instrukcji na mniejsze pliki wielokrotnego użytku i wskazywać Copilotowi przykłady do naśladowania.
 
-While the files already built are a good start, there's still a gap. Let's modify the core `copilot-instructions.md` file to ensure TSDoc comments are added to newly generated TypeScript.
+## Zaktualizuj instrukcje zgodnie z wytycznymi zespołu
 
-1. In `.github/copilot-instructions.md`, locate the section titled **Code formatting guidance**, which should be around line 35.
-2. Add the following as its last bullet:
+Istniejące pliki to dobry początek, ale jedna rzecz wciąż jest niedopowiedziana. Zmodyfikujmy główny plik `copilot-instructions.md`, żeby nowo generowany TypeScript zawierał komentarze TSDoc.
+
+1. W `.github/copilot-instructions.md` znajdź sekcję **Code formatting guidance** — powinna być mniej więcej w okolicach linii 35.
+2. Dodaj poniższy wpis jako jej ostatni punkt:
 
    ```markdown
    - All new TypeScript should contain TSDocs comments for documentation purposes.
    ```
 
-The file will be automatically saved!
+Plik zapisze się automatycznie.
 
-## Use the updated guidance
+## Zastosuj nowe wytyczne
 
-Copilot CLI loads repository instructions when a conversation starts. Resume the filtering conversation after the edit so the new guidance is available without losing the feature context.
+Copilot CLI wczytuje instrukcje repozytorium przy starcie rozmowy. Wznów rozmowę o filtrowaniu po tej edycji, żeby nowe wytyczne były dostępne, a kontekst funkcjonalności nie przepadł.
 
-1. . Ask Copilot to apply the updated guidance:
+1. Poproś Copilota o zastosowanie zaktualizowanych wytycznych:
 
    ```plaintext
    We just updated our instructions and code guidance. Can you please update the code you generated to match that guidance?
    ```
 
-2. Enter `/diff` and read through the changed TypeScript files. Note the newly generated TSDoc comments and confirm they explain the code accurately.
+2. Wpisz `/diff` i przejrzyj zmienione pliki TypeScript. Zwróć uwagę na nowo wygenerowane komentarze TSDoc i sprawdź, czy rzetelnie opisują kod.
 
-## Summary and next steps
+## Podsumowanie i co dalej
 
-You explored how Copilot CLI picks up context from instruction files and applied a new standard to your feature. Specifically, you:
+Zobaczyłeś, jak Copilot CLI pobiera kontekst z plików instrukcji, i zastosowałeś nowy standard do swojej funkcjonalności. Konkretnie:
 
-- explored how repository instructions and path-scoped instruction files reach the agent.
-- updated the instructions file to ensure coding standards are followed.
-- saw the impact of instruction files on code.
+- zobaczyłeś, jak instrukcje repozytorium i instrukcje przypisane do ścieżek trafiają do agenta,
+- zaktualizowałeś plik instrukcji, żeby wymusić przestrzeganie standardów kodowania,
+- zobaczyłeś wpływ plików instrukcji na generowany kod.
 
-Next, you'll [customize and run the reusable quality-checks skill][next-lesson] to ensure linting and tests are run consistently.
+W następnym kroku [dostosujesz i uruchomisz skill quality-checks][next-lesson], żeby lintowanie i testy uruchamiały się w powtarzalny sposób.
 
-## Resources
+## Materiały
 
-- [Add custom instructions for Copilot CLI][instruction-files]
-- [Custom instructions support][custom-instructions-support]
-- [Best practices for creating custom instructions][instructions-best-practices]
-- [Awesome Copilot — a collection of instruction files and other resources][awesome-copilot]
+- [Dodawanie własnych instrukcji do Copilot CLI][instruction-files]
+- [Wsparcie dla własnych instrukcji][custom-instructions-support]
+- [Dobre praktyki tworzenia własnych instrukcji][instructions-best-practices]
+- [Awesome Copilot — zbiór plików instrukcji i innych materiałów][awesome-copilot]
 
 [instruction-files]: https://docs.github.com/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions
 [instructions-best-practices]: https://docs.github.com/copilot/concepts/prompting/response-customization#writing-effective-custom-instructions

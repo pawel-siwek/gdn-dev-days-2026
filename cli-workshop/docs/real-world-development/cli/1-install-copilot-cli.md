@@ -67,7 +67,7 @@ Przy pierwszym uruchomieniu Copilot CLI poprosi Cię o zalogowanie się na konto
 
 4. Sprawdź, czy ścieżka wskazuje na Twoje repozytorium Tailspin Toys, a potem potwierdź, wybierając **Yes, and remember this folder for future sessions**.
 
-> [!NOTE]
+> ℹ️ **Uwaga**  
 > W codespace możesz być już zalogowany przez swoją sesję GitHuba. Jeśli Copilot CLI wystartuje bez pytania o logowanie — wszystko gra.
 
 ## Rozejrzyj się
@@ -92,14 +92,14 @@ Komendy wpisywane w zwykłym prompcie powłoki wykonują się bezpośrednio w co
 
 7. Otwórz podany URL i przeczytaj zgłoszenie. Wrócisz do niego po wykonaniu pierwszej, szybkiej zmiany.
 
-> [!TIP]
+> 💡 **Wskazówka**  
 > Zwykła sesja Copilot CLI pracuje na gałęzi aktualnie wybranej w Twoim terminalu — nie tworzy automatycznie worktree. Przed każdą zmianą sam założysz gałąź funkcjonalności.
 
 ## Skrót na potrzeby warsztatu
 
 Copilot CLI standardowo pyta o zgodę przed użyciem narzędzi spoza ustalonych uprawnień. Na potrzeby warsztatu uruchomisz go ponownie z flagą `--yolo` — zatwierdzonym przez Ciebie skrótem, który wyłącza te pytania wewnątrz codespace'a, żebyś mógł skupić się na ćwiczeniach.
 
-> [!CAUTION]
+> 🚨 **Uważaj**  
 > `--yolo` włącza pełne automatyczne uprawnienia (`--allow-all-tools`, `--allow-all-paths` i `--allow-all-urls`). Używaj tego **wyłącznie** w izolowanym środowisku, takim jak codespace albo maszyna wirtualna, i nigdy nie ustawiaj tego jako domyślnego aliasu do codziennej pracy. Szczegóły w [Allowing and denying tool use][allow-all-warning].
 
 Na potrzeby warsztatu `--enable-all-github-mcp-tools` włącza narzędzia GitHub MCP do odczytu i zapisu, z których korzystają dalsze lekcje przy pracy ze zgłoszeniami i pull requestami. Codespace ogranicza dostęp do Twojego komputera, ale zasoby GitHuba, do których jesteś zalogowany, są jak najbardziej prawdziwe. Przeglądaj zmiany, zanim je opublikujesz albo zmergujesz.

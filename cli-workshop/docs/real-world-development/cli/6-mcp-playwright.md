@@ -1,94 +1,94 @@
 ---
-title: "Lesson 6 - Validate functionality with Playwright MCP"
-description: "Inspect or configure Playwright MCP in Copilot CLI and use it to explore the filtering feature in a browser."
-authors:
-  - geektrainer
-lastUpdated: 2026-09-18
+title: "Lekcja 6 — Weryfikacja przez Playwright MCP"
+description: "Skonfiguruj Playwright MCP w Copilot CLI i użyj go do sprawdzenia filtrowania w przeglądarce."
+lastUpdated: 2026-09-30
 ---
 
-As we've already highlighted, there's more to writing code than just writing code. We need to work with data, external services, and even allow for additional automations to be available to Copilot. This is where MCP servers come into play. MCP servers allow Copilot to go beyond what's built into the CLI, providing it even more tools and services.
+<!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-In this lesson, you will:
+Jak już wspominaliśmy, pisanie kodu to nie wszystko. Musimy pracować z danymi, usługami zewnętrznymi, a nawet udostępniać Copilotowi dodatkowe automatyzacje. Tu do gry wchodzą serwery MCP. Pozwalają one Copilotowi wyjść poza to, co jest wbudowane w CLI, dając mu jeszcze więcej narzędzi i usług.
 
-- understand what Model Context Protocol (MCP) is and how Copilot CLI uses it.
-- add the Playwright MCP server if it is not already available.
-- ask the agent to drive a browser and explore your filtering feature.
+W tej lekcji:
 
-## Scenario
+- dowiesz się, czym jest Model Context Protocol (MCP) i jak Copilot CLI z niego korzysta,
+- dodasz serwer Playwright MCP, jeśli nie jest jeszcze dostępny,
+- poprosisz agenta, żeby sterował przeglądarką i sprawdził Twoje filtrowanie.
 
-While unit and end-to-end tests are important, validating updates to the UI requires actually interacting with the UI. You want to allow Copilot to use the website you're working on as a user would to further automate how changes are made, providing more confidence the updates perform as expected.
+## Scenariusz
 
-## What is Model Context Protocol (MCP)?
+Testy jednostkowe i end-to-end są ważne, ale weryfikacja zmian w interfejsie wymaga faktycznej interakcji z tym interfejsem. Chcesz pozwolić Copilotowi korzystać ze strony tak, jak robiłby to użytkownik — żeby jeszcze bardziej zautomatyzować proces wprowadzania zmian i mieć większą pewność, że działają zgodnie z oczekiwaniami.
 
-[Model Context Protocol (MCP)][mcp-blog-post] provides AI agents with a way to communicate with external tools and services. By using MCP, AI agents can communicate with external tools and services in real time. This allows them to access up-to-date information and perform actions on your behalf.
+## Czym jest Model Context Protocol (MCP)?
 
-These tools and resources are accessed through an MCP server, which acts as a bridge between the AI agent and the external tools and services. Each MCP server represents a different set of tools and resources that the AI agent can access.
+[Model Context Protocol (MCP)][mcp-blog-post] daje agentom AI sposób komunikacji z zewnętrznymi narzędziami i usługami. Dzięki MCP agenci mogą rozmawiać z nimi w czasie rzeczywistym. Pozwala im to sięgać po aktualne informacje i wykonywać działania w Twoim imieniu.
 
-A couple of popular existing MCP servers are:
+Dostęp do tych narzędzi i zasobów odbywa się przez serwer MCP, który działa jak most między agentem AI a zewnętrznymi narzędziami i usługami. Każdy serwer MCP reprezentuje inny zestaw narzędzi i zasobów, po które agent może sięgnąć.
 
-- **[GitHub MCP Server][github-mcp]**: Provides access to APIs for managing GitHub repositories, issues, and pull requests.
-- **[Playwright MCP Server][playwright-mcp-server]**: Provides browser automation capabilities using Playwright.
+Dwa popularne serwery MCP to:
 
-There are many other MCP servers available. GitHub hosts an [MCP registry][mcp-registry] to enhance discoverability and contributions to the ecosystem.
+- **[GitHub MCP Server][github-mcp]**: daje dostęp do API zarządzania repozytoriami, zgłoszeniami i pull requestami na GitHubie.
+- **[Playwright MCP Server][playwright-mcp-server]**: daje możliwość automatyzacji przeglądarki przez Playwrighta.
 
-> [!CAUTION]
-> Treat MCP servers as you would any other dependency in your project. Before using one, review its source code, verify the publisher, and consider the security implications.
+Dostępnych jest wiele innych serwerów MCP. GitHub prowadzi [rejestr MCP][mcp-registry], który ułatwia ich znajdowanie i rozwój całego ekosystemu.
 
-## Add the Playwright MCP server
+> 🚨 **Uważaj**  
+> Traktuj serwery MCP tak jak każdą inną zależność w projekcie. Zanim użyjesz któregoś, przejrzyj jego kod źródłowy, zweryfikuj wydawcę i rozważ konsekwencje dla bezpieczeństwa.
 
-Let's add the Playwright MCP server to allow Copilot to interact with the website as a user would.
+## Dodaj serwer Playwright MCP
 
-1. Return to your Codespace.
-2. Open the add MCP server dialog by entering the following command in Copilot CLI:
+Dodajmy serwer Playwright MCP, żeby Copilot mógł korzystać ze strony tak jak użytkownik.
+
+1. Wróć do swojego codespace'a.
+2. Otwórz okno dodawania serwera MCP, wpisując w Copilot CLI:
 
    ```plaintext
    /mcp add
    ```
 
-3. For name, enter `playwright`, then press <kbd>Tab</kbd>.
-4. Confirm a server type of **STDIO** by pressing <kbd>Enter</kbd>, then press <kbd>Tab</kbd>.
-5. Paste the following into the **Command** dialog:
+3. Jako nazwę wpisz `playwright`, a potem naciśnij <kbd>Tab</kbd>.
+4. Potwierdź typ serwera **STDIO**, naciskając <kbd>Enter</kbd>, a potem <kbd>Tab</kbd>.
+5. Wklej poniższą komendę w polu **Command**:
 
    ```plaintext
    npx -y @playwright/mcp@latest --headless --no-sandbox
    ```
 
-6. Press <kbd>Control</kbd>+<kbd>S</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>S</kbd> (Windows/Linux) to save the new MCP server.
-7. Press <kbd>Esc</kbd> to exit the MCP dialog.
+6. Naciśnij <kbd>Control</kbd>+<kbd>S</kbd> (Mac) albo <kbd>Ctrl</kbd>+<kbd>S</kbd> (Windows/Linux), żeby zapisać nowy serwer MCP.
+7. Naciśnij <kbd>Esc</kbd>, żeby wyjść z okna MCP.
 
-## Ask Copilot to explore the feature via Playwright
+## Poproś Copilota o sprawdzenie funkcjonalności przez Playwrighta
 
-Previously you manually confirmed the functionality behaves as expected. Now let's use the Playwright server you just added to Copilot to allow Copilot to do the same!
+Wcześniej ręcznie potwierdziłeś, że funkcjonalność działa jak trzeba. Teraz niech zrobi to Copilot — przy pomocy serwera Playwright, który właśnie dodałeś.
 
-1. Use the following prompt to tell Copilot to use the Playwright MCP server to validate the functionality:
+1. Użyj tego promptu, żeby polecić Copilotowi weryfikację przez Playwright MCP:
 
    ```plaintext
    Start the app and use Playwright MCP to check filtering against the issue and our plan. Tell me what works and what doesn't, without making changes. Stop the server you started when you're done.
    ```
 
-> [!NOTE]
-> You don't actually need to tell Copilot to use the MCP server as it will typically figure it out on its own. But since you know what it should be using, it's never a bad idea to help point it in the right direction! It'll help ensure more consistent results, and save a few tokens along the way.
+   > ℹ️ **Uwaga**  
+   > W praktyce nie musisz mówić Copilotowi, żeby użył serwera MCP — zwykle zorientuje się sam. Ale skoro wiesz, czego powinien użyć, nigdy nie zaszkodzi go naprowadzić. Wyniki będą bardziej powtarzalne, a przy okazji oszczędzisz trochę tokenów.
 
-2. Watch as Copilot lists the various steps its performing in the browser to confirm the functionality works.
-3. Read the report and ensure everything behaves as expected.
+2. Obserwuj, jak Copilot wypisuje kolejne kroki wykonywane w przeglądarce, żeby potwierdzić działanie funkcjonalności.
+3. Przeczytaj raport i upewnij się, że wszystko zachowuje się zgodnie z oczekiwaniami.
 
-Copilot will start the server, use Playwright to interact with the website, stop the server, and give you a report.
+Copilot uruchomi serwer, użyje Playwrighta do interakcji ze stroną, zatrzyma serwer i przedstawi Ci raport.
 
-## Summary and next steps
+## Podsumowanie i co dalej
 
-Congratulations, you used the Playwright MCP server to explore your feature in a real browser from Copilot CLI! To recap, you:
+Gratulacje — użyłeś serwera Playwright MCP, żeby z poziomu Copilot CLI sprawdzić swoją funkcjonalność w prawdziwej przeglądarce. Podsumowując:
 
-- learned what Model Context Protocol (MCP) is and how Copilot CLI uses it.
-- added the Playwright MCP server if it was not already available.
-- asked the agent to drive a browser and explore your filtering feature.
+- dowiedziałeś się, czym jest Model Context Protocol (MCP) i jak Copilot CLI z niego korzysta,
+- dodałeś serwer Playwright MCP,
+- poprosiłeś agenta, żeby sterował przeglądarką i sprawdził Twoje filtrowanie.
 
-Next, you'll [create a QA custom agent][next-lesson] that brings the skill and browser tools together in a specialist role.
+W następnym kroku [stworzysz własnego agenta QA][next-lesson], który połączy skill i narzędzia przeglądarkowe w jednej, wyspecjalizowanej roli.
 
-## Resources
+## Materiały
 
 - [What the heck is MCP and why is everyone talking about it?][mcp-blog-post]
 - [Microsoft Playwright MCP Server][playwright-mcp-server]
-- [Add MCP servers to Copilot CLI][add-mcp]
+- [Dodawanie serwerów MCP do Copilot CLI][add-mcp]
 
 [previous-lesson]: ../5-agent-skills/
 [next-lesson]: ../7-qa-agent/

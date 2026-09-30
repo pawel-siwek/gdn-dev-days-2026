@@ -1,63 +1,63 @@
 ---
-title: "Lesson 8 - Create and merge the feature PR"
-description: "Review filtering, instructions, the skill update, QA profile, and tests together, then create a PR and use Agent Merge."
-authors:
-  - geektrainer
-lastUpdated: 2026-09-18
+title: "Lekcja 8 — Pull request z funkcjonalnością"
+description: "Przejrzyj razem filtrowanie, instrukcje, zmianę skilla, profil QA i testy, a potem utwórz PR i użyj Agent Merge."
+lastUpdated: 2026-09-30
 ---
 
-Your filtering implementation, instruction updates, skill update, quality assurance (QA) profile, and tests are saved on one branch. It's time to review them together and open a pull request. You merged the star-rating pull request (PR) yourself; this time you'll allow **Agent Merge** to manage the process.
+<!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-> [!NOTE]
-> Normally, we'd split the feature, instruction updates, skill update, and QA agent into a few separate PRs. To streamline the workshop, you've kept the full filtering and quality workflow in one conversation and branch, with all that work going into this PR.
+Implementacja filtrowania, aktualizacja instrukcji, zmiana skilla, profil kontroli jakości (QA) i testy są zapisane na jednej gałęzi. Czas przejrzeć je razem i otworzyć pull requesta. Pull requesta z ocenami w gwiazdkach zmergowałeś samodzielnie; tym razem pozwolisz, żeby procesem zarządził **Agent Merge**.
 
-In this lesson, you will:
+> ℹ️ **Uwaga**  
+> Normalnie rozbilibyśmy funkcjonalność, aktualizację instrukcji, zmianę skilla i agenta QA na kilka osobnych PR-ów. Żeby uprościć warsztat, cały przepływ filtrowania i jakości trzymałeś w jednej rozmowie i na jednej gałęzi — i to wszystko trafi do tego PR-a.
 
-- learn what Agent Merge is and how it automates the merge lifecycle.
-- inspect the full feature change and verification evidence.
-- create the filtering PR.
-- enable Agent Merge only after review and confirm the PR is merged.
+W tej lekcji:
 
-## Scenario
+- dowiesz się, czym jest Agent Merge i jak automatyzuje cykl życia merge'a,
+- przejrzysz całą zmianę wraz z dowodami weryfikacji,
+- utworzysz pull requesta z filtrowaniem,
+- włączysz Agent Merge dopiero po przeglądzie i potwierdzisz, że PR został zmergowany.
 
-Throughout the filtering workflow, you've used Copilot to plan, implement, and verify a feature. Tailspin Toys now wants to automate the remaining PR work while keeping merge authorization under the developer's control.
+## Scenariusz
 
-## Introducing Agent Merge
+W całym przepływie pracy nad filtrowaniem używałeś Copilota do zaplanowania, zaimplementowania i zweryfikowania funkcjonalności. Tailspin Toys chce teraz zautomatyzować pozostałą pracę wokół pull requesta, zachowując jednocześnie decyzję o mergu w rękach programisty.
 
-**Agent Merge** automates the remaining work needed to land a pull request. When you enable it, Copilot works through what is blocking the PR — fixing failing continuous integration (CI) checks, responding to review comments, and rebasing when needed — then enables GitHub auto-merge when the repository allows it.
+## Czym jest Agent Merge
 
-Up to this point you've selected **Merge pull request** yourself. Agent Merge can take on that responsibility. Review the work and decide it is ready before enabling Agent Merge.
+**Agent Merge** automatyzuje resztę pracy potrzebnej do wprowadzenia pull requesta. Po włączeniu Copilot przerabia to, co blokuje PR-a — naprawia niezaliczone kontrole ciągłej integracji (CI), odpowiada na komentarze z review i w razie potrzeby wykonuje rebase — a potem włącza auto-merge GitHuba, jeśli repozytorium na to pozwala.
 
-## Use Agent Merge to manage the PR
+Do tej pory sam wybierałeś **Merge pull request**. Agent Merge może wziąć ten obowiązek na siebie. Przejrzyj pracę i uznaj ją za gotową, zanim włączysz Agent Merge.
 
-With all of your code created, let's review it together, create the PR, and allow Agent Merge to manage the rest of the process.
+## Zarządzaj PR-em przez Agent Merge
 
-1. Return to your Codespace.
-2. Open the agent dialog by entering `/agent`.
-3. Select **Default** from the list of options and select <kbd>Enter</kbd>.
-4. Create a new PR by using the command `/pr create`.
-5. Activate agent merge by using `/pr agentmerge`
-6. Copilot will watch the continuous integration process on the PR. Once everything succeeds, it will perform the merge.
-7. Ensure you see a message from Copilot saying something similar to "PR #14 was squash-merged successfully."
+Cały kod jest gotowy — przejrzyjmy go razem, utwórzmy PR-a i pozwólmy Agent Merge poprowadzić resztę procesu.
 
-> [!IMPORTANT]
-> Agent Merge does not bypass required approvals, branch protection, merge queues, repository settings, or missing permissions. If it is blocked, read the reported reason and complete the reviewed merge manually when your repository permits it.
+1. Wróć do swojego codespace'a.
+2. Otwórz okno wyboru agenta, wpisując `/agent`.
+3. Wybierz z listy **Default** i naciśnij <kbd>Enter</kbd>.
+4. Utwórz nowego PR-a komendą `/pr create`.
+5. Włącz Agent Merge komendą `/pr agentmerge`.
+6. Copilot będzie obserwował proces ciągłej integracji na PR-ze. Kiedy wszystko się powiedzie, wykona merge.
+7. Upewnij się, że widzisz komunikat od Copilota w rodzaju „PR #14 was squash-merged successfully."
 
-## Summary and next steps
+> ❗ **Ważne**  
+> Agent Merge nie omija wymaganych akceptacji, ochrony gałęzi, kolejek merge'owania, ustawień repozytorium ani braku uprawnień. Jeśli zostanie zablokowany, przeczytaj podany powód i — o ile repozytorium na to pozwala — wykonaj przejrzany merge ręcznie.
 
-You've automated several parts of the development process, including generating code, testing and validating code, and now the pull request process. You:
+## Podsumowanie i co dalej
 
-- learned what Agent Merge is and how it automates the merge lifecycle.
-- inspected the full feature change and verification evidence.
-- created the filtering PR.
-- enabled Agent Merge only after review and confirmed the PR was merged.
+Zautomatyzowałeś kilka części procesu wytwórczego: generowanie kodu, testowanie i weryfikację, a teraz także obsługę pull requesta. Konkretnie:
 
-Next, you'll [explore more useful Copilot CLI slash commands][next-lesson] for context, models, sharing, and optional cloud delegation.
+- dowiedziałeś się, czym jest Agent Merge i jak automatyzuje cykl życia merge'a,
+- przejrzałeś całą zmianę wraz z dowodami weryfikacji,
+- utworzyłeś pull requesta z filtrowaniem,
+- włączyłeś Agent Merge dopiero po przeglądzie i potwierdziłeś merge.
 
-## Resources
+W następnym kroku [poznasz więcej przydatnych komend slash w Copilot CLI][next-lesson] — do kontekstu, modeli, udostępniania i opcjonalnego delegowania do chmury.
 
-- [Manage pull requests with Copilot CLI][manage-prs]
-- [Copilot CLI command reference][cli-reference]
+## Materiały
+
+- [Zarządzanie pull requestami w Copilot CLI][manage-prs]
+- [Dokumentacja komend Copilot CLI][cli-reference]
 
 [previous-lesson]: ../7-qa-agent/
 [next-lesson]: ../9-cli-power-tools/

@@ -57,7 +57,7 @@ Każda zmiana wygenerowana przez AI zasługuje na przegląd przed mergem — naw
 4. Przejrzyj wyniki kontroli uruchomionych przez Copilota i poproś go o naprawienie ewentualnych błędów.
 5. Po zakończeniu przeglądu naciśnij <kbd>Esc</kbd>, żeby wyjść z ekranu diffa.
 
-> [!NOTE]
+> ℹ️ **Uwaga**  
 > Copilot, jak wszystkie narzędzia generatywnej AI, jest probabilistyczny, a nie deterministyczny, więc Twój kod może wyglądać nieco inaczej. Oceniaj zachowanie aplikacji, a nie zgodność z jedną konkretną implementacją.
 
 ## Sprawdź zmiany w działaniu

@@ -1,73 +1,76 @@
 ---
-title: "Lesson 10 - Wrap-up and next steps"
-description: "Recap the Copilot CLI workflow, two pull requests, reusable customizations, and further resources."
-authors:
-  - geektrainer
-lastUpdated: 2026-09-29
+title: "Lekcja 10 — Podsumowanie i co dalej"
+description: "Przegląd przepływu pracy w Copilot CLI, dwóch pull requestów, dostosowań wielokrotnego użytku i dalszych materiałów."
+lastUpdated: 2026-09-30
 ---
 
-You used GitHub Copilot CLI across a continuous Tailspin Toys workflow. You:
+<!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-- prepared a Codespace, installed Copilot CLI, explored the project, and found the seeded filtering issue.
-- added star ratings, reviewed the result in a forwarded browser, and manually merged your first pull request (PR).
-- started from the filtering issue, defined the approach in Plan mode, built it in Autopilot mode, and reviewed it in Interactive mode.
-- guided the agent with custom instructions, then customized the existing `quality-checks` skill and used it to run unit tests, lint, and type checks.
-- added the Playwright Model Context Protocol (MCP) server and used it to explore filtering in a real browser.
-- created and selected a quality assurance (QA) custom agent to assess requirements, coverage, skill results, and browser evidence.
-- reviewed the complete filtering change and authorized Agent Merge for the filtering PR.
-- explored slash commands for context, models, sharing, and optional cloud delegation.
+Przeszedłeś przez ciągły przepływ pracy na projekcie Tailspin Toys z GitHub Copilot CLI. Konkretnie:
 
-## What you shipped
+- przygotowałeś codespace, zainstalowałeś Copilot CLI, poznałeś projekt i znalazłeś przygotowane zgłoszenie o filtrowaniu,
+- dodałeś oceny w gwiazdkach, obejrzałeś wynik w przekierowanej przeglądarce i ręcznie zmergowałeś swojego pierwszego pull requesta (PR),
+- wyszedłeś od zgłoszenia o filtrowaniu, ustaliłeś podejście w trybie Plan, zbudowałeś je w trybie Autopilot i przejrzałeś w trybie Interactive,
+- pokierowałeś agentem przez własne instrukcje, a potem dostosowałeś istniejący skill `quality-checks` i uruchomiłeś nim testy jednostkowe, lintowanie i kontrolę typów,
+- dodałeś serwer Playwright Model Context Protocol (MCP) i sprawdziłeś nim filtrowanie w prawdziwej przeglądarce,
+- stworzyłeś i wybrałeś własnego agenta do kontroli jakości (QA), żeby ocenił wymagania, pokrycie testami, wyniki skilla i dowody z przeglądarki,
+- przejrzałeś całą zmianę z filtrowaniem i autoryzowałeś Agent Merge dla jej pull requesta,
+- poznałeś komendy slash do kontekstu, modeli, udostępniania i opcjonalnego delegowania do chmury.
 
-The workshop has two PR milestones, each on its own branch from updated `main`:
+## Co dowiozłeś
 
-1. **Star ratings:** display the existing `starRating` and an explicit unrated state on game cards.
-2. **Filtering and quality workflow:** implement filtering, update the instructions and apply them to the feature, customize the `quality-checks` report, create a QA profile, and include the associated tests.
+Warsztat ma dwa kamienie milowe w postaci PR-ów, każdy na osobnej gałęzi odbitej od zaktualizowanego `main`:
 
-From planning filtering through opening its PR, you used the same conversation and branch. We combined that work in one PR to streamline the workshop.
+1. **Oceny w gwiazdkach:** wyświetlenie istniejącego `starRating` i jawnego stanu „brak oceny" na kartach gier.
+2. **Filtrowanie i przepływ jakości:** implementacja filtrowania, aktualizacja instrukcji i zastosowanie ich do funkcjonalności, dostosowanie raportu `quality-checks`, utworzenie profilu QA oraz powiązane testy.
 
-## Different kinds of verification
+Od zaplanowania filtrowania aż po otwarcie jego PR-a korzystałeś z tej samej rozmowy i tej samej gałęzi. Złożyliśmy tę pracę w jeden PR, żeby uprościć warsztat.
 
-You checked the code in several ways: automated tests, your own browser inspection, and Copilot's browser exploration through MCP. The `quality-checks` skill ran unit tests, lint, and type checks and reported them in your new format. QA brought those results together with a review of requirements and test coverage before the PR.
+## Różne rodzaje weryfikacji
 
-Tests added should close genuine gaps; a QA run that needs no new tests can be correct. Review code and evidence before authorizing merge, and refresh affected evidence after changes.
+Sprawdziłeś kod na kilka sposobów: automatycznymi testami, własnym przeglądem w przeglądarce oraz eksploracją przeglądarki wykonaną przez Copilota przez MCP. Skill `quality-checks` uruchomił testy jednostkowe, lintowanie i kontrolę typów, a wyniki zaraportował w Twoim nowym formacie. QA zebrał te wyniki razem z przeglądem wymagań i pokrycia testami przed PR-em.
 
-## Best practices
+Dodane testy powinny zamykać realne luki; przebieg QA, który nie potrzebuje nowych testów, też może być poprawny. Przeglądaj kod i dowody przed autoryzacją merge'a, a po zmianach odświeżaj dowody, których te zmiany dotyczą.
 
-The context and tools you give Copilot shape its work. In this workshop, you updated instructions, customized a skill, created a QA profile, and configured an MCP server. Reuse these customizations across conversations and adjust them as your team's needs change. Instructions set standards, skills describe repeatable tasks, custom agents define specialist roles, and MCP servers connect external tools. Review the actual changes and tool results, not just the agent's summary.
+## Dobre praktyki
 
-Match the **mode and model** to the task. Use **Plan** to think through an approach before building, **Interactive** to stay in the loop on focused changes, and **Autopilot** for well-scoped tasks. Choose a faster model for routine edits and a more capable model for complex work.
+Kontekst i narzędzia, które dajesz Copilotowi, kształtują jego pracę. Na tym warsztacie zaktualizowałeś instrukcje, dostosowałeś skill, stworzyłeś profil QA i skonfigurowałeś serwer MCP. Wykorzystuj te dostosowania w kolejnych rozmowach i modyfikuj je wraz ze zmianą potrzeb zespołu. Instrukcje ustalają standardy, skille opisują powtarzalne zadania, własni agenci definiują wyspecjalizowane role, a serwery MCP podłączają zewnętrzne narzędzia. Przeglądaj faktyczne zmiany i wyniki narzędzi, nie tylko podsumowanie agenta.
 
-Context still matters as much as infrastructure. Clearly describing *what* you want built, *why*, and *how* meaningfully changes the output.
+Dopasuj **tryb i model** do zadania. Użyj **Plan**, żeby przemyśleć podejście przed budowaniem, **Interactive**, żeby pozostać w pętli przy precyzyjnych zmianach, i **Autopilot** przy dobrze zakreślonych zadaniach. Wybieraj szybszy model do rutynowych edycji, a mocniejszy do złożonej pracy.
 
-## More to explore
+Kontekst wciąż liczy się tak samo jak infrastruktura. Jasne opisanie, *co* chcesz zbudować, *dlaczego* i *w jaki sposób*, realnie zmienia wynik.
 
-You've covered the core workflow. A few more CLI features worth a look:
+## Co jeszcze warto poznać
 
-- `/review` to ask the code review agent to analyze changes.
-- `/rubber-duck` to talk through a problem and get another perspective.
-- `/fleet` to orchestrate independent subtasks in parallel.
-- `/worktree` to isolate a separate task.
-- `/delegate` to send a task to Copilot cloud agent.
+Główny przepływ masz za sobą. Kilka kolejnych funkcji CLI wartych uwagi:
 
-## Next steps
+- `/review` — poproś agenta code review o analizę zmian.
+- `/rubber-duck` — omów problem na głos i uzyskaj inną perspektywę.
+- `/fleet` — zorganizuj niezależne podzadania równolegle.
+- `/worktree` — odizoluj osobne zadanie.
+- `/delegate` — wyślij zadanie do agenta Copilota w chmurze.
 
-The best way to improve with any tool is to keep using it! Use it for production code, for hobby code, for the little app you've had in mind for years but never got around to building. Share your learnings with your team, and learn from theirs. And, as always, explore the documentation.
+## Kolejne kroki
 
-If you want to extend Tailspin Toys from the terminal, continue with the optional [Foundry Backer Concierge series][foundry]. To compare other environments, explore the [VS Code workshop][vscode], the [GitHub Copilot app workshop][app], or the [Copilot cloud agent workshop][cloud].
+Najlepszym sposobem na podniesienie poziomu w dowolnym narzędziu jest po prostu używanie go. Sięgaj po nie przy kodzie produkcyjnym, przy projektach hobbystycznych i przy tej małej aplikacji, o której myślisz od lat, ale nigdy nie było czasu jej zbudować. Dziel się wnioskami z zespołem i ucz się od innych. I jak zawsze — zaglądaj do dokumentacji.
 
-## Resources
+Jeśli chcesz porównać inne środowiska, zajrzyj do oryginalnych, angielskich wersji: [warsztat VS Code][vscode], [warsztat z aplikacją GitHub Copilot][app] albo [warsztat z agentem w chmurze][cloud].
 
-- [About GitHub Copilot CLI][about-cli]
-- [Copilot CLI command reference][cli-reference]
-- [Customize Copilot CLI][customize-cli]
-- [Manage pull requests with Copilot CLI][manage-prs]
+## Materiały
+
+- [O GitHub Copilot CLI][about-cli]
+- [Dokumentacja komend Copilot CLI][cli-reference]
+- [Dostosowywanie Copilot CLI][customize-cli]
+- [Zarządzanie pull requestami w Copilot CLI][manage-prs]
+
+---
+
+*Polska wersja przygotowana na GitHub Dev Days Gdańsk · 28.10.2026 · Capgemini, Olivia Six*
 
 [previous-lesson]: ../9-cli-power-tools/
-[foundry]: ../8-foundry-agent/
-[vscode]: ../../vscode/
-[app]: ../../app/
-[cloud]: ../../cloud/
+[vscode]: https://github-samples.github.io/copilot-workshops/real-world-development/vscode/
+[app]: https://github-samples.github.io/copilot-workshops/real-world-development/app/
+[cloud]: https://github-samples.github.io/copilot-workshops/real-world-development/cloud/
 [about-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [cli-reference]: https://docs.github.com/copilot/reference/copilot-cli-reference/cli-command-reference
 [customize-cli]: https://docs.github.com/copilot/how-tos/copilot-cli/customize-copilot
