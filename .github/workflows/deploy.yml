@@ -1,0 +1,67 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: cli-workshop/website/package-lock.json
+
+      - name: Install CLI workshop deps
+        run: npm ci
+        working-directory: cli-workshop/website
+
+      - name: Build CLI workshop (Astro/Starlight)
+        run: npm run build
+        working-directory: cli-workshop/website
+
+      # Astro z base=/gdn-dev-days-2026/cli-workshop emituje pliki w korzeniu dist/
+      # (prefiks trafia tylko do linków), więc kopiujemy dist/* wprost.
+      # Zweryfikowane lokalnie: find dist -maxdepth 2 -name '*.html'
+      - name: Assemble site
+        run: |
+          set -euo pipefail
+          mkdir -p _site/mona-mayhem _site/cli-workshop _site/decks
+          cp -R site/. _site/
+          cp -R mona-mayhem/. _site/mona-mayhem/
+          cp -R cli-workshop/website/dist/. _site/cli-workshop/
+          cp decks/*.pptx _site/decks/
+          touch _site/.nojekyll
+
+      - name: Guard — brak odwołań do upstreamu w opublikowanej treści
+        run: |
+          set -euo pipefail
+          if grep -rIl 'raw\.githubusercontent\.com/copilot-dev-days' _site/; then
+            echo "::error::Opublikowana treść nadal pobiera markdown z upstreamu."
+            exit 1
+          fi
+          echo "OK — brak runtime'owej zależności od copilot-dev-days."
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

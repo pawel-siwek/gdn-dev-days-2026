@@ -4,3 +4,4 @@ dist/
 .DS_Store
 cli-workshop/website/dist/
 cli-workshop/website/.astro/
+_site/

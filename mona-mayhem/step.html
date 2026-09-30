@@ -73,8 +73,10 @@
             { id: '06-bonus', file: 'workshop/06-bonus.md', title: 'Bonus i rozszerzenia', number: '🎉' },
         ];
 
-        const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
-        const GITHUB_RAW_BASE = isLocal ? '../' : '';
+        // Treść warsztatu leży obok tego pliku, w ./workshop/. Ten sam układ
+        // obowiązuje w repozytorium i w opublikowanym artefakcie, więc baza jest
+        // pusta i nie ma osobnej gałęzi dla localhost.
+        const GITHUB_RAW_BASE = '';
         const STEP_ID_PATTERN = /^[a-z0-9-]{1,64}$/;
         const WHITESPACE_NORMALIZE_PATTERN = /[\s\n]+/g;
         const COPY_BUTTON_RESET_DELAY_MS = 2000;
