@@ -1,71 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSC44NDPLQ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-LSC44NDPLQ');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mona Mayhem Workshop</title>
+    <title>Mayhem w Stoczni — warsztat Copilot CLI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="alternate" hreflang="en" href="https://copilot-dev-days.github.io/mona-mayhem/">
-    <link rel="alternate" hreflang="pt-BR" href="https://copilot-dev-days.github.io/mona-mayhem/pt_BR/">
-    <link rel="alternate" hreflang="es" href="https://copilot-dev-days.github.io/mona-mayhem/es/">
-    <link rel="alternate" hreflang="x-default" href="https://copilot-dev-days.github.io/mona-mayhem/">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="light-theme.css">
     <script src="theme-toggle.js"></script>
 </head>
 <body>
     <div class="top-controls">
-        <div class="track-toggle" role="tablist" aria-label="Workshop track toggle">
-            <button class="track-btn active" data-track="vscode" type="button">VS Code</button>
-            <button class="track-btn" data-track="cli" type="button">CLI</button>
+        <div class="track-toggle" role="tablist" aria-label="Przełącznik ścieżki warsztatu">
+            <button class="track-btn" data-track="vscode" type="button">VS Code</button>
+            <button class="track-btn active" data-track="cli" type="button">CLI</button>
         </div>
-        <div class="locale-picker" id="localePicker">
-            <button type="button" class="locale-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">🌐</button>
-            <ul role="listbox" aria-label="Language">
-                <li role="option" data-locale="en" aria-selected="true" class="active">🇬🇧 English</li>
-                <li role="option" data-locale="es" aria-selected="false">🇪🇸 Español</li>
-                <li role="option" data-locale="pt-BR" aria-selected="false">🇧🇷 Português (Brasil)</li>
-            </ul>
-        </div>
-        <button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button>
+        <button class="theme-toggle" onclick="toggleTheme()">☀️ Jasny</button>
     </div>
 
     <section class="hero">
         <div class="container">
-            <div class="hero-badge" id="heroBadge">🎮 VS Code GitHub Copilot Workshop</div>
-            <h1>Mona Mayhem Workshop</h1>
-            <p class="hero-subtitle" id="heroSubtitle">Build a retro arcade GitHub Contribution Battle Arena while mastering VS Code Copilot features: context engineering, Plan Mode, Agent Mode, design-first development, and multi-agent workflows.</p>
+            <div class="hero-badge" id="heroBadge">💻 Warsztat GitHub Copilot CLI</div>
+            <h1>Mayhem w Stoczni</h1>
+            <p class="hero-subtitle" id="heroSubtitle">Zbuduj retro-arcade arenę pojedynków na wykresy kontrybucji z GitHuba i przy okazji opanuj pracę z Copilotem w terminalu: inżynierię kontekstu, /plan, autonomiczne edycje, /fleet, /delegate i /review.</p>
             <div class="track-panel">
-                <p class="track-panel-title">Choose your Copilot surface</p>
-                <p class="track-panel-copy" id="trackCopy">Use the VS Code workshop to practice Chat, Plan Mode, Agent Mode, background agents, and the editor-based review loop.</p>
+                <p class="track-panel-title">Wybierz swoje środowisko Copilota</p>
+                <p class="track-panel-copy" id="trackCopy">Ścieżka CLI trzyma Cię w terminalu: planujesz, kodujesz, recenzujesz i zrównoleglasz pracę komendami agentowymi.</p>
                 <div class="track-highlights" id="trackHighlights"></div>
             </div>
             <div class="hero-cta">
-                <a href="step.html?step=00-overview&amp;track=vscode" class="btn btn-primary" id="startWorkshopBtn">🚀 Start VS Code Workshop</a>
-                <a href="https://github.com/copilot-dev-days/mona-mayhem" class="btn btn-secondary" target="_blank">⭐ GitHub Repo</a>
+                <a href="step.html?step=00-overview&amp;track=cli" class="btn btn-primary" id="startWorkshopBtn">🚀 Zacznij warsztat CLI</a>
+                <a href="https://github.com/pawelsiwek/mona-mayhem-starter" class="btn btn-secondary" target="_blank">⭐ Repo startowe</a>
             </div>
-            <p class="hero-note">The toggle updates every workshop step so the deployed docs stay tailored to your chosen workflow.</p>
+            <p class="hero-note">Przełącznik zmienia treść każdego kroku, więc instrukcja zawsze pasuje do wybranego sposobu pracy.</p>
             <div class="stats">
                 <div class="stat">
                     <div class="stat-value">~60min</div>
-                    <div class="stat-label">Duration</div>
+                    <div class="stat-label">Czas trwania</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">7</div>
-                    <div class="stat-label">Parts</div>
+                    <div class="stat-label">Części</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">7+</div>
-                    <div class="stat-label">Feature prompts</div>
+                    <div class="stat-label">Promptów</div>
                 </div>
             </div>
         </div>
@@ -73,27 +53,27 @@
 
     <section class="features">
         <div class="container">
-            <h2 class="section-title">What You'll Learn</h2>
+            <h2 class="section-title">Czego się nauczysz</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon" id="feature1Icon">🧠</div>
-                    <h3 id="feature1Title">Context Engineering</h3>
-                    <p id="feature1Copy">Teach Copilot about your codebase with workspace instructions, background agents, and Ask mode exploration.</p>
+                    <div class="feature-icon" id="feature1Icon">🛠️</div>
+                    <h3 id="feature1Title">Instrukcje i uprawnienia</h3>
+                    <p id="feature1Copy">Zainicjuj instrukcje repozytorium, dostrój allowlisty i daj Copilotowi dokładnie ten kontekst i te narzędzia, których potrzebuje.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon" id="feature2Icon">📋</div>
-                    <h3 id="feature2Title">Plan Mode</h3>
-                    <p id="feature2Copy">Design architecture before coding — iterate on plans until they're right, then implement with confidence.</p>
+                    <h3 id="feature2Title">Plan i Autopilot</h3>
+                    <p id="feature2Copy">Użyj /plan albo Shift+Tab, żeby najpierw naszkicować plan, a potem pozwól Copilotowi wdrożyć go za Twoją zgodą.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon" id="feature3Icon">🤖</div>
-                    <h3 id="feature3Title">Agent Mode</h3>
-                    <p id="feature3Copy">Let Copilot scaffold entire features autonomously across multiple files, then iterate with feedback.</p>
+                    <div class="feature-icon" id="feature3Icon">⚡</div>
+                    <h3 id="feature3Title">Równoległa praca w CLI</h3>
+                    <p id="feature3Copy">Sięgnij po /fleet, żeby rozbić pracę na subagentów i nie tracić tempa, kiedy przeglądasz diffy.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon" id="feature4Icon">🎨</div>
-                    <h3 id="feature4Title">Multi-Agent Workflows</h3>
-                    <p id="feature4Copy">Use background and cloud agents for parallel polish — responsive design, error UX, theme variations.</p>
+                    <div class="feature-icon" id="feature4Icon">🔍</div>
+                    <h3 id="feature4Title">Delegowanie i review</h3>
+                    <p id="feature4Copy">Oddaj opcjonalną robotę przez /delegate i uruchom /review, zanim domkniesz warsztat.</p>
                 </div>
             </div>
         </div>
@@ -101,62 +81,62 @@
 
     <section class="workshop">
         <div class="container">
-            <h2 class="section-title">Workshop Parts</h2>
-            <p class="section-copy">Every part below is shared, but the instructions inside each step adjust to match your selected track.</p>
+            <h2 class="section-title">Części warsztatu</h2>
+            <p class="section-copy">Wszystkie części są wspólne, ale instrukcje wewnątrz każdego kroku dopasowują się do wybranej ścieżki.</p>
             <div class="parts-list">
-                <a href="step.html?step=00-overview&amp;track=vscode" class="part-card" data-step="00-overview">
+                <a href="step.html?step=00-overview&amp;track=cli" class="part-card" data-step="00-overview">
                     <div class="part-number">00</div>
                     <div class="part-content">
-                        <h3>Overview</h3>
-                        <p>What you'll build and how the VS Code and CLI tracks differ</p>
+                        <h3>Wprowadzenie</h3>
+                        <p>Co zbudujesz i czym różnią się ścieżki VS Code i CLI</p>
                     </div>
                     <span class="part-time">5 min</span>
                 </a>
-                <a href="step.html?step=01-setup&amp;track=vscode" class="part-card" data-step="01-setup">
+                <a href="step.html?step=01-setup&amp;track=cli" class="part-card" data-step="01-setup">
                     <div class="part-number">01</div>
                     <div class="part-content">
-                        <h3>Setup &amp; Context Engineering</h3>
-                        <p>Configure your environment and teach Copilot about the repo</p>
+                        <h3>Setup i inżynieria kontekstu</h3>
+                        <p>Skonfiguruj środowisko i naucz Copilota swojego repozytorium</p>
                     </div>
                     <span class="part-time">15 min</span>
                 </a>
-                <a href="step.html?step=02-plan-and-scaffold&amp;track=vscode" class="part-card" data-step="02-plan-and-scaffold">
+                <a href="step.html?step=02-plan-and-scaffold&amp;track=cli" class="part-card" data-step="02-plan-and-scaffold">
                     <div class="part-number">02</div>
                     <div class="part-content">
-                        <h3>Plan &amp; Scaffold</h3>
-                        <p>Design the API and page architecture before implementation</p>
+                        <h3>Plan i szkielet projektu</h3>
+                        <p>Zaprojektuj API i architekturę strony przed implementacją</p>
                     </div>
                     <span class="part-time">15 min</span>
                 </a>
-                <a href="step.html?step=03-agent-mode&amp;track=vscode" class="part-card" data-step="03-agent-mode">
+                <a href="step.html?step=03-agent-mode&amp;track=cli" class="part-card" data-step="03-agent-mode">
                     <div class="part-number">03</div>
                     <div class="part-content">
-                        <h3>Build the Game</h3>
-                        <p>Implement the battle page with agentic coding workflows</p>
+                        <h3>Budowa gry</h3>
+                        <p>Zaimplementuj stronę pojedynku w agentowym trybie pracy</p>
                     </div>
                     <span class="part-time">10 min</span>
                 </a>
-                <a href="step.html?step=04-design-vibes&amp;track=vscode" class="part-card" data-step="04-design-vibes">
+                <a href="step.html?step=04-design-vibes&amp;track=cli" class="part-card" data-step="04-design-vibes">
                     <div class="part-number">04</div>
                     <div class="part-content">
-                        <h3>Design-First Theming</h3>
-                        <p>Transform the UI with plan-first prompts and iterative polish</p>
+                        <h3>Motyw wizualny — design first</h3>
+                        <p>Przebuduj UI promptami zaczynającymi się od planu i iteracyjnymi szlifami</p>
                     </div>
                     <span class="part-time">10 min</span>
                 </a>
-                <a href="step.html?step=05-polish&amp;track=vscode" class="part-card" data-step="05-polish">
+                <a href="step.html?step=05-polish&amp;track=cli" class="part-card" data-step="05-polish">
                     <div class="part-number">05</div>
                     <div class="part-content">
-                        <h3>Polish &amp; Parallel Work</h3>
-                        <p>Use multi-agent or multi-session workflows to finish strong</p>
+                        <h3>Szlify i praca równoległa</h3>
+                        <p>Wykorzystaj wielu agentów lub wiele sesji, żeby domknąć projekt</p>
                     </div>
                     <span class="part-time">10 min</span>
                 </a>
-                <a href="step.html?step=06-bonus&amp;track=vscode" class="part-card" data-step="06-bonus">
+                <a href="step.html?step=06-bonus&amp;track=cli" class="part-card" data-step="06-bonus">
                     <div class="part-number">🎉</div>
                     <div class="part-content">
-                        <h3>Bonus &amp; Extensions</h3>
-                        <p>Open-ended challenges, sharing flows, and more Copilot experiments</p>
+                        <h3>Bonus i rozszerzenia</h3>
+                        <p>Otwarte wyzwania, dzielenie się efektem i dalsze eksperymenty z Copilotem</p>
                     </div>
                     <span class="part-time">15+ min</span>
                 </a>
@@ -166,7 +146,7 @@
 
     <section class="prereqs">
         <div class="container">
-            <h2 class="section-title">Prerequisites</h2>
+            <h2 class="section-title">Wymagania wstępne</h2>
             <div class="prereqs-grid" id="prereqsGrid"></div>
         </div>
     </section>
@@ -174,12 +154,12 @@
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="https://github.com/copilot-dev-days/mona-mayhem" target="_blank">GitHub Repository</a>
-                <a href="https://docs.github.com/en/copilot" target="_blank">Copilot Docs</a>
-                <a href="https://docs.github.com/en/copilot/how-tos/copilot-cli" target="_blank">Copilot CLI Docs</a>
+                <a href="https://github.com/pawelsiwek/mona-mayhem-starter" target="_blank">Repozytorium startowe</a>
+                <a href="https://docs.github.com/en/copilot" target="_blank">Dokumentacja Copilota</a>
+                <a href="https://docs.github.com/en/copilot/how-tos/copilot-cli" target="_blank">Dokumentacja Copilot CLI</a>
                 <a href="https://github.com/github/awesome-copilot" target="_blank">Awesome Copilot</a>
             </div>
-            <p class="footer-credit">Built with 💜 by the GitHub Copilot Team</p>
+            <p class="footer-credit">Oryginał 💜 GitHub Copilot Team · polska wersja na GitHub Dev Days Gdańsk 2026</p>
         </div>
     </footer>
 
@@ -188,36 +168,36 @@
         const tracks = {
             vscode: {
                 label: 'VS Code',
-                badge: '🎮 VS Code GitHub Copilot Workshop',
-                subtitle: 'Build a retro arcade GitHub Contribution Battle Arena while mastering VS Code Copilot features: context engineering, Plan Mode, Agent Mode, design-first development, and multi-agent workflows.',
-                copy: 'Use the VS Code workshop to practice Chat, Plan Mode, Agent Mode, background agents, and the editor-based review loop.',
-                highlights: ['Chat panel', 'Plan Mode', 'Agent Mode', 'Background agents'],
-                prerequisites: ['VS Code v1.107+', 'GitHub Copilot', 'Node.js 18+', 'Git installed'],
+                badge: '🎮 Warsztat GitHub Copilot w VS Code',
+                subtitle: 'Zbuduj retro-arcade arenę pojedynków na wykresy kontrybucji z GitHuba i opanuj Copilota w VS Code: inżynierię kontekstu, tryb Plan, tryb agentowy, design-first i pracę wieloagentową.',
+                copy: 'Ścieżka VS Code to ćwiczenie Chatu, trybu Plan, trybu agentowego, agentów w tle i pętli review wewnątrz edytora.',
+                highlights: ['Panel Chat', 'Tryb Plan', 'Tryb agentowy', 'Agenci w tle'],
+                prerequisites: ['VS Code v1.107+', 'GitHub Copilot', 'Node.js 18+', 'Zainstalowany Git'],
                 features: [
-                    { icon: '🧠', title: 'Context Engineering', copy: 'Teach Copilot about your codebase with workspace instructions, background agents, and Ask mode exploration.' },
-                    { icon: '📋', title: 'Plan Mode', copy: 'Design architecture before coding — iterate on plans until they\'re right, then implement with confidence.' },
-                    { icon: '🤖', title: 'Agent Mode', copy: 'Let Copilot scaffold entire features autonomously across multiple files, then iterate with feedback.' },
-                    { icon: '🎨', title: 'Multi-Agent Workflows', copy: 'Use background and cloud agents for parallel polish — responsive design, error UX, theme variations.' }
+                    { icon: '🧠', title: 'Inżynieria kontekstu', copy: 'Naucz Copilota swojego repozytorium — instrukcje projektowe, agenci w tle i eksploracja w trybie Ask.' },
+                    { icon: '📋', title: 'Tryb Plan', copy: 'Zaprojektuj architekturę przed kodowaniem — iteruj plan, aż będzie dobry, potem wdrażaj go pewną ręką.' },
+                    { icon: '🤖', title: 'Tryb agentowy', copy: 'Pozwól Copilotowi samodzielnie postawić całe funkcje w wielu plikach, a potem iteruj na podstawie uwag.' },
+                    { icon: '🎨', title: 'Praca wieloagentowa', copy: 'Użyj agentów w tle i w chmurze do równoległych szlifów — RWD, obsługa błędów, warianty motywu.' }
                 ]
             },
             cli: {
                 label: 'CLI',
-                badge: '💻 GitHub Copilot CLI Workshop',
-                subtitle: 'Build the same retro arcade app while learning terminal-native Copilot workflows: custom instructions, /plan, autonomous edits, /fleet parallelism, /delegate, and /review.',
-                copy: 'Use the CLI workshop to stay in the terminal while you plan, code, review, and parallelize work with agentic commands.',
+                badge: '💻 Warsztat GitHub Copilot CLI',
+                subtitle: 'Zbuduj tę samą retro-arcade aplikację, ucząc się pracy z Copilotem natywnie w terminalu: własne instrukcje, /plan, autonomiczne edycje, zrównoleglanie przez /fleet, /delegate i /review.',
+                copy: 'Ścieżka CLI trzyma Cię w terminalu: planujesz, kodujesz, recenzujesz i zrównoleglasz pracę komendami agentowymi.',
                 highlights: ['copilot', '/plan', '/fleet', '/delegate', '/review'],
-                prerequisites: ['GitHub Copilot plan with CLI access', 'Copilot CLI installed via npm (requires Node.js 22+), Homebrew, or WinGet', 'Git installed', 'Terminal or shell of your choice'],
+                prerequisites: ['Plan GitHub Copilot z dostępem do CLI', 'Copilot CLI zainstalowany przez npm (wymaga Node.js 22+), Homebrew lub WinGet', 'Zainstalowany Git', 'Dowolny terminal lub shell'],
                 features: [
-                    { icon: '🛠️', title: 'Custom Instructions & Permissions', copy: 'Initialize repo instructions, tune allowlists, and give Copilot exactly the context and tools it needs.' },
-                    { icon: '📋', title: 'Plan & Autopilot', copy: 'Use /plan or Shift+Tab to draft a plan first, then let Copilot implement with your approval.' },
-                    { icon: '⚡', title: 'Parallel CLI Workflows', copy: 'Reach for /fleet to split work across subagents and keep momentum while you review the diffs.' },
-                    { icon: '🔍', title: 'Delegate & Review', copy: 'Offload optional work with /delegate and run /review before you wrap up the workshop.' }
+                    { icon: '🛠️', title: 'Instrukcje i uprawnienia', copy: 'Zainicjuj instrukcje repozytorium, dostrój allowlisty i daj Copilotowi dokładnie ten kontekst i te narzędzia, których potrzebuje.' },
+                    { icon: '📋', title: 'Plan i Autopilot', copy: 'Użyj /plan albo Shift+Tab, żeby najpierw naszkicować plan, a potem pozwól Copilotowi wdrożyć go za Twoją zgodą.' },
+                    { icon: '⚡', title: 'Równoległa praca w CLI', copy: 'Sięgnij po /fleet, żeby rozbić pracę na subagentów i nie tracić tempa, kiedy przeglądasz diffy.' },
+                    { icon: '🔍', title: 'Delegowanie i review', copy: 'Oddaj opcjonalną robotę przez /delegate i uruchom /review, zanim domkniesz warsztat.' }
                 ]
             }
         };
 
         function normalizeTrack(track) {
-            return track === 'cli' ? 'cli' : 'vscode';
+            return track === 'vscode' ? 'vscode' : 'cli';
         }
 
         function getInitialTrack() {
@@ -230,8 +210,8 @@
             try {
                 return normalizeTrack(localStorage.getItem(TRACK_STORAGE_KEY));
             } catch (error) {
-                console.warn('Unable to read saved workshop track preference.', error);
-                return 'vscode';
+                console.warn('Nie udało się odczytać zapisanej preferencji ścieżki warsztatu.', error);
+                return 'cli';
             }
         }
 
@@ -239,7 +219,7 @@
             try {
                 localStorage.setItem(TRACK_STORAGE_KEY, track);
             } catch (error) {
-                console.warn('Unable to persist workshop track preference.', error);
+                console.warn('Nie udało się zapisać preferencji ścieżki warsztatu.', error);
             }
         }
 
@@ -287,7 +267,7 @@
 
         function updateLinks(track) {
             document.getElementById('startWorkshopBtn').href = buildStepUrl('00-overview', track);
-            document.getElementById('startWorkshopBtn').textContent = `🚀 Start ${tracks[track].label} Workshop`;
+            document.getElementById('startWorkshopBtn').textContent = `🚀 Zacznij warsztat ${tracks[track].label}`;
             document.querySelectorAll('[data-step]').forEach((link) => {
                 link.href = buildStepUrl(link.dataset.step, track);
             });
@@ -320,36 +300,5 @@
         renderTrack(getInitialTrack());
     </script>
 
-    <script>
-    (function(){
-      var match=location.pathname.match(/\/(pt_BR|es)\//);
-      var locale=match?match[1]:'en';
-      var picker=document.getElementById('localePicker');
-      if(!picker)return;
-      var btn=picker.querySelector('.locale-toggle'),list=picker.querySelector('ul');
-      list.querySelectorAll('li').forEach(function(li){
-        var l=li.dataset.locale==='pt-BR'?'pt_BR':li.dataset.locale;
-        if(l===locale){li.classList.add('active');li.setAttribute('aria-selected','true');}
-        else{li.classList.remove('active');li.setAttribute('aria-selected','false');}
-      });
-      function open(){list.style.display='block';btn.setAttribute('aria-expanded','true');}
-      function close(){list.style.display='none';btn.setAttribute('aria-expanded','false');}
-      btn.addEventListener('click',function(e){e.stopPropagation();list.style.display==='block'?close():open();});
-      document.addEventListener('click',close);
-      document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
-      list.querySelectorAll('li').forEach(function(li){
-        li.addEventListener('click',function(e){
-          e.stopPropagation();
-          var t=li.dataset.locale==='pt-BR'?'pt_BR':li.dataset.locale;
-          if(t===locale){close();return;}
-          var p=location.pathname;
-          if(locale!=='en')p=p.replace(new RegExp('/'+locale+'/'),'/');;
-          if(t!=='en'){var base=p.replace(/\/index\.html$/,'/');if(!base.endsWith('/'))base+='/';p=base+t+'/';}
-          localStorage.setItem('preferred-locale',t);
-          window.location.href=p;
-        });
-      });
-    })();
-    </script>
 </body>
 </html>
