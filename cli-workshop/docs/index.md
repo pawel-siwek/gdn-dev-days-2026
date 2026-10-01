@@ -18,4 +18,4 @@ Pracujesz w terminalu na realnej aplikacji **Tailspin Toys** i wspólnym backlog
 Około **2 godziny**, poziom średnio zaawansowany. Potrzebujesz konta GitHub z dostępem do Copilota oraz przeglądarki — resztę załatwia GitHub Codespaces.
 
 > ℹ️ **Uwaga**  
-> To jest zamrożona, polska kopia warsztatu z `github-samples/copilot-workshops`, przygotowana specjalnie na to wydarzenie. Szczegóły w [NOTICE.md](https://github.com/pawelsiwek/gdn-dev-days-2026/blob/main/NOTICE.md).
+> To jest zamrożona, polska kopia warsztatu z `github-samples/copilot-workshops`, przygotowana specjalnie na to wydarzenie. Szczegóły w [NOTICE.md](https://github.com/pawel-siwek/gdn-dev-days-2026/blob/main/NOTICE.md).

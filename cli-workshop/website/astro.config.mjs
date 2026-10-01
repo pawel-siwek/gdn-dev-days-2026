@@ -16,7 +16,7 @@ const githubAdmonitionMapping = {
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://pawelsiwek.github.io',
+  site: 'https://pawel-siwek.github.io',
   base: '/gdn-dev-days-2026/cli-workshop',
   trailingSlash: 'always',
   markdown: {
@@ -39,12 +39,12 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: 'https://github.com/pawelsiwek/gdn-dev-days-2026',
+          href: 'https://github.com/pawel-siwek/gdn-dev-days-2026',
         },
       ],
       editLink: {
         baseUrl:
-          'https://github.com/pawelsiwek/gdn-dev-days-2026/edit/main/cli-workshop/docs/',
+          'https://github.com/pawel-siwek/gdn-dev-days-2026/edit/main/cli-workshop/docs/',
       },
       sidebar: [
         { label: 'Start', link: '/' },

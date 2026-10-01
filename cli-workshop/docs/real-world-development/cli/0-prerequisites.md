@@ -65,7 +65,7 @@ W następnym kroku [zainstalujesz GitHub Copilot CLI][next-lesson] w swoim codes
 - [Tworzenie repozytorium z szablonu][template-repository]
 - [Pierwsze kroki z Codespaces][codespaces-quickstart]
 
-[tailspin-template]: https://github.com/pawelsiwek/tailspin-toys
+[tailspin-template]: https://github.com/pawel-siwek/tailspin-toys
 [template-repository]: https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-template-repository
 [codespaces-quickstart]: https://docs.github.com/codespaces/getting-started/quickstart
 [next-lesson]: ../1-install-copilot-cli/

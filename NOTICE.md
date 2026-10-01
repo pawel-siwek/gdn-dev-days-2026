@@ -25,8 +25,8 @@ Powiązane repozytoria szablonowe, utrzymywane osobno, również wywodzą się z
 
 | Repozytorium | Źródło | Commit |
 |---|---|---|
-| `pawelsiwek/mona-mayhem-starter` | [copilot-dev-days/mona-mayhem](https://github.com/copilot-dev-days/mona-mayhem) | `d376143ca3e6c0b3c63980402deaf1c4ac0a1b19` |
-| `pawelsiwek/tailspin-toys` | [github-samples/tailspin-toys](https://github.com/github-samples/tailspin-toys) | `0b8cd7a7ba9f26b5b880ff773936860ec670ffcc` |
+| `pawel-siwek/mona-mayhem-starter` | [copilot-dev-days/mona-mayhem](https://github.com/copilot-dev-days/mona-mayhem) | `d376143ca3e6c0b3c63980402deaf1c4ac0a1b19` |
+| `pawel-siwek/tailspin-toys` | [github-samples/tailspin-toys](https://github.com/github-samples/tailspin-toys) | `0b8cd7a7ba9f26b5b880ff773936860ec670ffcc` |
 
 ## Dlaczego kopia, a nie link
 

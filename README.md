@@ -6,7 +6,7 @@ Polska, **zamrożona** wersja materiałów warsztatowych na GitHub Dev Days Gda�
 Prowadzą: Paweł Siwek · Pavel Agarkov · Izabela Betka
 Rejestracja: [luma.com/tjq6i6s5](https://luma.com/tjq6i6s5)
 
-📍 **Strona dla uczestników: https://pawelsiwek.github.io/gdn-dev-days-2026/**
+📍 **Strona dla uczestników: https://pawel-siwek.github.io/gdn-dev-days-2026/**
 
 ## Co tu jest
 
@@ -19,8 +19,8 @@ Rejestracja: [luma.com/tjq6i6s5](https://luma.com/tjq6i6s5)
 
 Repozytoria szablonowe, z których uczestnicy tworzą własne projekty:
 
-- [`pawelsiwek/mona-mayhem-starter`](https://github.com/pawelsiwek/mona-mayhem-starter) — szkielet gry
-- [`pawelsiwek/tailspin-toys`](https://github.com/pawelsiwek/tailspin-toys) — aplikacja + backlog 9 zgłoszeń po polsku
+- [`pawel-siwek/mona-mayhem-starter`](https://github.com/pawel-siwek/mona-mayhem-starter) — szkielet gry
+- [`pawel-siwek/tailspin-toys`](https://github.com/pawel-siwek/tailspin-toys) — aplikacja + backlog 9 zgłoszeń po polsku
 
 ## Dlaczego kopia, a nie linki do GitHuba
 

@@ -9,7 +9,7 @@ W tej części skonfigurujesz środowisko **i** nauczysz Copilota Twojego repozy
 
 ### Krok 1: Załóż własne repozytorium
 
-1. Otwórz [github.com/pawelsiwek/mona-mayhem-starter](https://github.com/pawelsiwek/mona-mayhem-starter)
+1. Otwórz [github.com/pawel-siwek/mona-mayhem-starter](https://github.com/pawel-siwek/mona-mayhem-starter)
 2. Utwórz własne repozytorium, klikając **Use this template** → **Create a new repository**
 3. Nazwij je `moj-mayhem` i ustaw widoczność na **Public**
 
