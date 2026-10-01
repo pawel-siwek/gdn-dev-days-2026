@@ -47,7 +47,9 @@ jobs:
           cp -R site/. _site/
           cp -R mona-mayhem/. _site/mona-mayhem/
           cp -R cli-workshop/website/dist/. _site/cli-workshop/
-          cp decks/*.pptx _site/decks/
+          # Publikujemy tylko wersję PL. Angielski oryginał zostaje w gicie
+          # jako punkt odniesienia, ale nie zajmuje 7,6 MB artefaktu Pages.
+          cp decks/copilot-CLI-pl.pptx _site/decks/
           touch _site/.nojekyll
 
       - name: Guard — brak odwołań do upstreamu w opublikowanej treści
