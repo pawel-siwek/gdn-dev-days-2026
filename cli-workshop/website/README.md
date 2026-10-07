@@ -1,6 +1,6 @@
 # Website (Astro + Starlight publisher)
 
-Optional publishing layer that renders the workshop content as a documentation site and deploys it to GitHub Pages at <https://github-samples.github.io/copilot-workshops/>.
+Optional publishing layer that renders the workshop content as a documentation site and is published (via `.github/workflows/deploy.yml` in the repo root) at <https://pawel-siwek.github.io/gdn-dev-days-2026/cli-workshop/>.
 
 The lessons themselves are plain Markdown in the repo-root [`../docs/`](../docs/) directory — browsable directly on github.com with no build required. This `website/` project is only needed if you want to self-host or preview the rendered pages site. For author-focused guidance, see [`../AUTHORING.md`](../AUTHORING.md).
 

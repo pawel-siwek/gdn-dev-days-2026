@@ -58,7 +58,7 @@ Publikacja: push na `main` → GitHub Actions → Pages.
 
 - [ ] Próba generalna: przejść Mona Mayhem od zera na czystym koncie, po polsku
 - [ ] Sprawdzić, że oba szablony tworzą poprawne repozytoria (`Use this template`)
-- [ ] Test odcięcia: `grep -rn 'copilot-dev-days\|github-samples\|gh\.io' .` — tylko trafienia z NOTICE.md i atrybucji
+- [x] Test odcięcia: `grep -rn 'copilot-dev-days\|github-samples\|gh\.io' .` — tylko trafienia z NOTICE.md i atrybucji (2026-10-07: pozostałe trafienia to świadome linki „czytaj dalej” do innych ścieżek upstreamu i organizacji copilot-dev-days)
 - [ ] Otagować `gdansk-2026` we wszystkich trzech repozytoriach
 
 ## Licencja
