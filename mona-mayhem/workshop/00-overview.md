@@ -7,7 +7,7 @@
 > **Poziom:** średnio zaawansowany  
 > **Stack:** Astro / Node.js / TypeScript
 
-Zbudujesz retro-arcade aplikację porównującą wykresy kontrybucji z GitHuba — **Mayhem w Stoczni** — i przy okazji przejdziesz przez pełne spektrum sposobów pracy z GitHub Copilotem. Warsztat ma **dwie ścieżki**: w VS Code i w GitHub Copilot CLI.
+Zbudujesz **Mayhem w Stoczni**, retro-arcade aplikację porównującą wykresy kontrybucji dwóch użytkowników GitHuba. Po drodze przećwiczysz różne sposoby pracy z Copilotem: od planowania, przez tryb agentowy, po pracę równoległą. Warsztat ma **dwie ścieżki**: w VS Code i w GitHub Copilot CLI.
 
 ---
 
@@ -16,7 +16,7 @@ Zbudujesz retro-arcade aplikację porównującą wykresy kontrybucji z GitHuba �
 - **Ścieżka VS Code** — zostajesz w edytorze i ćwiczysz Chat, tryb Plan, tryb agentowy, agentów w tle oraz wbudowaną pętlę review.
 - **Ścieżka CLI** — zostajesz w terminalu i ćwiczysz `copilot`, kontekst przez `@file`, `/plan`, autonomiczne edycje, `/fleet`, `/delegate` i `/review`.
 
-Na Dev Days Gdańsk idziemy **ścieżką CLI** — ale jeśli wolisz pracować w edytorze, przełącznik u góry strony przestawi całą instrukcję na VS Code.
+Na Dev Days Gdańsk idziemy **ścieżką CLI**. Jeśli wolisz pracować w edytorze, przełącznik u góry strony przestawi całą instrukcję na VS Code.
 
 ---
 
@@ -75,7 +75,7 @@ Zanim zaczniesz, sprawdź:
 
 ---
 
-## 📚 Części laboratorium
+## 📚 Części warsztatu
 
 | Część | Tytuł | Opis |
 |-------|-------|------|

@@ -3,7 +3,7 @@
 
 ---
 
-W tej części Copilot przestaje być planistą, a staje się wykonawcą. Zamiast pisać kod linijka po linijce, opisujesz czego chcesz, a Copilot przeprowadza pracę przez wszystkie pliki, które trzeba zmienić.
+W tej części Copilot z planisty staje się wykonawcą. Opisujesz, czego chcesz, a on zmienia wszystkie pliki, które trzeba.
 
 ## Zadanie 1: Podłącz pojedynek
 
@@ -70,15 +70,15 @@ Sesje Copilot CLI zachowują historię, więc każdy kolejny prompt buduje na po
 
 ## Wskazówki do tej części
 
-- **Mów konkretnie, czego chcesz** — jasne wymagania dają lepsze wyniki.
-- **Rozbijaj duże zadania na mniejsze prompty**, jeśli Copilot zaczyna odpływać.
-- **Przeglądaj zmiany przed akceptacją** — wygenerowany kod szybciej się sprawdza, niż potem przepisuje.
-- **Testuj aplikację od razu po każdym przebiegu implementacji**, żeby problemy zostawały lokalne.
+- **Mów konkretnie, czego chcesz.** Jasne wymagania dają lepsze wyniki.
+- **Rozbijaj duże zadania na mniejsze prompty**, jeśli Copilot zaczyna gubić wątek.
+- **Przeglądaj zmiany przed akceptacją.** Szybciej sprawdzić niż potem przepisywać.
+- **Testuj po każdej iteracji**, żeby od razu wiedzieć, która zmiana coś zepsuła.
 
 ## ✅ Część 3 zaliczona
 
 Nauczyłeś się:
 
-- Używać Copilota do **implementacji obejmującej wiele plików**
-- **Iterować na wynikach** za pomocą precyzyjnych promptów uzupełniających
-- Prowadzić **pełną pętlę funkcjonalności** — implementacja, review, testy i dopracowanie
+- Zlecać Copilotowi **zmiany w wielu plikach naraz**
+- **Poprawiać wynik** krótkimi promptami uzupełniającymi
+- Prowadzić **pełny cykl**: implementacja, przegląd, testy, poprawki

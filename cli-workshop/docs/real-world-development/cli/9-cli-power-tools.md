@@ -6,7 +6,7 @@ lastUpdated: 2026-09-30
 
 <!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-Jak każde porządne narzędzie CLI, GitHub Copilot CLI ma sporo komend slash do sterowania nim. Odsłaniają one zaawansowane funkcje, informacje o tym, co dzieje się pod spodem, i dodatkowe opcje konfiguracji. Używałeś już `/diff`, `/mcp`, `/skills`, `/agent` i `/pr`. Poznajmy kilka innych przydatnych.
+Używałeś już `/diff`, `/mcp`, `/skills`, `/agent` i `/pr`. Copilot CLI ma więcej komend slash, które warto znać.
 
 W tej lekcji:
 
@@ -15,13 +15,9 @@ W tej lekcji:
 - dowiesz się, jak `/share` eksportuje albo udostępnia sesję,
 - poznasz opcjonalne komendy do pracy równoległej, worktree i delegowania do agenta w chmurze.
 
-## Scenariusz
+## Kontekst rozmowy
 
-Główny przepływ pracy w CLI masz już za sobą. Przyjrzyjmy się kilku dodatkowym możliwościom — zarządzaniu kontekstem, przełączaniu modeli, udostępnianiu sesji i opcjonalnemu delegowaniu pracy do [agenta Copilota w chmurze][about-cloud-agent].
-
-## Poznaj kontekst w Copilot CLI
-
-Przy większych albo bardziej złożonych zadaniach możesz natrafić na limit okna kontekstu modelu. Copilot CLI automatycznie kompaktuje rozmowę, kiedy trzeba, ale możesz też sam podejrzeć albo skompaktować kontekst komendami slash.
+Przy dłuższej pracy możesz natrafić na limit okna kontekstu modelu. Copilot CLI kompaktuje rozmowę automatycznie, kiedy trzeba, ale możesz też sam ją podejrzeć i skompaktować.
 
 1. Wróć do codespace'a i uruchom Copilot CLI z katalogu głównego repozytorium, jeśli jeszcze nie działa.
 2. Wpisz:
@@ -40,11 +36,11 @@ Przy większych albo bardziej złożonych zadaniach możesz natrafić na limit o
 5. Wpisz `/context` ponownie i porównaj wynik. Jeśli rozmowa jest jeszcze krótka, różnica może nie być duża.
 
 > ℹ️ **Uwaga**  
-> Copilot CLI kompaktuje kontekst automatycznie, w miarę zapełniania się okna. Użyj `/compact`, kiedy chcesz sam wybrać moment. Użyj `/clear` albo `/new`, kiedy przechodzisz do niezwiązanego zadania i wolisz zacząć rozmowę od zera.
+> `/compact` przydaje się, kiedy chcesz sam wybrać moment. `/clear` albo `/new`, kiedy przechodzisz do innego zadania i wolisz zacząć od zera.
 
 ## Wybierz model
 
-Różne modele mają różne mocne strony, a różni programiści — różne preferencje. Copilot CLI pozwala wylistować i wybrać model, z którego chcesz korzystać.
+Różne modele mają różne mocne strony. Copilot CLI pozwala sprawdzić, które masz dostępne, i przełączać się między nimi.
 
 1. Wpisz:
 
@@ -57,7 +53,7 @@ Różne modele mają różne mocne strony, a różni programiści — różne pr
 
 ## Udostępnij sesję
 
-Wspólna praca i dzielenie się wnioskami pomagają całemu zespołowi lepiej korzystać z narzędzi AI. Komenda `/share` potrafi wyeksportować sesję do pliku Markdown albo HTML, utworzyć link do udostępnienia albo opublikować gista na GitHubie.
+Komenda `/share` eksportuje sesję do pliku Markdown albo HTML, tworzy link do udostępnienia albo publikuje gista na GitHubie. Przydaje się, kiedy chcesz pokazać zespołowi, jak coś zrobiłeś.
 
 1. Wpisz `/help` i przejrzyj opcje `/share` dostępne w Twojej wersji.
 2. Jeśli chcesz udostępnić tę sesję, wybierz pasujący cel — na przykład `/share file`, żeby wyeksportować lokalnie do Markdowna.
@@ -67,24 +63,17 @@ Publikowanie linku albo gista jest opcjonalne. Nie publikuj treści repozytorium
 
 ## Opcjonalnie: zrównoleglanie i delegowanie
 
-Główna część warsztatu jest zakończona. Copilot CLI udostępnia też komendy przydatne przy większych zadaniach:
+Przy większych zadaniach przydają się jeszcze trzy komendy:
 
-- `/fleet` potrafi rozdzielić niezależne podzadania między subagentów i uruchomić je równolegle.
-- `/worktree` potrafi utworzyć izolowane worktree Gita na osobne zadanie.
-- `/delegate` potrafi wysłać zadanie do agenta Copilota w chmurze, który pracuje asynchronicznie i może otworzyć pull requesta.
+- `/fleet` rozdziela niezależne podzadania między subagentów i uruchamia je równolegle.
+- `/worktree` tworzy osobne worktree Gita na odrębne zadanie.
+- `/delegate` wysyła zadanie do agenta Copilota w chmurze, który pracuje w tle i może otworzyć pull requesta.
 
-Te komendy są opcjonalne, bo potrafią tworzyć dodatkowe worktree albo pracę po stronie zdalnej. Zanim ich spróbujesz, zacznij świeże, dobrze zakreślone zadanie i przejrzyj wynik w swoim zwykłym procesie. Jeśli chcesz zgłębić asynchroniczną pracę agentów, przejdź do [warsztatu z agentem w chmurze][cloud-workshop] (po angielsku).
+Nie są częścią warsztatu, bo tworzą dodatkowe gałęzie albo pracę po stronie GitHuba. Jeśli chcesz je wypróbować, zacznij od małego, dobrze opisanego zadania. Więcej o pracy z agentem w chmurze znajdziesz w [osobnym warsztacie][cloud-workshop] (po angielsku).
 
 ## Podsumowanie i co dalej
 
-Komendy slash w Copilot CLI pozwalają go konfigurować, udostępniać sesje i zaglądać pod maskę. W tej lekcji:
-
-- użyłeś `/context` i `/compact`, żeby zobaczyć, jak Copilot zarządza kontekstem rozmowy,
-- użyłeś `/model`, żeby przejrzeć dostępne dla Ciebie modele,
-- dowiedziałeś się, jak `/share` eksportuje albo udostępnia sesję,
-- poznałeś opcjonalne komendy do pracy równoległej, worktree i delegowania do agenta w chmurze.
-
-Komend slash jest więcej i w Copilot CLI wciąż jest co odkrywać. Zamknijmy tę podróż [podsumowaniem tego, czego się nauczyliśmy][next-lesson], oraz pomysłami na dalszą naukę.
+Pełną listę komend zobaczysz zawsze przez `/help`. Na koniec [krótkie podsumowanie warsztatu][next-lesson] i kilka pomysłów, co dalej.
 
 ## Materiały
 

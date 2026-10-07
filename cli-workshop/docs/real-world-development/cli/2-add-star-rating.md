@@ -6,7 +6,7 @@ lastUpdated: 2026-09-30
 
 <!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-Copilot CLI jest już zainstalowany i przetestowany w rozmowie — czas na pierwszą zmianę w projekcie. Zaczniemy od czegoś drobnego: gry mają już w danych ocenę w gwiazdkach, ale karty gier na stronie głównej jeszcze jej nie pokazują. Poprosisz agenta, żeby ją wyświetlił, przejrzysz zmianę i zmergujesz ją jako swojego pierwszego pull requesta.
+Czas na pierwszą zmianę w projekcie. Zaczniesz od czegoś drobnego: gry mają już w danych ocenę w gwiazdkach, ale karty gier na stronie głównej jeszcze jej nie pokazują. Poprosisz agenta, żeby ją wyświetlił, przejrzysz zmianę i zmergujesz ją jako swojego pierwszego pull requesta.
 
 W tej lekcji:
 
@@ -18,17 +18,15 @@ W tej lekcji:
 
 ## Scenariusz
 
-Każda gra w Tailspin Toys może mieć ocenę w gwiazdkach i widać ją już na stronie szczegółów gry. Karty gier na stronie głównej pokazują natomiast tylko tytuł, kategorię, wydawcę i opis. Na rozgrzewkę zlecisz agentowi wyświetlenie istniejącej oceny na każdej karcie — to niewielka, samowystarczalna zmiana, idealna na pierwszą sesję.
+Ocena w gwiazdkach jest już widoczna na stronie szczegółów gry. Karty na stronie głównej pokazują tylko tytuł, kategorię, wydawcę i opis. Zlecisz agentowi dodanie oceny do każdej karty. To mała, zamknięta zmiana, w sam raz na rozgrzewkę.
 
-## Anatomia rozmowy
+## Czym jest rozmowa
 
-**Rozmowa** to miejsce, w którym pracujesz z Copilot CLI nad zadaniem. W odróżnieniu od aplikacji Copilot, zwykła rozmowa w CLI korzysta z repozytorium i gałęzi Gita aktualnie wybranych w Twoim terminalu, zamiast tworzyć dedykowane worktree. Zapisane rozmowy pozwalają wrócić do tej samej dyskusji później, a pliki i gałąź pozostają zwykłym stanem Gita na dysku.
+**Rozmowa** to sesja pracy z Copilot CLI nad jednym zadaniem. W odróżnieniu od aplikacji Copilot, CLI nie tworzy osobnego worktree, tylko pracuje na repozytorium i gałęzi aktualnie wybranych w terminalu. Rozmowy są zapisywane, więc możesz do nich wrócić później.
 
-Wewnątrz rozmowy zobaczysz trzy rzeczy: swoje prompty i odpowiedzi agenta, aktywność narzędzi, gdy agent przegląda i edytuje pliki, oraz zmiany, które możesz obejrzeć przez `/diff`.
+W rozmowie zobaczysz trzy rzeczy: swoje prompty i odpowiedzi agenta, aktywność narzędzi, gdy agent przegląda i edytuje pliki, oraz zmiany, które obejrzysz przez `/diff`.
 
 ## Rozpocznij rozmowę i zleć zmianę
-
-Zacznijmy nową rozmowę, żeby przystąpić do implementacji funkcjonalności.
 
 1. Wróć do swojego codespace'a.
 2. Jeśli terminal nie jest jeszcze otwarty, naciśnij <kbd>Ctrl</kbd>+<kbd>\`</kbd>.
@@ -45,11 +43,11 @@ Zacznijmy nową rozmowę, żeby przystąpić do implementacji funkcjonalności.
    Show each game's starRating out of 5 in the game cards on the list page. If the rating is null, show "No rating yet". Keep the card layout as it is, add tests, and run the relevant checks.
    ```
 
-Copilot przegląda projekt, odnajduje pliki odpowiedzialne za wyświetlanie szczegółów gry i tworzy potrzebny kod. Właśnie dodałeś nową funkcjonalność za pomocą Copilot CLI!
+Copilot przegląda projekt, znajduje pliki odpowiedzialne za karty gier i pisze potrzebny kod.
 
 ## Przejrzyj diff
 
-Każda zmiana wygenerowana przez AI zasługuje na przegląd przed mergem — nawet ta drobna. Obejrzyjmy ją od razu w Copilot CLI.
+Każdą zmianę wygenerowaną przez AI trzeba przejrzeć przed mergem, nawet tak drobną.
 
 1. Wpisz `/diff` i przejrzyj każdy zmieniony plik.
 2. Sprawdź, czy karta gry pokazuje liczbową ocenę, kiedy ta istnieje, oraz `No rating yet`, kiedy `starRating` ma wartość `null`.
@@ -62,7 +60,7 @@ Każda zmiana wygenerowana przez AI zasługuje na przegląd przed mergem — naw
 
 ## Sprawdź zmiany w działaniu
 
-Nie powinniśmy oczywiście poprzestać na przeczytaniu kodu i założeniu, że działa. Poprośmy Copilota o uruchomienie strony, żeby obejrzeć zaktualizowany interfejs w przeglądarce przekierowanej przez Codespaces.
+Przeczytanie kodu to za mało. Poproś Copilota o uruchomienie strony i obejrzyj zmianę w przeglądarce.
 
 1. Poproś Copilota o uruchomienie aplikacji:
 
@@ -80,7 +78,7 @@ Nie powinniśmy oczywiście poprzestać na przeczytaniu kodu i założeniu, że 
 
 ## Otwórz i zmerguj swojego pierwszego pull requesta
 
-Funkcjonalność gotowa! Czas utworzyć pull requesta (PR), żeby wlać nowy kod do projektu.
+Zmiana działa, czas na pull requesta (PR).
 
 1. Poproś domyślnego agenta o zacommitowanie zmiany:
 
@@ -102,15 +100,7 @@ Funkcjonalność gotowa! Czas utworzyć pull requesta (PR), żeby wlać nowy kod
 
 ## Podsumowanie i co dalej
 
-Gratulacje! Dowiozłeś swoją pierwszą zmianę przy pomocy GitHub Copilot CLI. Konkretnie:
-
-- rozpocząłeś osobną rozmowę z Copilotem na gałęzi funkcjonalności,
-- zleciłeś agentowi drobną zmianę na kartach gier,
-- przejrzałeś zmianę przez `/diff`,
-- uruchomiłeś aplikację i potwierdziłeś ocenę w gwiazdkach w przekierowanej przeglądarce,
-- otworzyłeś i zmergowałeś swojego pierwszego pull requesta.
-
-W następnym kroku [wyjdziesz od zgłoszenia o filtrowaniu i użyjesz trybów Plan oraz Autopilot][next-lesson], żeby zbudować większą funkcjonalność.
+Pierwsza zmiana zrobiona z Copilot CLI jest już w `main`: zlecona agentowi, przejrzana przez `/diff`, sprawdzona w przeglądarce i zmergowana przez pull requesta. W następnym kroku [wyjdziesz od zgłoszenia o filtrowaniu i użyjesz trybów Plan oraz Autopilot][next-lesson], żeby zbudować większą funkcjonalność.
 
 ## Materiały
 

@@ -6,7 +6,7 @@ lastUpdated: 2026-09-30
 
 <!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-Użyłeś już skilla `quality-checks` do uruchomienia automatycznych kontroli i Playwright MCP do obejrzenia filtrowania w przeglądarce. Teraz połączysz te możliwości w jednym własnym agencie z jasno zdefiniowanym procesem QA.
+Masz już skill `quality-checks` do automatycznych kontroli i Playwright MCP do sprawdzania strony w przeglądarce. Teraz połączysz je w jednym własnym agencie z jasno zdefiniowanym procesem QA.
 
 W tej lekcji:
 
@@ -16,17 +16,17 @@ W tej lekcji:
 
 ## Scenariusz
 
-Tailspin Toys chce mieć spójny przegląd wymagań, jakości kodu, automatycznych kontroli, pokrycia testami i zachowania w przeglądarce — jeszcze przed otwarciem pull requesta (PR). Własny agent może skoordynować ten proces QA i dostarczyć powtarzalny raport.
+Zespół Tailspin Toys chce przed każdym pull requestem (PR) dostawać ten sam, powtarzalny przegląd: wymagania, jakość kodu, wyniki kontroli, pokrycie testami i zachowanie w przeglądarce. Własny agent może ten przegląd poprowadzić.
 
 ## Czym jest własny agent?
 
-Własny agent to wyspecjalizowana wersja Copilota zdefiniowana w profilu w Markdownie. Profil opisuje przeznaczenie agenta, jego instrukcje i dostępne narzędzia. Na potrzeby warsztatu zdefiniujesz rolę QA w `.github/agents/qa.agent.md` i wybierzesz ją w Copilot CLI.
+Własny agent to wyspecjalizowana wersja Copilota opisana w pliku Markdown: po co jest, jak ma działać i z jakich narzędzi korzystać. Zdefiniujesz rolę QA w `.github/agents/qa.agent.md` i wybierzesz ją w Copilot CLI.
 
-Dostosowania, z których korzystałeś, mają różne zadania. Instrukcje repozytorium opisują standardy zespołu. Skill `quality-checks` pakuje powtarzalne kontrole. Playwright MCP dostarcza narzędzia przeglądarkowe. Profil QA mówi Copilotowi, jak użyć tych możliwości do oceny wymagań i zaraportowania ustaleń. Nie zastępuje ich ani nie wymaga osobnej rozmowy.
+Każde z dostosowań, których używałeś, robi co innego. Instrukcje repozytorium opisują standardy zespołu. Skill `quality-checks` pakuje powtarzalne kontrole. Playwright MCP daje dostęp do przeglądarki. Profil QA mówi Copilotowi, jak użyć tego wszystkiego do oceny wymagań i zaraportowania wyników.
 
 ## Utwórz profil QA
 
-Zanim otworzysz pull requesta z funkcjonalnością, poprosisz Copilota o stworzenie profilu QA wielokrotnego użytku. Profil zdefiniuje zarówno kontrole wykonywane przez QA, jak i granice, których agent musi przestrzegać.
+Profil zdefiniuje zarówno kontrole, które QA ma wykonać, jak i granice, których nie może przekroczyć.
 
 1. Wróć do swojego codespace'a i upewnij się, że rozmowa o filtrowaniu jest w trybie Interactive.
 2. Poproś domyślnego agenta o utworzenie nowego agenta:
@@ -41,7 +41,7 @@ Zanim otworzysz pull requesta z funkcjonalnością, poprosisz Copilota o stworze
 
 ## Przejrzyj profil
 
-Zanim użyjesz nowego agenta, przejrzyj jego profil i potwierdź, że Copilot uchwycił zamierzony proces QA oraz jego granice. Zapobiegnie to sytuacji, w której niekompletny albo zbyt szeroko zdefiniowany agent zacznie zmieniać funkcjonalność, którą chciałeś tylko zweryfikować.
+Zanim użyjesz nowego agenta, sprawdź, czy Copilot dobrze zrozumiał proces QA i jego granice. Zbyt szeroko zdefiniowany agent mógłby zacząć zmieniać kod, który miał tylko sprawdzić.
 
 1. Wpisz `/diff` i otwórz `.github/agents/qa.agent.md`.
 2. Przeczytaj frontmatter. Pole `description` jest wymagane; `name` jest opcjonalne, ale dodanie go daje agentowi czytelną nazwę wyświetlaną.
@@ -51,7 +51,7 @@ Zanim użyjesz nowego agenta, przejrzyj jego profil i potwierdź, że Copilot uc
 
 ## Uruchom QA na zgłoszeniu
 
-Copilot CLI ładuje agentów projektu przy starcie rozmowy. Wznów tę samą rozmowę o filtrowaniu po utworzeniu profilu, a potem wybierz QA, żeby mógł skorzystać ze zgłoszenia i decyzji projektowych, które są już w kontekście.
+Copilot CLI ładuje agentów projektu przy starcie rozmowy. Wznów rozmowę o filtrowaniu (`copilot --resume`) i wybierz QA. Agent skorzysta ze zgłoszenia i decyzji z planu, które są już w kontekście.
 
 1. Włącz agenta tym poleceniem:
 
@@ -60,7 +60,7 @@ Copilot CLI ładuje agentów projektu przy starcie rozmowy. Wznów tę samą roz
    ```
 
    > ℹ️ **Uwaga**  
-   > Ponieważ agent został dopiero co utworzony, może nie pojawiać się jeszcze na liście dostępnych agentów. Jest tam — powyższa komenda go aktywuje.
+   > Świeżo utworzony agent może jeszcze nie być widoczny na liście w `/agent`. Komenda z nazwą i tak go aktywuje.
 
 2. Poproś agenta QA o przegląd funkcjonalności:
 
@@ -68,18 +68,11 @@ Copilot CLI ładuje agentów projektu przy starcie rozmowy. Wznów tę samą roz
    Review the filtering feature against the issue and the decisions in our plan. Is it ready for a PR?
    ```
 
-3. Agent QA bierze się do pracy.
-4. Kiedy skończy, przeczytaj raport, który przygotował.
+3. Kiedy agent skończy, przeczytaj raport.
 
 ## Podsumowanie i co dalej
 
-Dodałeś do procesu wyspecjalizowaną rolę wielokrotnego użytku i przejrzałeś jej pracę. W tej lekcji:
-
-- zobaczyłeś, jak własny agent współpracuje z instrukcjami, skillami i narzędziami MCP,
-- stworzyłeś i przejrzałeś profil kontroli jakości wielokrotnego użytku,
-- wybrałeś agenta QA i przeanalizowałeś jego ustalenia w odniesieniu do zgłoszenia o filtrowaniu.
-
-Masz teraz gotowe do przeglądu: implementację, zmianę w skillu, profil QA, testy i raport weryfikacyjny. W następnym kroku [złożysz to w pull requesta i użyjesz Agent Merge][next-lesson].
+Masz agenta QA, który zostaje w repozytorium na kolejne zmiany, i jego raport z przeglądu filtrowania. Na gałęzi czekają: implementacja, zmiana w skillu, profil QA i testy. W następnym kroku [złożysz to w pull requesta i użyjesz Agent Merge][next-lesson].
 
 ## Materiały
 

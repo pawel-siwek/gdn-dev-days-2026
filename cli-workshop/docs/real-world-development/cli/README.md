@@ -7,9 +7,9 @@ lastUpdated: 2026-09-30
 
 <!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-**[GitHub Copilot CLI][about-copilot-cli]** wstawia GitHub Copilota do Twojego terminala jako agentowego asystenta programowania. Przegląda repozytoria, generuje kod, uruchamia komendy i łączy się z zewnętrznymi narzędziami — a wszystko z linii poleceń, więc nie musisz przełączać się do graficznego edytora.
+**[GitHub Copilot CLI][about-copilot-cli]** to GitHub Copilot w terminalu. Przegląda repozytorium, generuje kod, uruchamia komendy i łączy się z zewnętrznymi narzędziami, bez przełączania się do edytora.
 
-Warsztat prowadzi przez jeden ciągły przepływ pracy na projekcie Tailspin Toys:
+Warsztat to jeden ciąg zadań na projekcie Tailspin Toys:
 
 1. Przygotujesz projekt w GitHub Codespaces, zainstalujesz Copilot CLI i zorientujesz się w terenie.
 2. Wprowadzisz niewielką zmianę z ocenami w gwiazdkach, obejrzysz ją w przeglądarce i ręcznie zmergujesz swojego pierwszego pull requesta (PR).
@@ -21,7 +21,7 @@ Warsztat prowadzi przez jeden ciągły przepływ pracy na projekcie Tailspin Toy
 8. Przejrzysz całą zmianę z filtrowaniem i użyjesz Agent Merge do jej pull requesta.
 9. Poznasz przydatne komendy slash do kontekstu, modeli, udostępniania i opcjonalnego delegowania do chmury.
 
-Żeby warsztat pozostał zwarty, utworzysz dwa PR-y: oceny w gwiazdkach, a potem filtrowanie wraz z aktualizacją instrukcji, zmianą skilla, profilem QA i testami. Praca nad filtrowaniem i jakością toczy się w jednej rozmowie i na jednej gałęzi, więc każde kolejne narzędzie buduje na tym, co już zrobiłeś.
+Po drodze otworzysz dwa pull requesty. Pierwszy, mały, z ocenami w gwiazdkach. Drugi z filtrowaniem i wszystkim, co wokół niego powstanie: zmianą instrukcji, skilla, profilem QA i testami. Nad filtrowaniem pracujesz cały czas w jednej rozmowie i na jednej gałęzi, więc każda kolejna lekcja korzysta z tego, co zrobiłeś w poprzedniej.
 
 ## Lekcje
 
@@ -37,7 +37,7 @@ Warsztat prowadzi przez jeden ciągły przepływ pracy na projekcie Tailspin Toy
 | [7. Własny agent QA][ex7] | Wymagania i pokrycie | Utworzenie i wybór profilu specjalisty, zebranie końcowych dowodów weryfikacji |
 | [8. Pull request z funkcjonalnością][ex8] | Review i merge | Przegląd całej zmiany, utworzenie PR-a i użycie Agent Merge |
 | [9. Komendy slash w GitHub Copilot CLI][ex9] | Możliwości CLI | Kontekst, modele, udostępnianie i opcjonalne delegowanie do agenta w chmurze |
-| [10. Podsumowanie i co dalej][ex10] | Podsumowanie | Przegląd przepływu pracy, wielokrotnego użytku dostosowań i dalszych materiałów |
+| [10. Podsumowanie i co dalej][ex10] | Podsumowanie | Co zrobiłeś, co zostaje w repozytorium na później i gdzie szukać dalej |
 
 ## Wymagania wstępne
 

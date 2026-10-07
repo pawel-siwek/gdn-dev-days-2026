@@ -3,14 +3,14 @@
 
 ---
 
-Masz w pełni działającą aplikację do pojedynków na wykresy kontrybucji! Czas pociągnąć temat dalej — **otwartymi wyzwaniami**.
+Aplikacja działa. Jeśli został Ci czas, poniżej kilka pomysłów na rozwinięcie jej dalej. Kolejność dowolna.
 
 <!-- track:vscode:start -->
 Do wszystkich poniższych użyj **trybu Agent** — opisz, czego chcesz, i pozwól Copilotowi to zbudować.
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
-Do wszystkich poniższych użyj Copilot CLI — mieszaj kontekst przez `@file`, `/plan`, tryb zwykły i `/review`, według potrzeb.
+Używaj Copilot CLI tak, jak do tej pory: `@plik` do kontekstu, `/plan` przy większych zmianach, `/review` na koniec.
 <!-- track:cli:end -->
 
 ---
@@ -125,16 +125,14 @@ Pozwól użytkownikom udostępnić wynik pojedynku jednym kliknięciem.
 <!-- track:cli:start -->
 ## 💻 Dodatki dla CLI
 
-Jeśli po głównej części warsztatu chcesz poznać więcej możliwości Copilot CLI:
+Kilka komend Copilot CLI, których na warsztacie nie było:
 
 - Użyj `copilot -p "Write a conventional commit message for the current git diff"`, żeby dostać jednorazową odpowiedź, którą wkleisz do Gita.
 - Uruchom `/share file`, żeby zapisać sesję jako Markdown na później.
 - Użyj `/session` i `/session plan`, żeby zobaczyć, jak CLI śledzi Twoją bieżącą pracę.
 <!-- track:cli:end -->
 
-## 🎊 Gratulacje!
-
-Ukończyłeś warsztat **Mayhem w Stoczni**! Oto, co udało Ci się zrobić:
+## 🎊 Podsumowanie
 
 ### Co zbudowałeś
 
@@ -165,8 +163,8 @@ Ukończyłeś warsztat **Mayhem w Stoczni**! Oto, co udało Ci się zrobić:
 
 ---
 
-## 🙏 Dzięki!
+## 🙏 Dzięki za udział
 
-Dzięki za udział w warsztacie! Zobaczyłeś na własne oczy, jak GitHub Copilot potrafi przyspieszyć każdą fazę pracy — od planowania i designu po implementację i wykończenie. Techniki, które tu przećwiczyłeś, działają w dowolnym projekcie, dowolnym frameworku i dowolnej skali. Teraz idź zbudować coś świetnego! 🚀
+Wszystko, co tu przećwiczyłeś, działa tak samo w Twoich własnych projektach, niezależnie od frameworka i skali. Powodzenia!
 
 *GitHub Dev Days Gdańsk · 28.10.2026 · Capgemini, Olivia Six*

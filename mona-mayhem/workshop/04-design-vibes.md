@@ -5,7 +5,7 @@
 
 ---
 
-W tej części użyjesz pętli planowania i implementacji Copilota, żeby zaprojektować kompletną przebudowę wizualną. To jest **design-first development** — zaczynasz od wizji, iterujesz na warstwie graficznej, a ciężką robotę w CSS zostawiasz Copilotowi.
+W tej części zaprojektujesz i wdrożysz kompletną przebudowę wizualną, tą samą pętlą planu i implementacji. Zaczynasz od wizji, iterujesz na tym, co widzisz w przeglądarce, a robotę w CSS zostawiasz Copilotowi.
 
 Na Dev Days Gdańsk nie budujemy generycznego automatu z salonu gier. Budujemy **noc nad gdańską stocznią**: zielone żurawie portowe na tle ciemnego nieba, bursztynowy dach Żurawia, ceglany gotyk Głównego Miasta i skrzynie na nabrzeżu — wszystko w pixel arcie 8/16-bit.
 
@@ -45,7 +45,7 @@ Wpisz ten prompt:
 >
 > Use the "Press Start 2P" pixel font from Google Fonts for headings and JetBrains Mono for body text. Keep all animation subtle enough that the contribution data stays readable.
 
-Copilot wygeneruje szczegółowy plan implementacji obejmujący wszystkie efekty. **Nie akceptuj go od razu** — przejrzyj i iteruj:
+Copilot wygeneruje szczegółowy plan. **Nie akceptuj go od razu**, przejrzyj i popraw:
 
 - Zaproponuj korekty czasów animacji (np. *„Spowolnij wahanie kontenera do jakichś 4 sekund"*)
 - Dopytaj o konkretne efekty (np. *„Jak dokładnie zadziała podnoszenie skrzyni przy hover?"*)
@@ -84,11 +84,11 @@ Trzymaj podgląd w przeglądarce otwarty i iteruj na designie. Wypróbuj prompty
 
 > Make the crates cast a short pixel shadow on the quay
 
-To jest właśnie **design-first development** — iterujesz na wyniku wizualnym w czasie rzeczywistym. Każdy prompt dociąga doświadczenie bliżej celu. Nie zadowalaj się „wystarczająco dobrze" — dociśnij, aż strona będzie wyglądać jak kadr z gry o gdańskiej stoczni.
+Każdy prompt przybliża stronę do celu. Nie zadowalaj się „wystarczająco dobrze", dociśnij, aż będzie wyglądać jak kadr z gry o gdańskiej stoczni.
 
 ## Zadanie 4: Zaktualizuj instrukcje
 
-Twoje instrukcje powinny odzwierciedlać najważniejsze decyzje projektowe, żeby kolejne prompty trzymały linię.
+Zapisz najważniejsze decyzje projektowe w instrukcjach, żeby kolejne prompty trzymały się tego samego stylu.
 
 <!-- track:vscode:start -->
 Poproś Copilot Chat:
@@ -108,6 +108,6 @@ Zacommituj zaktualizowane instrukcje i zmiany w designie, kiedy strona będzie j
 
 **Czego się nauczyłeś:**
 
-- Używać planowania do naszkicowania **systemu designu przed implementacją**
-- **Iterować na wyniku wizualnym** szybkimi promptami uzupełniającymi
-- **Aktualizować instrukcje po istotnych decyzjach**, żeby Copilot trzymał spójną tożsamość wizualną
+- **Projektować w trybie Plan**, zanim powstanie CSS
+- **Iterować na tym, co widać**, krótkimi promptami
+- **Zapisywać decyzje w instrukcjach**, żeby Copilot trzymał spójny styl
