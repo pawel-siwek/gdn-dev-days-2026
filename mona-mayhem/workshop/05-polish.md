@@ -3,7 +3,7 @@
 
 ---
 
-Aplikacja już działa i dobrze wygląda — czas na wykończenie. Ta część jest o rozbijaniu pracy tak, żeby poprawić responsywność, obsługę błędów i jakość bez przepychania wszystkiego przez jedną, szeregową pętlę.
+Aplikacja działa i dobrze wygląda, czas na wykończenie. W tej części rozbijesz pracę nad responsywnością, obsługą błędów i jakością na kilka równoległych zadań, zamiast robić wszystko po kolei.
 
 <!-- track:vscode:start -->
 ## Zadanie 1: Agent w tle do responsywności
@@ -87,7 +87,7 @@ Zanim domkniesz pracę, poproś Copilot CLI o przebieg recenzyjny:
 /review Focus on potential bugs, accessibility issues, and UX regressions in the current branch.
 ```
 
-Przejrzyj znaleziska, popraw to, z czym się zgadzasz, a potem uruchom `/diff` jeszcze raz, żeby mieć jasność, co się zmieniło.
+Przejrzyj uwagi, popraw to, z czym się zgadzasz, i sprawdź przez `/diff`, co się zmieniło.
 
 ## Zadanie 4: Sprawdź całość
 <!-- track:cli:end -->
@@ -119,6 +119,6 @@ Kiedy wszystko wygląda dobrze, zacommituj działający kod.
 
 **Czego się nauczyłeś:**
 
-- Rozbijać wykańczanie na **mniejsze, równoległe zadania**
-- Przeglądać wygenerowane zmiany przed wlaniem ich do głównej gałęzi
-- Używać Copilota do **przebiegów jakościowych i opcjonalnych eksploracji**, nie tylko do implementacji
+- Rozbijać wykończenie na **mniejsze, równoległe zadania**
+- Przeglądać wygenerowane zmiany, zanim trafią do głównej gałęzi
+- Używać Copilota do **review i eksperymentów**, nie tylko do pisania kodu

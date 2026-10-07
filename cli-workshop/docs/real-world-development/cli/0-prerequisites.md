@@ -6,7 +6,7 @@ lastUpdated: 2026-09-30
 
 <!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-Zanim zaczniesz lekcje z Copilot CLI, musisz wszystko przygotować. Utworzysz własną kopię repozytorium Tailspin Toys i postawisz [codespace][codespaces], z którego wbudowanego terminala skorzystasz w kolejnej lekcji, żeby zainstalować i uruchomić Copilot CLI.
+Zanim zaczniesz lekcje z Copilot CLI, przygotujesz sobie środowisko: utworzysz własną kopię repozytorium Tailspin Toys i postawisz [codespace][codespaces]. W jego terminalu zainstalujesz i uruchomisz Copilot CLI w następnej lekcji.
 
 W tej lekcji:
 
@@ -15,7 +15,7 @@ W tej lekcji:
 
 ## Przygotuj repozytorium warsztatowe
 
-Będziesz pracować na własnej kopii projektu Tailspin Toys. Utwórz ją teraz z [repozytorium szablonowego][tailspin-template]. Nowe repozytorium zawiera wszystkie pliki potrzebne na warsztacie.
+Będziesz pracować na własnej kopii projektu Tailspin Toys. Utwórz ją teraz z [repozytorium szablonowego][tailspin-template].
 
 1. W nowym oknie przeglądarki otwórz [szablon Tailspin Toys][tailspin-template].
 2. Utwórz własną kopię repozytorium: wybierz **Use this template**, a następnie **Create a new repository**.
@@ -23,12 +23,9 @@ Będziesz pracować na własnej kopii projektu Tailspin Toys. Utwórz ją teraz 
 4. Zanotuj ścieżkę utworzonego repozytorium (`nazwa-organizacji-lub-użytkownika/nazwa-repozytorium`) — będziesz się do niej odwoływać w dalszej części warsztatu.
 
 > ℹ️ **Uwaga**  
-> Kiedy tworzysz repozytorium z szablonu, backlog zgłoszeń na GitHubie powstaje automatycznie. Będziesz z nich korzystać przez cały warsztat — nie musisz sam niczego zakładać.
+> Po utworzeniu repozytorium z szablonu backlog zgłoszeń powstaje automatycznie, po chwili pojawi się w zakładce **Issues**. Będziesz z niego korzystać przez cały warsztat, nie musisz niczego zakładać.
 
-> ❗ **Ważne**  
-> To jest **zamrożona kopia** szablonu przygotowana na GitHub Dev Days Gdańsk 2026, z backlogiem po polsku. Dzięki temu wszyscy uczestnicy startują z identycznego kodu i tych samych zgłoszeń.
-
-Używaj świeżej kopii szablonu. Zawiera instrukcje repozytorium, kod aplikacji, testy, skill `quality-checks` i backlog, z którego będziesz korzystać.
+Nowe repozytorium zawiera wszystko, czego potrzebujesz: instrukcje repozytorium, kod aplikacji, testy, skill `quality-checks` i backlog.
 
 ## Utwórz codespace
 
@@ -52,12 +49,7 @@ Warsztat wykonasz w codespace.
 
 ## Podsumowanie i co dalej
 
-Gotowe! W tej lekcji:
-
-- utworzyłeś własną kopię projektu Tailspin Toys z szablonu,
-- utworzyłeś codespace i potwierdziłeś, że projekt działa.
-
-W następnym kroku [zainstalujesz GitHub Copilot CLI][next-lesson] w swoim codespace i zalogujesz się na swoje konto GitHub.
+Masz własną kopię Tailspin Toys i działający codespace. W następnym kroku [zainstalujesz GitHub Copilot CLI][next-lesson] w swoim codespace i zalogujesz się na swoje konto GitHub.
 
 ## Materiały
 

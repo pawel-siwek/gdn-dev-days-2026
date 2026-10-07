@@ -6,10 +6,10 @@ lastUpdated: 2026-09-30
 
 <!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-Zaczęliśmy od dodania do projektu niewielkiej funkcjonalności. Większe zmiany wymagają jednak solidniejszego procesu. Na szczęście GitHub Copilot CLI jest zbudowany tak, żeby wpasować się w istniejący proces organizacji — dzięki temu budujemy właściwe rzeczy we właściwy sposób. To pierwsza z kilku lekcji, w których przejdziesz przez typowy, agentowy proces wytwórczy: od zgłoszenia, przez wygenerowanie funkcjonalności, sprawdzenie poprawności kodu i jego zachowania, aż po udany merge do projektu.
+Pierwsza zmiana była mała. Przy większych potrzebny jest porządniejszy proces, w który Copilot CLI ma się wpasować, a nie go zastąpić. To pierwsza z kilku lekcji, w których przejdziesz całą drogę: od zgłoszenia, przez wygenerowanie kodu i sprawdzenie, czy działa, aż po merge.
 
 > ℹ️ **Uwaga**  
-> Przez cały ten przepływ pracy będziesz korzystać z tej samej rozmowy i tej samej gałęzi. Normalnie różne rodzaje plików trafiałyby na osobne gałęzie albo do osobnych PR-ów, ale tu idziemy na skróty, żeby skupić się na kluczowych pojęciach.
+> Od tej lekcji aż do pull requesta pracujesz w jednej rozmowie i na jednej gałęzi. Normalnie różne rodzaje zmian trafiałyby do osobnych PR-ów, ale tu idziemy na skróty, żeby skupić się na narzędziach.
 
 W tej lekcji:
 
@@ -19,15 +19,15 @@ W tej lekcji:
 - przejrzysz kod,
 - ręcznie sprawdzisz funkcjonalność w przekierowanej przeglądarce.
 
-W kolejnych lekcjach, kontynuując tę samą funkcjonalność, zaktualizujesz instrukcje repozytorium, dostosujesz istniejący skill `quality-checks`, dodasz weryfikację przez MCP, stworzysz agenta QA i otworzysz pull requesta.
+W kolejnych lekcjach, na tej samej funkcjonalności, zaktualizujesz instrukcje repozytorium, dostosujesz skill `quality-checks`, dodasz weryfikację przez MCP, stworzysz agenta QA i otworzysz pull requesta.
 
 ## Scenariusz
 
-Katalog Tailspin Toys rośnie, a odwiedzający potrzebują możliwości zawężenia listy gier po kategorii i wydawcy. Zgłoszenie w backlogu opisuje tę funkcjonalność, ale szczegóły — takie jak łączenie kategorii — wymagają ustaleń przed kodowaniem. Użyjesz trybu Plan, żeby te decyzje podjąć, a potem autoryzujesz ograniczoną implementację w Autopilocie.
+Katalog Tailspin Toys rośnie i odwiedzający chcą zawężać listę gier po kategorii i wydawcy. Zgłoszenie w backlogu opisuje tę funkcjonalność, ale szczegóły, na przykład łączenie kategorii, trzeba ustalić przed kodowaniem. Zrobisz to w trybie Plan, a implementację zlecisz Autopilotowi.
 
 ## Kontekst
 
-Wprowadzenie agentów AI do procesu wytwórczego nie zmienia podstaw. Wręcz przeciwnie — one stają się jeszcze ważniejsze. Większość programistów pracuje w procesie zbliżonym do tego:
+Agenci AI nie zmieniają podstaw procesu, raczej czynią go ważniejszym. Większość zespołów pracuje mniej więcej tak:
 
 1. Wyjście od zgłoszenia opisującego, co trzeba zrobić.
 2. Stworzenie planu tego, co trzeba zbudować.
@@ -37,10 +37,7 @@ Wprowadzenie agentów AI do procesu wytwórczego nie zmienia podstaw. Wręcz prz
 6. Utworzenie pull requesta (PR).
 7. Merge po przejściu code review i procesu ciągłej integracji.
 
-> ℹ️ **Uwaga**  
-> W zależności od zespołu i organizacji szczegóły będą się różnić. Ale większość procesów to wariacja na powyższy temat.
-
-Trzymając się tego standardowego podejścia, masz pewność, że kod wygenerowany przez AI spełnia postawione wymagania i przechodzi przez dokładnie ten sam proces weryfikacji, co kod pisany ręcznie.
+Szczegóły różnią się między zespołami, ale schemat jest ten sam. Jeśli się go trzymasz, kod wygenerowany przez AI przechodzi tę samą weryfikację, co kod pisany ręcznie.
 
 ## Tryby rozmowy
 
@@ -82,7 +79,7 @@ Zwróć uwagę, że prompt zaczyna się teraz od `#7` (albo podobnego numeru). Z
 
 ## Zaplanuj filtrowanie
 
-Planowanie daje Ci szansę ustalić podejście do implementacji, zanim oddasz robotę Copilotowi. Przy czymkolwiek złożonym zawsze warto poświęcić chwilę na plan. Przełączmy się więc w tryb Plan i poprośmy Copilota o jego przygotowanie.
+Plan pozwala ustalić podejście, zanim oddasz robotę Copilotowi. Przy czymkolwiek bardziej złożonym warto na to poświęcić chwilę.
 
 1. Naciśnij <kbd>Shift</kbd>+<kbd>Tab</kbd>, żeby przełączyć się w tryb Plan. Sprawdź, czy wskaźnik trybu pod promptem pokazuje **Plan**.
 2. Za odwołaniem do zgłoszenia dodanym w poprzednim kroku wpisz ten prompt:
@@ -91,18 +88,16 @@ Planowanie daje Ci szansę ustalić podejście do implementacji, zanim oddasz ro
    Create a plan for implementing this feature.
    ```
 
-   Copilot bierze się za budowanie planu. Zacznie od przejrzenia projektu, a potem ustali najlepsze podejście.
+   Copilot najpierw przejrzy projekt, a potem zaproponuje podejście.
 
-3. Po drodze Copilot może zadawać pytania o to, jak filtrowanie ma działać. Odpowiadaj zgodnie ze swoimi preferencjami — nie ma tu złych odpowiedzi.
+3. Po drodze Copilot może dopytywać, jak filtrowanie ma działać. Odpowiadaj, jak uważasz, nie ma tu złych odpowiedzi.
 4. Kiedy plan będzie gotowy, naciśnij <kbd>Control</kbd>+<kbd>E</kbd> (Mac) albo <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux), żeby go rozwinąć.
 5. Przewiń plan w górę i w dół, żeby go przejrzeć.
 6. Poproś Copilota o poprawienie każdego fragmentu planu, który nie zgadza się z Twoimi decyzjami.
 
 ## Zatwierdź Autopilota
 
-Plan napisany i przejrzany — czas go wdrożyć. Pozwólmy Copilotowi działać w trybie Autopilot.
-
-Autopilot pozwoli Copilotowi iterować nad problemem, dopóki nie uzna go za rozwiązany.
+Plan jest gotowy, czas go wdrożyć. W trybie Autopilot Copilot pracuje nad zadaniem samodzielnie, dopóki nie uzna go za skończone.
 
 1. Wybierz **Accept plan and build on autopilot (recommended)** albo podobnie nazwaną opcję w Twojej wersji.
 2. Sprawdź, czy wskaźnik trybu pod promptem pokazuje **Autopilot**.
@@ -113,7 +108,7 @@ Autopilot pozwoli Copilotowi iterować nad problemem, dopóki nie uzna go za roz
 
 ## Przejrzyj i zweryfikuj implementację
 
-Wygenerowany kod trzeba przejrzeć przed mergem, tak samo jak każdy inny. Zróbmy jedno i drugie: przegląd kodu i uruchomienie strony, żeby sprawdzić, czy wszystko wygląda dobrze.
+Wygenerowany kod trzeba przejrzeć przed mergem, tak samo jak każdy inny. Najpierw kod, potem działająca strona.
 
 1. Naciśnij <kbd>Shift</kbd>+<kbd>Tab</kbd>, żeby wejść w tryb Interactive. Sprawdź, czy wskaźnik trybu nie pokazuje już **Plan** ani **Autopilot**.
 2. Wpisz `/diff` i przyjrzyj się implementacji filtrowania oraz testom.
@@ -123,7 +118,7 @@ Wygenerowany kod trzeba przejrzeć przed mergem, tak samo jak każdy inny. Zrób
 
 ## Sprawdź nową funkcjonalność
 
-Kod wygląda dobrze — ale czy działa? Uruchommy aplikację tak jak poprzednio i otwórzmy stronę przez port przekierowany przez Codespaces.
+Kod wygląda dobrze, ale czy działa? Uruchom aplikację tak jak poprzednio.
 
 1. Poproś Copilota o uruchomienie aplikacji:
 
@@ -138,15 +133,7 @@ Kod wygląda dobrze — ale czy działa? Uruchommy aplikację tak jak poprzednio
 
 ## Podsumowanie i co dalej
 
-Wykorzystałeś różne tryby rozmowy do zbudowania i przejrzenia funkcjonalności. W tej lekcji:
-
-- rozpocząłeś nową rozmowę z Copilotem, wychodząc od zgłoszenia na GitHubie,
-- zdefiniowałeś wymagania w trybie Plan,
-- zaimplementowałeś nową funkcjonalność w trybie Autopilot,
-- przejrzałeś kod,
-- ręcznie sprawdziłeś funkcjonalność w przekierowanej przeglądarce.
-
-W następnym kroku zejdziemy głębiej w to, jak powstaje kod, i zadbamy, żeby trzymał się udokumentowanych praktyk — [przez własne instrukcje][next-lesson].
+Filtrowanie jest zbudowane i sprawdzone: wymagania ustaliłeś w trybie Plan, implementację zrobił Autopilot, a Ty przejrzałeś kod i przeklikałeś stronę. W następnym kroku zadbasz, żeby wygenerowany kod trzymał się standardów zespołu, [przez własne instrukcje][next-lesson].
 
 ## Materiały
 

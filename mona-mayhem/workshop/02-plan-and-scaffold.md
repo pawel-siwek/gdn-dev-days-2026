@@ -3,7 +3,7 @@
 
 ---
 
-Zanim napiszemy choć linijkę kodu, przemyślimy architekturę przy pomocy trybu planowania Copilota. Zaczynanie od planu pomaga projektować lepsze systemy i daje Copilotowi kontekst potrzebny do generowania kodu wyższej jakości.
+Zanim powstanie choć linijka kodu, przemyślisz architekturę w trybie planowania. Dobry plan to lepszy projekt i lepszy kod od Copilota.
 
 ## Zadanie 1: Zaplanuj architekturę API
 
@@ -24,10 +24,10 @@ Zanim napiszemy choć linijkę kodu, przemyślimy architekturę przy pomocy tryb
    including the route structure, error handling, and caching strategy.
    ```
 
-3. **Przejrzyj plan** — to tutaj planowanie pokazuje swoją wartość. Nie akceptuj pierwszej odpowiedzi bezrefleksyjnie:
-   - Dopytaj o wszystko, co jest niejasne
+3. **Przejrzyj plan.** Nie akceptuj pierwszej wersji w ciemno:
+   - Dopytaj o wszystko, co niejasne
    - Zaproponuj zmiany, jeśli coś Ci nie pasuje
-   - Iteruj, aż podejście będzie Cię satysfakcjonować
+   - Iteruj, aż podejście będzie Ci odpowiadać
 
 <!-- track:vscode:start -->
 4. Kiedy plan Ci odpowiada, poproś Copilota o implementację — przełącz się na tryb **Agent** i daj zielone światło.
@@ -103,6 +103,6 @@ Zanim napiszemy choć linijkę kodu, przemyślimy architekturę przy pomocy tryb
 
 Nauczyłeś się:
 
-- **Planować przed kodowaniem** zamiast rzucać się od razu na implementację
-- **Iterować plan**, aż architektura zacznie wyglądać sensownie
-- **Przechodzić z planu do implementacji** w sposób bardziej przejrzysty i bezpieczny
+- **Planować przed kodowaniem** zamiast od razu rzucać się na implementację
+- **Iterować plan**, aż architektura będzie miała sens
+- **Przechodzić z planu do implementacji** z pełną kontrolą nad tym, co powstaje

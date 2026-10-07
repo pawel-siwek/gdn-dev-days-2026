@@ -6,7 +6,7 @@ lastUpdated: 2026-09-30
 
 <!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-[GitHub Copilot CLI][about-copilot-cli] to agentowy asystent programowania działający w terminalu. Pozwala przeglądać repozytoria, generować kod, uruchamiać komendy i korzystać z zewnętrznych narzędzi — wszystko z linii poleceń. Dzięki temu oddajesz zadania i nie wypadasz z rytmu pracy. Pierwszym krokiem jest, rzecz jasna, instalacja narzędzia — na szczęście zrobisz to narzędziami, które już znasz.
+[GitHub Copilot CLI][about-copilot-cli] to Copilot działający w terminalu: przegląda repozytorium, generuje kod, uruchamia komendy i korzysta z zewnętrznych narzędzi. Zaczniesz od instalacji.
 
 W tej lekcji:
 
@@ -15,13 +15,9 @@ W tej lekcji:
 - oznaczysz repozytorium warsztatowe jako zaufane i przeprowadzisz krótką rozmowę,
 - znajdziesz zgłoszenie o filtrowaniu przez wbudowany serwer GitHub MCP.
 
-## Scenariusz
-
-Twój zespół zaczyna wykorzystywać agentów AI do przerabiania rosnącego backlogu. Copilot CLI wnosi tę możliwość do terminala, w którym wielu programistów i tak spędza większość czasu. Ta lekcja doprowadza Cię do stanu „zainstalowane, zalogowane, gotowe do pracy" na resztę warsztatu.
-
 ## Zainstaluj Copilot CLI
 
-Copilot CLI zainstalujesz przez [npm][install-cli], WinGet albo Homebrew. Ponieważ GitHub Codespaces ma preinstalowany Node.js, użyjemy npm.
+Copilot CLI zainstalujesz przez [npm][install-cli], WinGet albo Homebrew. W Codespaces Node.js jest już zainstalowany, więc użyjesz npm.
 
 1. Wróć do swojego codespace'a i otwórz terminal.
 2. Sprawdź, czy Node.js jest zainstalowany i spełnia wymaganie wersji:
@@ -68,7 +64,7 @@ Przy pierwszym uruchomieniu Copilot CLI poprosi Cię o zalogowanie się na konto
 4. Sprawdź, czy ścieżka wskazuje na Twoje repozytorium Tailspin Toys, a potem potwierdź, wybierając **Yes, and remember this folder for future sessions**.
 
 > ℹ️ **Uwaga**  
-> W codespace możesz być już zalogowany przez swoją sesję GitHuba. Jeśli Copilot CLI wystartuje bez pytania o logowanie — wszystko gra.
+> W codespace możesz być już zalogowany przez swoją sesję GitHuba. Jeśli Copilot CLI wystartuje bez pytania o logowanie, to w porządku.
 
 ## Rozejrzyj się
 
@@ -97,12 +93,12 @@ Komendy wpisywane w zwykłym prompcie powłoki wykonują się bezpośrednio w co
 
 ## Skrót na potrzeby warsztatu
 
-Copilot CLI standardowo pyta o zgodę przed użyciem narzędzi spoza ustalonych uprawnień. Na potrzeby warsztatu uruchomisz go ponownie z flagą `--yolo` — zatwierdzonym przez Ciebie skrótem, który wyłącza te pytania wewnątrz codespace'a, żebyś mógł skupić się na ćwiczeniach.
+Copilot CLI standardowo pyta o zgodę, zanim użyje narzędzia spoza ustalonych uprawnień. Na warsztacie uruchomisz go z flagą `--yolo`, która wyłącza te pytania. W codespace to bezpieczne, a oszczędza sporo klikania.
 
 > 🚨 **Uważaj**  
 > `--yolo` włącza pełne automatyczne uprawnienia (`--allow-all-tools`, `--allow-all-paths` i `--allow-all-urls`). Używaj tego **wyłącznie** w izolowanym środowisku, takim jak codespace albo maszyna wirtualna, i nigdy nie ustawiaj tego jako domyślnego aliasu do codziennej pracy. Szczegóły w [Allowing and denying tool use][allow-all-warning].
 
-Na potrzeby warsztatu `--enable-all-github-mcp-tools` włącza narzędzia GitHub MCP do odczytu i zapisu, z których korzystają dalsze lekcje przy pracy ze zgłoszeniami i pull requestami. Codespace ogranicza dostęp do Twojego komputera, ale zasoby GitHuba, do których jesteś zalogowany, są jak najbardziej prawdziwe. Przeglądaj zmiany, zanim je opublikujesz albo zmergujesz.
+Druga flaga, `--enable-all-github-mcp-tools`, włącza narzędzia GitHub MCP do odczytu i zapisu. Będą potrzebne w dalszych lekcjach przy zgłoszeniach i pull requestach. Codespace jest odizolowany od Twojego komputera, ale repozytoria na GitHubie, do których jesteś zalogowany, są prawdziwe. Przeglądaj zmiany, zanim je opublikujesz albo zmergujesz.
 
 1. Zamknij Copilot CLI komendą `/exit`.
 2. Uruchom go ponownie z katalogu głównego repozytorium:
@@ -117,14 +113,7 @@ Copilot zapisuje rozmowy automatycznie. Później, po zmianie instrukcji albo do
 
 ## Podsumowanie i co dalej
 
-Gratulacje! W tej lekcji:
-
-- zainstalowałeś GitHub Copilot CLI przez npm,
-- zalogowałeś się na swoje konto GitHub,
-- oznaczyłeś repozytorium warsztatowe jako zaufane i przeprowadziłeś krótką rozmowę,
-- znalazłeś zgłoszenie o filtrowaniu przez wbudowany serwer GitHub MCP.
-
-W następnym kroku [zaczniesz pierwszą, niewielką zmianę][next-lesson] i użyjesz Copilot CLI, żeby pokazać oceny w gwiazdkach na kartach gier.
+Copilot CLI jest zainstalowany, zalogowany i zna Twoje repozytorium. Znalazłeś też zgłoszenie o filtrowaniu, do którego wrócisz w lekcji 3. W następnym kroku [zaczniesz pierwszą, niewielką zmianę][next-lesson] i użyjesz Copilot CLI, żeby pokazać oceny w gwiazdkach na kartach gier.
 
 ## Materiały
 

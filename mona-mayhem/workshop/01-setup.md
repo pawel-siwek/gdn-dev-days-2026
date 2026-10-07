@@ -3,7 +3,7 @@
 
 ---
 
-W tej części skonfigurujesz środowisko **i** nauczysz Copilota Twojego repozytorium — tak, żeby każdy kolejny prompt startował z właściwym kontekstem.
+W tej części przygotujesz środowisko i dasz Copilotowi kontekst o projekcie, żeby każdy kolejny prompt zaczynał z dobrego miejsca.
 
 ## Sekcja 1: Konfiguracja początkowa
 
@@ -12,8 +12,6 @@ W tej części skonfigurujesz środowisko **i** nauczysz Copilota Twojego repozy
 1. Otwórz [github.com/pawel-siwek/mona-mayhem-starter](https://github.com/pawel-siwek/mona-mayhem-starter)
 2. Utwórz własne repozytorium, klikając **Use this template** → **Create a new repository**
 3. Nazwij je `moj-mayhem` i ustaw widoczność na **Public**
-
-> 💡 To jest zamrożona kopia projektu przygotowana na Dev Days Gdańsk 2026 — dzięki temu wszyscy startujemy z identycznego kodu.
 
 <!-- track:vscode:start -->
 ### Krok 2: Wybierz środowisko pracy
@@ -100,7 +98,7 @@ Wybierz sposób instalacji pasujący do Twojej maszyny:
 
 ## Sekcja 2: Inżynieria kontekstu
 
-Inżynieria kontekstu to sposób, w jaki uczysz AI swojego repozytorium. Im lepszy kontekst, tym lepsza każda kolejna odpowiedź.
+Inżynieria kontekstu to dawanie Copilotowi tego, co musi wiedzieć o projekcie. Im lepszy kontekst, tym lepsza każda kolejna odpowiedź.
 
 <!-- track:vscode:start -->
 ### Zadanie 1: Wygeneruj instrukcje projektu przez /init
@@ -180,7 +178,7 @@ Poćwicz mechanizmy CLI, które ułatwią Ci kolejne kroki:
 
 4. Jeśli Twoje repozytorium leży wewnątrz większego katalogu nadrzędnego, użyj `/add-dir ŚCIEŻKA`, żeby świadomie poszerzyć dozwolony obszar pracy.
 
-> 💡 Dokumentacja CLI zaleca zwięzłe własne instrukcje plus jawne uprawnienia do narzędzi — dzięki temu Copilot pozostaje szybki i przewidywalny.
+> 💡 Krótkie instrukcje i jawne uprawnienia do narzędzi to przepis na szybkiego i przewidywalnego Copilota.
 
 ### Zadanie 3: Poznaj projekt z terminala
 
@@ -203,7 +201,7 @@ copilot -p "Podsumuj architekturę tego repozytorium w 5 punktach"
 
 Nauczyłeś się:
 
-- **Konfigurować** repozytorium i lokalne środowisko pracy
-- **Generować instrukcje** przez `/init`, żeby Copilot rozumiał Twój projekt i kierunek, w którym idziesz
-- **Wyrabiać nawyk review** przed zastosowaniem wygenerowanych zmian
-- **Zwiedzać repozytorium** promptami bogatymi w kontekst
+- **Przygotować** repozytorium i środowisko pracy
+- **Generować instrukcje** przez `/init`, żeby Copilot rozumiał projekt
+- **Przeglądać zmiany**, zanim je zastosujesz
+- **Poznawać repozytorium** promptami z odwołaniami do plików

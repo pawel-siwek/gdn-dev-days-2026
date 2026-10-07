@@ -6,9 +6,7 @@ lastUpdated: 2026-09-30
 
 <!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-Pisanie kodu to nie wszystko. Sprawdziliśmy już ręcznie, że kod działa, i użyliśmy plików instrukcji, żeby trzymał się naszych standardów. Ale co z testami? Lintowaniem? Całą resztą ciągłej integracji (CI)?
-
-Do takich zadań najlepiej nadają się **agent skills**. Skille pomagają Copilotowi zrozumieć, jak poprawnie przeprowadzać tego typu operacje.
+Kod działa i trzyma się standardów. Zostają testy, lintowanie i reszta tego, co normalnie robi CI. Do takich powtarzalnych zadań służą **agent skills**: opisują Copilotowi, jak poprawnie je wykonać.
 
 W tej lekcji:
 
@@ -18,20 +16,18 @@ W tej lekcji:
 
 ## Scenariusz
 
-Tailspin Toys używa skilla `quality-checks` do testów jednostkowych, lintowania i kontroli typów. Zespół chce ulepszyć raport, żeby wyniki były czytelniejsze.
+Tailspin Toys używa skilla `quality-checks` do testów jednostkowych, lintowania i kontroli typów. Jego raport końcowy jest mało czytelny i to poprawisz.
 
-## Instrukcje, skrypty i zasoby
+## Czym jest skill
 
-Agent skills pakują wielokrotnego użytku instrukcje zadań, wykonywalne skrypty i zasoby pomocnicze, które agent ładuje na żądanie. W najprostszej postaci to katalog o nazwie skilla z plikiem Markdown `SKILL.md`. Ten plik zawiera frontmatter z nazwą i opisem definiującym, czym skill jest, przegląd tego, co robi, oraz wskazówki, kiedy powinien zostać wywołany. Katalog może też zawierać podkatalogi ze skryptami i innymi zasobami, z których skill korzysta.
+Skill to instrukcja zadania, którą agent ładuje na żądanie, czasem razem ze skryptami i plikami pomocniczymi. W najprostszej postaci to katalog z jednym plikiem `SKILL.md`. Plik ma frontmatter z nazwą i opisem (z niego Copilot wnioskuje, kiedy skilla użyć) oraz treść z krokami do wykonania.
 
 > ℹ️ **Uwaga**  
-> Dodatkowe katalogi i pliki nie są wymagane. Skill `quality-checks` w Tailspin Toys zawiera wyłącznie `SKILL.md`, bo korzysta z istniejących komend projektu.
+> Skill `quality-checks` zawiera wyłącznie `SKILL.md`, bo korzysta z komend zdefiniowanych już w projekcie.
 
-Skille mogą mieszkać w katalogu `.github/skills` projektu — stają się wtedy zasobem repozytorium współdzielonym przez zespół — albo w katalogu skilli użytkownika, czyli `~/.copilot/skills`.
+Skille projektu leżą w `.github/skills` i są wspólne dla zespołu. Własne, prywatne skille możesz trzymać w `~/.copilot/skills`.
 
 ## Poznaj skill
-
-Przyjrzyjmy się skillowi, który zespół Tailspin Toys stworzył do uruchamiania testów jednostkowych, lintowania i kontroli typów — nazywa się `quality-checks`.
 
 1. Wróć do swojego codespace'a. W edytorze Codespaces otwórz `.github/skills/quality-checks/SKILL.md`.
 2. Przeczytaj pola `name` i `description` na górze. Opis pomaga Copilotowi zrozumieć, kiedy wywołać skill.
@@ -40,7 +36,7 @@ Przyjrzyjmy się skillowi, który zespół Tailspin Toys stworzył do uruchamian
 
 ## Uruchom skill przed zmianą
 
-Skille wywołuje się bezpośrednio w Copilot CLI albo językiem naturalnym. Poprośmy Copilota o uruchomienie trzech kontroli ze skilla.
+Skill możesz wywołać wprost albo po prostu poprosić o to, co robi. Najpierw uruchom go w obecnej postaci, żeby mieć punkt odniesienia.
 
 1. Wróć do rozmowy o filtrowaniu w trybie Interactive.
 2. Użyj tego promptu:
@@ -53,7 +49,7 @@ Skille wywołuje się bezpośrednio w Copilot CLI albo językiem naturalnym. Pop
 
 ## Dostosuj raport
 
-Chcielibyśmy lepszego raportu — takiego, który mówi, co zostało uruchomione, czy się powiodło i co dokładnie zgłosiły narzędzia. Zaktualizujmy skill, żeby taki raport tworzył.
+Lepszy raport powinien mówić, co zostało uruchomione, czy przeszło i co dokładnie zgłosiły narzędzia. Dopisz to do skilla.
 
 1. Wróć do `.github/skills/quality-checks/SKILL.md`.
 2. Dodaj na końcu pliku poniższą sekcję:
@@ -68,7 +64,7 @@ Chcielibyśmy lepszego raportu — takiego, który mówi, co zostało uruchomion
 
 ## Uruchom zaktualizowany skill
 
-Zmiana wprowadzona — zobaczmy ją w akcji. Copilot CLI potrafi przeładować zmodyfikowane skille bez restartowania rozmowy.
+Copilot CLI potrafi przeładować zmienione skille bez restartowania rozmowy.
 
 1. Wpisz:
 
@@ -86,17 +82,11 @@ Zmiana wprowadzona — zobaczmy ją w akcji. Copilot CLI potrafi przeładować z
 
 ## Podsumowanie i co dalej
 
-Dostosowałeś i wykorzystałeś istniejący agent skill. W tej lekcji:
-
-- poznałeś skill `quality-checks` do testów jednostkowych, lintowania i kontroli typów,
-- dostosowałeś format jego wyników,
-- przeładowałeś i uruchomiłeś skill.
-
-Ta zmiana pojedzie razem z filtrowaniem w pull requeście funkcjonalności. W następnym kroku pozwolisz Copilotowi wejść w bezpośrednią interakcję ze stroną [przez serwer Playwright MCP][next-lesson].
+Skill `quality-checks` raportuje teraz tak, jak chce zespół. Ta zmiana trafi do pull requesta razem z filtrowaniem. W następnym kroku pozwolisz Copilotowi wejść w bezpośrednią interakcję ze stroną [przez serwer Playwright MCP][next-lesson].
 
 ## Więcej przykładów skilli
 
-Te przykłady od społeczności są materiałem referencyjnym, nie dodatkowymi zadaniami:
+Do poczytania po warsztacie, nie są częścią zadań:
 
 - [Specyfikacja Agent Skills][skill-spec]
 - [Przepływ kontrybucji: `make-repo-contribution`][contribution-example]

@@ -6,7 +6,7 @@ lastUpdated: 2026-09-30
 
 <!-- l10n-sync: english-commit-sha="0711e76fc68c8746bc70900525025cfb3dc57734" -->
 
-W pracy z generatywną AI kluczowy jest kontekst. Jeśli zadanie ma być wykonane w konkretny sposób, ta wskazówka musi być dostępna dla Copilota. [Pliki instrukcji][instruction-files] opisują nie tylko *jaki* kod chcesz, ale też *jak* ma być zbudowany. Filtrowanie masz już zbudowane, więc teraz poznasz instrukcje, z których Copilot korzystał, dodasz standard dokumentowania i zastosujesz go do swojego kodu.
+Jeśli Copilot ma zrobić coś w konkretny sposób, musi o tym wiedzieć. Od tego są [pliki instrukcji][instruction-files]: opisują nie tylko *jaki* kod chcesz, ale też *jak* ma być napisany. Filtrowanie już masz, więc teraz zajrzysz do instrukcji, z których Copilot korzystał, dodasz standard dokumentowania i zastosujesz go do swojego kodu.
 
 W tej lekcji:
 
@@ -16,20 +16,18 @@ W tej lekcji:
 
 ## Scenariusz
 
-Jak każdy porządny zespół, Tailspin Toys ma zestaw wytycznych i wymagań dotyczących praktyk wytwórczych. Należą do nich:
+Zespół Tailspin Toys ma swoje zasady pisania kodu. Między innymi:
 
 - Komentarze powinny wyjaśniać intencję i nieoczywiste decyzje, a nie powtarzać to, co widać w kodzie.
 - Eksportowane funkcje w `db/` i `src/lib/` powinny dokumentować swoje przeznaczenie, parametry i wartości zwracane w TSDoc/JSDoc, wraz z wstrzykiwanym argumentem `db`, jeśli występuje.
 - Komponenty Astro wielokrotnego użytku powinny dokumentować swoje kontrakty `Props`, a komentarze powinny pozostawać aktualne, kiedy zmienia się powiązany kod.
 - Istniejące wytyczne dotyczące formatowania i lintowania powinny zostać zachowane.
 
-Przy pomocy plików instrukcji zadbasz o to, żeby Copilot miał właściwe informacje i wykonywał zadania zgodnie z tymi praktykami.
+Pliki instrukcji sprawią, że Copilot będzie te zasady znał i stosował.
 
 ## Pliki instrukcji
 
-Własne instrukcje pozwalają przekazać Copilotowi kontekst i preferencje, dzięki czemu lepiej rozumie Twój styl kodowania i wymagania. To potężny mechanizm, który pomaga sterować Copilotem w stronę trafniejszych podpowiedzi i fragmentów kodu. Możesz określić preferowane konwencje, biblioteki, a nawet rodzaje komentarzy, jakie lubisz umieszczać w kodzie. Instrukcje możesz tworzyć dla całego repozytorium albo dla konkretnych typów plików, jako kontekst zadaniowy.
-
-Są dwa rodzaje plików instrukcji:
+W instrukcjach opisujesz konwencje, biblioteki, styl komentarzy, czyli wszystko, co Copilot powinien wiedzieć o projekcie, zanim zacznie pisać kod. Są dwa rodzaje plików:
 
 - `.github/copilot-instructions.md` — pojedynczy plik wysyłany do Copilota przy **każdym** zapytaniu w tym repozytorium. Powinien zawierać informacje o projekcie istotne dla większości zapytań.
 - `.github/instructions/*.instructions.md` — pliki z wytycznymi dla konkretnych języków, typów plików albo zadań.
@@ -39,7 +37,7 @@ Są dwa rodzaje plików instrukcji:
 
 ## Poznaj pliki instrukcji w tym projekcie
 
-Żeby ułatwić start, zestaw plików instrukcji jest już dołączony do projektu startowego. Zanim cokolwiek zmienimy, zobaczmy, co tam jest.
+Projekt ma już zestaw plików instrukcji. Zanim cokolwiek zmienisz, zobacz, co w nich jest.
 
 1. Wróć do swojego codespace'a.
 2. W edytorze Codespaces (nie w terminalu) otwórz `.github/copilot-instructions.md`.
@@ -50,7 +48,7 @@ Są dwa rodzaje plików instrukcji:
 
 ## Zaktualizuj instrukcje zgodnie z wytycznymi zespołu
 
-Istniejące pliki to dobry początek, ale jedna rzecz wciąż jest niedopowiedziana. Zmodyfikujmy główny plik `copilot-instructions.md`, żeby nowo generowany TypeScript zawierał komentarze TSDoc.
+Istniejące pliki to dobry początek, ale brakuje w nich jednej rzeczy: wymogu komentarzy TSDoc w nowym kodzie TypeScript. Dopiszesz go do głównego pliku `copilot-instructions.md`.
 
 1. W `.github/copilot-instructions.md` znajdź sekcję **Code formatting guidance** — powinna być mniej więcej w okolicach linii 35.
 2. Dodaj poniższy wpis jako jej ostatni punkt:
@@ -63,7 +61,7 @@ Plik zapisze się automatycznie.
 
 ## Zastosuj nowe wytyczne
 
-Copilot CLI wczytuje instrukcje repozytorium przy starcie rozmowy. Wznów rozmowę o filtrowaniu po tej edycji, żeby nowe wytyczne były dostępne, a kontekst funkcjonalności nie przepadł.
+Copilot CLI wczytuje instrukcje przy starcie rozmowy. Wznów rozmowę o filtrowaniu (`copilot --resume`), żeby załadować nowe wytyczne bez utraty kontekstu.
 
 1. Poproś Copilota o zastosowanie zaktualizowanych wytycznych:
 
@@ -75,13 +73,7 @@ Copilot CLI wczytuje instrukcje repozytorium przy starcie rozmowy. Wznów rozmow
 
 ## Podsumowanie i co dalej
 
-Zobaczyłeś, jak Copilot CLI pobiera kontekst z plików instrukcji, i zastosowałeś nowy standard do swojej funkcjonalności. Konkretnie:
-
-- zobaczyłeś, jak instrukcje repozytorium i instrukcje przypisane do ścieżek trafiają do agenta,
-- zaktualizowałeś plik instrukcji, żeby wymusić przestrzeganie standardów kodowania,
-- zobaczyłeś wpływ plików instrukcji na generowany kod.
-
-W następnym kroku [dostosujesz i uruchomisz skill quality-checks][next-lesson], żeby lintowanie i testy uruchamiały się w powtarzalny sposób.
+Wiesz już, skąd Copilot bierze zasady projektu, i dopisałeś do nich własną. W następnym kroku [dostosujesz i uruchomisz skill quality-checks][next-lesson], żeby lintowanie i testy uruchamiały się w powtarzalny sposób.
 
 ## Materiały
 
