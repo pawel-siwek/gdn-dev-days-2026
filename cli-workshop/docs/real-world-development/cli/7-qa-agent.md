@@ -32,11 +32,11 @@ Profil zdefiniuje zarówno kontrole, które QA ma wykonać, jak i granice, któr
 2. Poproś domyślnego agenta o utworzenie nowego agenta:
 
    ```plaintext
-   Create a custom agent named QA in .github/agents/qa.agent.md. It should check features against their issues and agreed requirements, follow the repository instructions, run the quality-checks skill, use Playwright MCP to verify behavior, and add tests when coverage is missing.
+   Utwórz własnego agenta o nazwie QA w .github/agents/qa.agent.md. Ma sprawdzać funkcjonalności względem ich zgłoszeń i ustalonych wymagań, stosować się do instrukcji repozytorium, uruchamiać skill quality-checks, weryfikować zachowanie przez Playwright MCP i dodawać testy tam, gdzie brakuje pokrycia.
 
-   Have it report each requirement as pass, fail, or blocked with supporting evidence. It must ask before changing implementation code, and it must not commit changes or open pull requests.
+   Każde wymaganie ma raportować jako zaliczone, niezaliczone albo zablokowane, z dowodami. Przed zmianą kodu implementacji musi pytać, i nie może commitować zmian ani otwierać pull requestów.
 
-   Just create the profile for now so I can review it.
+   Na razie tylko utwórz profil, żebym mógł go przejrzeć.
    ```
 
 ## Przejrzyj profil
@@ -65,7 +65,7 @@ Copilot CLI ładuje agentów projektu przy starcie rozmowy. Wznów rozmowę o fi
 2. Poproś agenta QA o przegląd funkcjonalności:
 
    ```plaintext
-   Review the filtering feature against the issue and the decisions in our plan. Is it ready for a PR?
+   Przejrzyj filtrowanie względem zgłoszenia i decyzji z naszego planu. Czy jest gotowe do PR-a?
    ```
 
 3. Kiedy agent skończy, przeczytaj raport.

@@ -40,7 +40,7 @@ W rozmowie zobaczysz trzy rzeczy: swoje prompty i odpowiedzi agenta, aktywność
 5. Zleć zmianę tym promptem:
 
    ```plaintext
-   Show each game's starRating out of 5 in the game cards on the list page. If the rating is null, show "No rating yet". Keep the card layout as it is, add tests, and run the relevant checks.
+   Pokaż ocenę starRating każdej gry (w skali do 5) na kartach gier na stronie z listą. Jeśli ocena to null, pokaż „Brak oceny". Zostaw układ karty bez zmian, dodaj testy i uruchom odpowiednie kontrole.
    ```
 
 Copilot przegląda projekt, znajduje pliki odpowiedzialne za karty gier i pisze potrzebny kod.
@@ -50,7 +50,7 @@ Copilot przegląda projekt, znajduje pliki odpowiedzialne za karty gier i pisze 
 Każdą zmianę wygenerowaną przez AI trzeba przejrzeć przed mergem, nawet tak drobną.
 
 1. Wpisz `/diff` i przejrzyj każdy zmieniony plik.
-2. Sprawdź, czy karta gry pokazuje liczbową ocenę, kiedy ta istnieje, oraz `No rating yet`, kiedy `starRating` ma wartość `null`.
+2. Sprawdź, czy karta gry pokazuje liczbową ocenę, kiedy ta istnieje, oraz „Brak oceny", kiedy `starRating` ma wartość `null`.
 3. Sprawdź, czy testy pokrywają oba przypadki.
 4. Przejrzyj wyniki kontroli uruchomionych przez Copilota i poproś go o naprawienie ewentualnych błędów.
 5. Po zakończeniu przeglądu naciśnij <kbd>Esc</kbd>, żeby wyjść z ekranu diffa.
@@ -65,7 +65,7 @@ Przeczytanie kodu to za mało. Poproś Copilota o uruchomienie strony i obejrzyj
 1. Poproś Copilota o uruchomienie aplikacji:
 
    ```plaintext
-   Start the app so I can inspect the star-rating change in my browser. Tell me the URL and leave the server running.
+   Uruchom aplikację, żebym mógł obejrzeć zmianę z ocenami w przeglądarce. Podaj mi URL i zostaw serwer włączony.
    ```
 
 2. Kiedy Codespaces zgłosi, że port `4321` jest dostępny, wybierz **Open in Browser**.
@@ -73,7 +73,7 @@ Przeczytanie kodu to za mało. Poproś Copilota o uruchomienie strony i obejrzyj
 4. Wróć do Copilota i poproś go o zatrzymanie uruchomionego serwera:
 
    ```plaintext
-   Stop the development server you started.
+   Zatrzymaj serwer deweloperski, który uruchomiłeś.
    ```
 
 ## Otwórz i zmerguj swojego pierwszego pull requesta
@@ -83,7 +83,7 @@ Zmiana działa, czas na pull requesta (PR).
 1. Poproś domyślnego agenta o zacommitowanie zmiany:
 
    ```plaintext
-   Commit the reviewed star-rating changes with an appropriate commit message.
+   Zacommituj przejrzane zmiany z ocenami w gwiazdkach z odpowiednim komunikatem commita.
    ```
 
 2. Wpisz `/pr create`. Copilot CLI wypchnie istniejący commit przy tworzeniu PR-a i pokaże jego URL.

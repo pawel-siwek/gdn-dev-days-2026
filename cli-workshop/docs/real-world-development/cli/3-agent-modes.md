@@ -85,7 +85,7 @@ Plan pozwala ustalić podejście, zanim oddasz robotę Copilotowi. Przy czymkolw
 2. Za odwołaniem do zgłoszenia dodanym w poprzednim kroku wpisz ten prompt:
 
    ```plaintext
-   Create a plan for implementing this feature.
+   Przygotuj plan implementacji tej funkcjonalności.
    ```
 
    Copilot najpierw przejrzy projekt, a potem zaproponuje podejście.
@@ -123,7 +123,7 @@ Kod wygląda dobrze, ale czy działa? Uruchom aplikację tak jak poprzednio.
 1. Poproś Copilota o uruchomienie aplikacji:
 
    ```plaintext
-   Start the app so I can try the filtering feature in my browser. Tell me the URL and leave the server running.
+   Uruchom aplikację, żebym mógł wypróbować filtrowanie w przeglądarce. Podaj mi URL i zostaw serwer włączony.
    ```
 
 2. Kiedy Codespaces zgłosi, że port `4321` jest dostępny, wybierz **Open in Browser**.

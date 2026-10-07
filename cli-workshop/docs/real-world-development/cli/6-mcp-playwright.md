@@ -55,7 +55,7 @@ Innych serwerów są setki. GitHub prowadzi [rejestr MCP][mcp-registry], w któr
 1. Zleć Copilotowi weryfikację przez Playwright MCP:
 
    ```plaintext
-   Start the app and use Playwright MCP to check filtering against the issue and our plan. Tell me what works and what doesn't, without making changes. Stop the server you started when you're done.
+   Uruchom aplikację i sprawdź przez Playwright MCP, czy filtrowanie działa zgodnie ze zgłoszeniem i naszym planem. Powiedz mi, co działa, a co nie, bez wprowadzania zmian. Na koniec zatrzymaj serwer, który uruchomiłeś.
    ```
 
    > ℹ️ **Uwaga**  

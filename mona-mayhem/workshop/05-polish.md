@@ -13,10 +13,10 @@ Aplikacja działa i dobrze wygląda, czas na wykończenie. W tej części rozbij
 3. Wpisz ten prompt:
 
    ```
-   Add responsive CSS media queries: at 1024px switch comparison to single column,
-   at 768px reduce font sizes, stack inputs vertically, and make the layout
-   mobile-friendly. Also improve keyboard accessibility — ensure tab order works,
-   Enter triggers battle, and focus states are visible.
+   Dodaj responsywne media queries w CSS: przy 1024px przełącz porównanie na jedną
+   kolumnę, przy 768px zmniejsz fonty, ustaw pola jedno pod drugim i dopasuj układ
+   do telefonów. Popraw też dostępność z klawiatury: kolejność tabulacji ma działać,
+   Enter ma uruchamiać pojedynek, a stany fokusu mają być widoczne.
    ```
 
 4. Pozwól mu pracować niezależnie — nie musisz go pilnować.
@@ -28,10 +28,10 @@ Aplikacja działa i dobrze wygląda, czas na wykończenie. W tej części rozbij
 2. Wpisz ten prompt:
 
    ```
-   Improve the error experience: add a shake animation for errors, styled error
-   messages with a warning-red (#f85149) glow that fits the Gdańsk shipyard
-   theme, and better input validation feedback. Show clear error messages when
-   usernames are empty or invalid.
+   Popraw obsługę błędów: dodaj animację potrząśnięcia, ostylowane komunikaty
+   błędów z ostrzegawczo-czerwoną poświatą (#f85149) pasującą do motywu gdańskiej
+   stoczni i czytelniejszą walidację pól. Pokazuj jasne komunikaty po polsku,
+   gdy nazwa użytkownika jest pusta albo nieprawidłowa.
    ```
 
 3. Przejrzyj zmiany, kiedy agent skończy, i kliknij **Apply**.
@@ -43,10 +43,10 @@ Aplikacja działa i dobrze wygląda, czas na wykończenie. W tej części rozbij
 3. Wpisz ten prompt:
 
    ```
-   Create an alternative colour theme for the battle page — keep the pixel-art
-   shipyard style but shift it to a cold Baltic dawn: steel blue (#58a6ff) and
-   pale amber (#f2cc60) instead of crane green. Implement it as a CSS custom
-   property theme that could be toggled.
+   Stwórz alternatywny motyw kolorystyczny strony pojedynku: zachowaj pixelartowy
+   styl stoczni, ale przestaw go na chłodny bałtycki świt, stalowy błękit (#58a6ff)
+   i blady bursztyn (#f2cc60) zamiast zieleni dźwigów. Zrób to jako motyw na
+   zmiennych CSS, który da się przełączać.
    ```
 
 4. Zajrzyj do **agent sessions**, żeby śledzić postęp.
@@ -61,10 +61,10 @@ Aplikacja działa i dobrze wygląda, czas na wykończenie. W tej części rozbij
 W Copilot CLI użyj `/fleet`, żeby rozdzielić robotę na równoległych subagentów, a potem przejrzyj złożony wynik:
 
 ```text
-/fleet Improve the app in parallel:
-1. Add responsive CSS media queries so the comparison collapses to one column at 1024px and the inputs stack on small screens.
-2. Improve keyboard accessibility and focus visibility.
-3. Improve the error experience with stronger validation feedback and shipyard-style error states.
+/fleet Popraw aplikację równolegle:
+1. Dodaj responsywne media queries w CSS, żeby porównanie zwijało się do jednej kolumny przy 1024px, a pola ustawiały się jedno pod drugim na małych ekranach.
+2. Popraw dostępność z klawiatury i widoczność fokusu.
+3. Popraw obsługę błędów: wyraźniejsza walidacja i komunikaty błędów po polsku w stylistyce stoczni.
 ```
 
 Pozwól CLI zorganizować pracę, a potem obejrzyj złożony efekt przez `/diff`, zanim cokolwiek zatwierdzisz.
@@ -74,7 +74,7 @@ Pozwól CLI zorganizować pracę, a potem obejrzyj złożony efekt przez `/diff`
 Jeśli chcesz sprawdzić asynchroniczny przepływ w chmurze, zdeleguj wariant designu:
 
 ```text
-/delegate Create an alternative colour theme for the battle page that keeps the pixel-art shipyard look but shifts it to a cold Baltic dawn: steel blue (#58a6ff) and pale amber (#f2cc60). Make it easy to toggle.
+/delegate Stwórz alternatywny motyw kolorystyczny strony pojedynku: zachowaj pixelartowy styl stoczni, ale przestaw go na chłodny bałtycki świt, stalowy błękit (#58a6ff) i blady bursztyn (#f2cc60). Ma się dać łatwo przełączać.
 ```
 
 Zdelegowane zadanie powinno założyć pull requesta, którego przejrzysz osobno, pracując dalej lokalnie.
@@ -84,7 +84,7 @@ Zdelegowane zadanie powinno założyć pull requesta, którego przejrzysz osobno
 Zanim domkniesz pracę, poproś Copilot CLI o przebieg recenzyjny:
 
 ```text
-/review Focus on potential bugs, accessibility issues, and UX regressions in the current branch.
+/review Skup się na potencjalnych błędach, problemach z dostępnością i regresjach UX na bieżącej gałęzi.
 ```
 
 Przejrzyj uwagi, popraw to, z czym się zgadzasz, i sprawdź przez `/diff`, co się zmieniło.
@@ -98,7 +98,7 @@ Przejdź przez te scenariusze testowe, żeby upewnić się, że wszystko działa
 
 | Test | Oczekiwany wynik |
 |------|------------------|
-| Puste pola, kliknięcie Battle | Ostylowany błąd z animacją potrząśnięcia |
+| Puste pola, kliknięcie Walcz! | Ostylowany błąd z animacją potrząśnięcia |
 | Poprawne nazwy użytkowników | Wyświetlone wykresy kontrybucji |
 | Nieistniejąca nazwa użytkownika | Błąd z API w stylistyce motywu |
 | Enter w polu tekstowym | Uruchamia pojedynek |

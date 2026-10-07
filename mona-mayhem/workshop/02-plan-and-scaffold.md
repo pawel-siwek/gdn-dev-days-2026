@@ -18,10 +18,10 @@ Zanim powstanie choć linijka kodu, przemyślisz architekturę w trybie planowan
 2. Wpisz ten prompt:
 
    ```
-   I need to build a server-side API proxy that fetches GitHub contribution data
-   for any username. The endpoint is https://github.com/{username}.contribs which
-   returns JSON. We need to bypass CORS restrictions. Plan the implementation
-   including the route structure, error handling, and caching strategy.
+   Potrzebuję serwerowego proxy API, które pobiera dane o kontrybucjach z GitHuba
+   dla dowolnej nazwy użytkownika. Endpoint to https://github.com/{username}.contribs
+   i zwraca JSON. Musimy ominąć ograniczenia CORS. Zaplanuj implementację:
+   strukturę trasy, obsługę błędów i strategię cache'owania.
    ```
 
 3. **Przejrzyj plan.** Nie akceptuj pierwszej wersji w ciemno:
@@ -68,11 +68,12 @@ Zanim powstanie choć linijka kodu, przemyślisz architekturę w trybie planowan
 <!-- track:cli:end -->
 
    ```
-   Now I need the main page. Plan a battle page for "Mona Mayhem - GitHub
-   Contribution Battle Arena" with: two username inputs (Player 1 and Player 2),
-   a battle button, and a results area. Keep the UI simple — don't over-engineer
-   the layout or styling at this stage. Plan the HTML structure, basic styling,
-   and how the battle interaction will work.
+   Teraz potrzebuję strony głównej. Zaplanuj stronę pojedynku dla gry
+   „Mayhem w Stoczni – arena pojedynków na kontrybucje z GitHuba" z: dwoma polami
+   na nazwy użytkowników (Gracz 1 i Gracz 2), przyciskiem „Walcz!" i obszarem
+   na wyniki. Interfejs ma być prosty, nie przekombinuj układu ani stylów na tym
+   etapie. Zaplanuj strukturę HTML, podstawowe style i sposób działania pojedynku.
+   Wszystkie napisy w interfejsie po polsku.
    ```
 
 2. **Przejrzyj plan i iteruj** — dopytuj, proponuj zmiany, doprecyzowuj podejście.
