@@ -26,7 +26,7 @@ Kiedy oba wykresy kontrybucji się załadują, porównaj sumy i pokaż dynamiczn
 - Animacja albo konfetti dla efektu
 
 **Propozycja promptu:**
-> After both users' contribution data loads, compare total contributions and display a winner banner. Show "🏆 {username} WINS! 🏆" if one user has more contributions, or "🤝 IT'S A TIE! 🤝" if equal. Make it visually exciting with CSS animations.
+> Po załadowaniu danych o kontrybucjach obu użytkowników porównaj sumy i pokaż baner zwycięzcy: „🏆 {username} WYGRYWA! 🏆", jeśli jeden ma więcej kontrybucji, albo „🤝 REMIS! 🤝", jeśli tyle samo. Dodaj efektowne animacje CSS.
 
 ---
 
@@ -41,7 +41,7 @@ Policz i pokaż najdłuższą serię kolejnych dni z kontrybucjami dla każdego 
 - Wyróżnienie tego, kto ma dłuższą serię
 
 **Propozycja promptu:**
-> Add a streak counter feature that analyzes each user's contribution data to find their longest consecutive contribution streak. Display "🔥 Longest Streak: X days" for each user below their contribution graph.
+> Dodaj licznik serii, który przeanalizuje dane o kontrybucjach każdego użytkownika i znajdzie najdłuższy ciąg kolejnych dni z kontrybucją. Pod wykresem każdego użytkownika pokaż „🔥 Najdłuższa seria: X dni".
 
 ---
 
@@ -56,7 +56,7 @@ Zapisuj wyniki pojedynków, żeby użytkownicy widzieli swoje wcześniejsze star
 - Przycisk „Wyczyść historię"
 
 **Propozycja promptu:**
-> Save battle results to localStorage after each comparison. Add a "Recent Battles" section that displays the last 10 battles with usernames, contribution totals, the winner, and when the battle happened. Include a "Clear History" button.
+> Po każdym porównaniu zapisuj wynik pojedynku w localStorage. Dodaj sekcję „Ostatnie pojedynki" z 10 ostatnimi starciami: nazwy użytkowników, sumy kontrybucji, zwycięzca i czas pojedynku. Dodaj przycisk „Wyczyść historię".
 
 ---
 
@@ -65,13 +65,13 @@ Zapisuj wyniki pojedynków, żeby użytkownicy widzieli swoje wcześniejsze star
 Dodaj retro efekty dźwiękowe przez Web Audio API — bez żadnych plików zewnętrznych.
 
 **Co zbudować:**
-- Dźwięk **wrzucanej monety** przy kliknięciu przycisku „Battle!"
+- Dźwięk **wrzucanej monety** przy kliknięciu przycisku „Walcz!"
 - Dźwięk **power up** przy udanym załadowaniu wyników
 - Dźwięk **eksplozji** przy błędzie (nie znaleziono użytkownika, awaria API)
 - Przycisk wyciszania
 
 **Propozycja promptu:**
-> Add retro arcade sound effects using the Web Audio API (no audio files). Play a coin insert sound on battle start, a power-up sound when results load, and an explosion sound on errors. Generate the sounds programmatically with oscillators and gain nodes. Include a mute toggle.
+> Dodaj retro efekty dźwiękowe przez Web Audio API (bez plików audio). Dźwięk wrzucanej monety na start pojedynku, power-up po załadowaniu wyników i eksplozja przy błędzie. Generuj dźwięki programowo oscylatorami i węzłami gain. Dodaj przycisk wyciszenia.
 
 > 💡 W klimacie stoczniowym możesz zamiast monety użyć **syreny okrętowej**, a zamiast power-upa — **dzwonu z nabrzeża**.
 
@@ -82,13 +82,13 @@ Dodaj retro efekty dźwiękowe przez Web Audio API — bez żadnych plików zewn
 Zbuduj napięcie efektownym odliczaniem przed pokazaniem wyników.
 
 **Co zbudować:**
-- Po kliknięciu „Battle!" pełnoekranowa nakładka
+- Po kliknięciu „Walcz!" pełnoekranowa nakładka
 - Animacja: **„3..."** → **„2..."** → **„1..."** → **„⚡ WALCZ! ⚡"**
 - Potem efektowne wejście wykresów kontrybucji
 - Animacje CSS albo sterowanie czasem w JavaScripcie
 
 **Propozycja promptu:**
-> Add an animated battle sequence when the user clicks "Battle!". Show a countdown overlay: "3..." then "2..." then "1..." then "⚡ FIGHT! ⚡" with each step lasting about 1 second. After the countdown, reveal the results with a slide-in animation.
+> Dodaj animowaną sekwencję pojedynku po kliknięciu „Walcz!". Pokaż nakładkę z odliczaniem: „3...", „2...", „1...", a potem „⚡ WALCZ! ⚡", każdy krok około sekundy. Po odliczaniu odsłoń wyniki animacją wjazdu.
 
 ---
 
@@ -103,7 +103,7 @@ Dodaj legendę skali kolorów pasującą do palety wykresu kontrybucji.
 - Umieszczenie legendy blisko wykresów
 
 **Propozycja promptu:**
-> Add a contribution legend below the graphs showing the color scale from the API's color palette. Display a row of colored squares ranging from "Less" (lightest) to "More" (darkest), matching the actual contribution level colors returned by the API.
+> Dodaj pod wykresami legendę kontrybucji ze skalą kolorów z palety API. Pokaż rząd kolorowych kwadratów od „Mniej" (najjaśniejszy) do „Więcej" (najciemniejszy), zgodnych z kolorami poziomów kontrybucji zwracanymi przez API.
 
 ---
 
@@ -118,7 +118,7 @@ Pozwól użytkownikom udostępnić wynik pojedynku jednym kliknięciem.
 - Krótkie potwierdzenie „Skopiowano!"
 
 **Propozycja promptu:**
-> Add a "📋 Share Results" button that copies a formatted battle summary to the clipboard. The summary should include both usernames, their contribution totals, and who won. Use the Clipboard API and show a brief "Copied to clipboard!" confirmation.
+> Dodaj przycisk „📋 Udostępnij wynik", który kopiuje sformatowane podsumowanie pojedynku do schowka: obie nazwy użytkowników, sumy kontrybucji i zwycięzcę. Użyj Clipboard API i pokaż krótkie potwierdzenie „Skopiowano!".
 
 ---
 
@@ -127,7 +127,7 @@ Pozwól użytkownikom udostępnić wynik pojedynku jednym kliknięciem.
 
 Kilka komend Copilot CLI, których na warsztacie nie było:
 
-- Użyj `copilot -p "Write a conventional commit message for the current git diff"`, żeby dostać jednorazową odpowiedź, którą wkleisz do Gita.
+- Użyj `copilot -p "Napisz komunikat commita dla bieżącego diffa w gicie"`, żeby dostać jednorazową odpowiedź, którą wkleisz do Gita.
 - Uruchom `/share file`, żeby zapisać sesję jako Markdown na później.
 - Użyj `/session` i `/session plan`, żeby zobaczyć, jak CLI śledzi Twoją bieżącą pracę.
 <!-- track:cli:end -->

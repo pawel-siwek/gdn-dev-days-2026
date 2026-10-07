@@ -21,29 +21,29 @@ Użyj `/plan` w GitHub Copilot CLI albo naciskaj **Shift+Tab**, aż tryb plan b�
 
 Wpisz ten prompt:
 
-> I want to transform this page into a pixel-art tribute to the Gdańsk shipyard at night — a retro 8/16-bit arcade look, but themed around a Baltic port instead of a generic arcade cabinet.
+> Chcę zamienić tę stronę w pixelartowy hołd dla gdańskiej stoczni nocą: retro, 8/16-bitowy klimat salonu gier, ale osadzony w bałtyckim porcie zamiast w generycznym automacie.
 >
-> Plan a comprehensive visual overhaul that includes:
-> - a dark night-sky background with a subtle pixel-grid overlay and a faint parallax skyline of Gdańsk Old Town (brick Gothic towers, spires)
-> - animated green gantry cranes framing the two player cards, with lattice/truss detailing
-> - the VS badge styled as a swinging shipping container suspended from a crane hook, with a gentle pendulum animation
-> - player result cards styled as amber-lit warehouse crates stacked on a quay
-> - contribution squares rendered as stacked cargo crates; hover raises the crate slightly and lights it amber
-> - loading state shown as a crane hook lowering and raising
-> - the title rendered in a chunky pixel font with a warm amber glow, like a shipyard floodlight
+> Zaplanuj kompletną przebudowę wizualną, która obejmie:
+> - ciemne tło nocnego nieba z delikatną siatką pikseli i ledwo widoczną, paralaksową panoramą Głównego Miasta (ceglane gotyckie wieże, iglice)
+> - animowane zielone suwnice bramowe okalające karty graczy, z kratownicową konstrukcją
+> - plakietkę „VS" jako kontener wiszący na haku dźwigu, z łagodną animacją wahadła
+> - karty wyników graczy jako skrzynie magazynowe podświetlone bursztynem, ustawione na nabrzeżu
+> - kwadraty kontrybucji jako skrzynie ładunkowe ułożone w stosy; hover lekko unosi skrzynię i podświetla ją na bursztynowo
+> - stan ładowania jako hak dźwigu, który opuszcza się i podnosi
+> - tytuł w grubym pikselowym foncie z ciepłą bursztynową poświatą, jak reflektor stoczniowy
 >
-> Use exactly this palette as CSS custom properties:
+> Użyj dokładnie tej palety jako zmiennych CSS:
 > ```css
-> --bg:        #0d1117;  /* night over the shipyard */
-> --crane:     #3fb950;  /* crane green */
+> --bg:        #0d1117;  /* noc nad stocznią */
+> --crane:     #3fb950;  /* zieleń dźwigów */
 > --crane-dim: #2ea043;
-> --amber:     #e3b341;  /* Żuraw roof, crates */
-> --rust:      #b45309;  /* brick, rust */
-> --steel:     #8b949e;  /* structures, quay */
+> --amber:     #e3b341;  /* dach Żurawia, skrzynie */
+> --rust:      #b45309;  /* cegła, rdza */
+> --steel:     #8b949e;  /* konstrukcje, nabrzeże */
 > --text:      #e6edf3;
 > ```
 >
-> Use the "Press Start 2P" pixel font from Google Fonts for headings and JetBrains Mono for body text. Keep all animation subtle enough that the contribution data stays readable.
+> Nagłówki w pikselowym foncie „Press Start 2P" z Google Fonts, tekst w JetBrains Mono. Animacje na tyle subtelne, żeby dane o kontrybucjach pozostały czytelne.
 
 Copilot wygeneruje szczegółowy plan. **Nie akceptuj go od razu**, przejrzyj i popraw:
 
@@ -57,7 +57,7 @@ Copilot wygeneruje szczegółowy plan. **Nie akceptuj go od razu**, przejrzyj i 
 
 Kiedy plan Ci odpowiada, zleć Copilotowi jego wdrożenie.
 
-> Implement the Gdańsk shipyard theme plan we just designed.
+> Zaimplementuj plan motywu gdańskiej stoczni, który właśnie zaprojektowaliśmy.
 
 Copilot doda wiele animacji CSS, pseudoelementów i przejść w arkuszu stylów. Może to obejmować:
 
@@ -76,13 +76,13 @@ Kiedy zmiany wylądują, przejrzyj je przez `/diff`, zanim je zatwierdzisz.
 
 Trzymaj podgląd w przeglądarce otwarty i iteruj na designie. Wypróbuj prompty w rodzaju:
 
-> The pixel grid overlay is too strong, reduce opacity to 0.03
+> Siatka pikseli jest za mocna, zmniejsz przezroczystość do 0.03
 
-> Add a slow blinking red aircraft warning light on top of the tallest crane
+> Dodaj wolno migające czerwone światło ostrzegawcze na szczycie najwyższego dźwigu
 
-> The container should swing more dramatically when the battle starts
+> Kontener powinien wahać się mocniej, kiedy zaczyna się pojedynek
 
-> Make the crates cast a short pixel shadow on the quay
+> Niech skrzynie rzucają krótki pikselowy cień na nabrzeże
 
 Każdy prompt przybliża stronę do celu. Nie zadowalaj się „wystarczająco dobrze", dociśnij, aż będzie wyglądać jak kadr z gry o gdańskiej stoczni.
 
@@ -93,13 +93,13 @@ Zapisz najważniejsze decyzje projektowe w instrukcjach, żeby kolejne prompty t
 <!-- track:vscode:start -->
 Poproś Copilot Chat:
 
-> Add a design guide section to copilot-instructions.md describing our Gdańsk shipyard theme: the exact colour palette, pixel fonts, animation style, and the rule that any new UI must keep the shipyard aesthetic.
+> Dodaj do copilot-instructions.md sekcję z przewodnikiem po designie opisującą nasz motyw gdańskiej stoczni: dokładną paletę kolorów, pikselowe fonty, styl animacji i zasadę, że każdy nowy element interfejsu ma trzymać się estetyki stoczni.
 <!-- track:vscode:end -->
 
 <!-- track:cli:start -->
 Poproś Copilot CLI:
 
-> Update our repository instructions with a short design guide for the Gdańsk shipyard theme: the exact colour palette, pixel fonts, animation style, and the rule that any new UI must keep the shipyard aesthetic.
+> Uzupełnij instrukcje repozytorium o krótki przewodnik po designie motywu gdańskiej stoczni: dokładną paletę kolorów, pikselowe fonty, styl animacji i zasadę, że każdy nowy element interfejsu ma trzymać się estetyki stoczni.
 <!-- track:cli:end -->
 
 Zacommituj zaktualizowane instrukcje i zmiany w designie, kiedy strona będzie już wyglądać jak trzeba.

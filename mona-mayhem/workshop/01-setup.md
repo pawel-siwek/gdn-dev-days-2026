@@ -108,10 +108,10 @@ Użyjemy wbudowanej komendy `/init`, żeby wygenerować plik z instrukcjami dla 
 1. Otwórz **Copilot Chat** i wpisz:
 
    ```
-   /init simple instructions with a project overview, build/dev commands, and Astro best practices, (ignore the workshop).
+   /init krótkie instrukcje po polsku: przegląd projektu, komendy build/dev i dobre praktyki Astro (pomiń warsztat).
    ```
 
-2. Przejrzyj wygenerowany plik — Copilot przeanalizuje projekt i utworzy `.github/copilot-instructions.md`.
+2. Przejrzyj wygenerowany plik. Copilot przeanalizuje projekt i utworzy `.github/copilot-instructions.md`.
 3. Zaakceptuj zmiany, a potem **zacommituj** plik z instrukcjami.
 
 > **Efekt:** każde kolejne zapytanie do Copilota ma już wbudowaną mapę Twojego projektu.
@@ -143,7 +143,7 @@ Otwórz **Copilot Chat** w **trybie Ask** i wypróbuj te prompty:
 
 - `„Wyjaśnij architekturę tego projektu"`
 - `„Jakie pliki są w katalogu src i za co odpowiadają?"`
-- `„Co trzeba zbudować, żeby przycisk Battle zaczął działać?"`
+- `„Co trzeba zbudować, żeby przycisk Walcz! zaczął działać?"`
 
 > 💡 Użyj **@workspace**, żeby dać Copilotowi kontekst całego projektu i dostać dokładniejsze odpowiedzi.
 <!-- track:vscode:end -->
@@ -156,10 +156,10 @@ Użyjemy `/init`, żeby wygenerować plik z instrukcjami dla Copilota:
 1. W Copilot CLI wpisz:
 
    ```
-   /init simple instructions with a project overview, build/dev commands, and Astro best practices, (ignore the workshop).
+   /init krótkie instrukcje po polsku: przegląd projektu, komendy build/dev i dobre praktyki Astro (pomiń warsztat).
    ```
 
-2. Przejrzyj wygenerowany plik — Copilot przeanalizuje projekt i utworzy `.github/copilot-instructions.md`.
+2. Przejrzyj wygenerowany plik. Copilot przeanalizuje projekt i utworzy `.github/copilot-instructions.md`.
 3. Zacommituj plik z instrukcjami.
 
 > **Efekt:** kolejne sesje CLI automatycznie dziedziczą instrukcje specyficzne dla repozytorium z `.github/copilot-instructions.md`.

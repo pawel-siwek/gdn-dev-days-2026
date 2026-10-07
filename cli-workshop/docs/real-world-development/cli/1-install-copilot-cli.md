@@ -75,7 +75,7 @@ Komendy wpisywane w zwykłym prompcie powłoki wykonują się bezpośrednio w co
 3. Zadaj Copilotowi proste pytanie, żeby sprawdzić, czy wszystko działa:
 
    ```plaintext
-   What are the key files in this project?
+   Jakie są najważniejsze pliki w tym projekcie?
    ```
 
 4. Przeczytaj odpowiedź i zwróć uwagę, że Copilot najpierw przegląda repozytorium, a dopiero potem odpowiada.
@@ -83,7 +83,7 @@ Komendy wpisywane w zwykłym prompcie powłoki wykonują się bezpośrednio w co
 6. Poproś Copilota o znalezienie zgłoszenia o filtrowaniu:
 
    ```plaintext
-   Using GitHub MCP, find the issue in this repository about filtering games by category and publisher. Give me its URL and a short summary. Don't change anything.
+   Przez GitHub MCP znajdź w tym repozytorium zgłoszenie o filtrowaniu gier po kategorii i wydawcy. Podaj jego URL i krótkie streszczenie. Niczego nie zmieniaj.
    ```
 
 7. Otwórz podany URL i przeczytaj zgłoszenie. Wrócisz do niego po wykonaniu pierwszej, szybkiej zmiany.

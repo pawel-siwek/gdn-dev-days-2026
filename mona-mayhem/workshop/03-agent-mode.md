@@ -18,18 +18,18 @@ W tej części Copilot z planisty staje się wykonawcą. Opisujesz, czego chcesz
 3. Wpisz ten prompt:
 <!-- track:cli:end -->
 
-   > Add client-side JavaScript to the battle page that:
-   > 1. When the Battle button is clicked, gets both usernames from the inputs
-   > 2. Validates both are filled (show error if not)
-   > 3. Fetches both users' contribution data in parallel from our API
-   > 4. Renders contribution graphs as colored grids — each day is a colored square using GitHub's color palette
-   > 5. Shows a VS badge between the two users
-   > 6. Displays username, total contributions, and date range for each user
-   > 7. Handles loading states and errors
-   > 8. Also triggers on Enter key in input fields.
-   > 9. Simple UI for now that is already scaffolded.
+   > Dodaj do strony pojedynku JavaScript po stronie klienta, który:
+   > 1. Po kliknięciu przycisku „Walcz!" pobiera obie nazwy użytkowników z pól
+   > 2. Sprawdza, czy oba pola są wypełnione (jeśli nie, pokazuje błąd)
+   > 3. Pobiera równolegle dane o kontrybucjach obu użytkowników z naszego API
+   > 4. Renderuje wykresy kontrybucji jako kolorowe siatki: każdy dzień to kolorowy kwadrat w palecie GitHuba
+   > 5. Pokazuje plakietkę „VS" między dwoma użytkownikami
+   > 6. Wyświetla nazwę użytkownika, łączną liczbę kontrybucji i zakres dat dla każdego z nich
+   > 7. Obsługuje stany ładowania i błędy
+   > 8. Uruchamia pojedynek także po naciśnięciu Enter w polu tekstowym
+   > 9. Korzysta z prostego interfejsu, który już jest w szkielecie
    >
-   > Use TypeScript interfaces for the contribution data structure.
+   > Użyj interfejsów TypeScript do struktury danych o kontrybucjach. Komunikaty dla użytkownika po polsku.
 
 <!-- track:vscode:start -->
 3. Pozwól trybowi Agent przeprowadzić implementację w `index.astro`.
@@ -45,10 +45,10 @@ W tej części Copilot z planisty staje się wykonawcą. Opisujesz, czego chcesz
 
 > **⚠️ Nie widzisz zmian?** Jeśli strona pojedynku się nie odświeżyła, zatrzymaj serwer deweloperski (`Ctrl+C`), uruchom go ponownie przez `npm run dev` i odśwież przeglądarkę.
 
-1. Wpisz `octocat` i `torvalds` jako dwie nazwy użytkowników, a potem kliknij **Battle**.
+1. Wpisz `octocat` i `torvalds` jako dwie nazwy użytkowników, a potem kliknij **Walcz!**.
 2. Powinieneś zobaczyć oba wykresy kontrybucji obok siebie, jako kolorowe siatki.
 3. Przetestuj ścieżki błędów:
-   - Zostaw jedno albo oba pola puste i kliknij Battle — powinien pojawić się błąd walidacji.
+   - Zostaw jedno albo oba pola puste i kliknij Walcz!, powinien pojawić się błąd walidacji.
    - Wpisz nieistniejącą nazwę użytkownika — aplikacja powinna pokazać błąd z API.
 4. Sprawdź **Enter** w polach tekstowych — powinien uruchamiać pojedynek tak samo jak kliknięcie przycisku.
 
@@ -56,8 +56,8 @@ W tej części Copilot z planisty staje się wykonawcą. Opisujesz, czego chcesz
 
 Jeśli coś nie do końca gra, po prostu daj Copilotowi informację zwrotną. Na przykład:
 
-- *„Kwadraciki kontrybucji są za duże, zrób je 12x12px"*
-- *„Dodaj tooltip pokazujący datę i liczbę kontrybucji po najechaniu myszą"*
+- *„Kwadraciki kontrybucji są za duże, zrób je 12x12 px"*
+- *„Dodaj tooltip z datą i liczbą kontrybucji po najechaniu myszą"*
 - *„Stan ładowania potrzebuje animacji pulsowania"*
 
 <!-- track:vscode:start -->

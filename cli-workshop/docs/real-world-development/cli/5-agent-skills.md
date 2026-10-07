@@ -32,7 +32,7 @@ Skille projektu leżą w `.github/skills` i są wspólne dla zespołu. Własne, 
 1. Wróć do swojego codespace'a. W edytorze Codespaces otwórz `.github/skills/quality-checks/SKILL.md`.
 2. Przeczytaj pola `name` i `description` na górze. Opis pomaga Copilotowi zrozumieć, kiedy wywołać skill.
 3. Przeczytaj instrukcje i zwróć uwagę, jak prowadzą Copilota przez proces testowania i lintowania.
-4. Zauważ, że skill nie zawiera jeszcze sekcji **Results output formatting**.
+4. Zauważ, że skill nie ma jeszcze sekcji **Format raportu z wyników**.
 
 ## Uruchom skill przed zmianą
 
@@ -42,7 +42,7 @@ Skill możesz wywołać wprost albo po prostu poprosić o to, co robi. Najpierw 
 2. Użyj tego promptu:
 
    ```plaintext
-   Run the quality-checks skill for unit tests, lint, and type checks.
+   Uruchom skill quality-checks: testy jednostkowe, lint i kontrolę typów.
    ```
 
 3. Zwróć uwagę na raport na końcu.
@@ -55,9 +55,9 @@ Lepszy raport powinien mówić, co zostało uruchomione, czy przeszło i co dok�
 2. Dodaj na końcu pliku poniższą sekcję:
 
    ```markdown
-   ## Results output formatting
+   ## Format raportu z wyników
 
-   Upon completion, report each command that ran and whether it passed, failed, or was blocked. Include test counts, durations, errors, warnings, and other metrics only when the tool reports them. Identify the next action for any failure or blocker, and never describe a skipped or incomplete check as passed.
+   Po zakończeniu wypisz każdą uruchomioną komendę i podaj, czy przeszła, nie przeszła, czy została zablokowana. Liczbę testów, czasy, błędy, ostrzeżenia i inne metryki podawaj tylko wtedy, gdy narzędzie je zgłosiło. Dla każdego błędu lub blokady wskaż następny krok. Nigdy nie opisuj pominiętej albo niedokończonej kontroli jako zaliczonej.
    ```
 
 3. Plik zapisze się automatycznie.
@@ -75,7 +75,7 @@ Copilot CLI potrafi przeładować zmienione skille bez restartowania rozmowy.
 2. Użyj dokładnie tego samego promptu co poprzednio:
 
    ```plaintext
-   Run the quality-checks skill for unit tests, lint, and type checks.
+   Uruchom skill quality-checks: testy jednostkowe, lint i kontrolę typów.
    ```
 
 3. Zwróć uwagę na raport na końcu i porównaj go z pierwszym.

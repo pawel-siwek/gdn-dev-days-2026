@@ -50,11 +50,11 @@ Projekt ma już zestaw plików instrukcji. Zanim cokolwiek zmienisz, zobacz, co 
 
 Istniejące pliki to dobry początek, ale brakuje w nich jednej rzeczy: wymogu komentarzy TSDoc w nowym kodzie TypeScript. Dopiszesz go do głównego pliku `copilot-instructions.md`.
 
-1. W `.github/copilot-instructions.md` znajdź sekcję **Code formatting guidance** — powinna być mniej więcej w okolicach linii 35.
+1. W `.github/copilot-instructions.md` znajdź sekcję **Wymagania formatowania kodu**, mniej więcej w okolicach linii 35.
 2. Dodaj poniższy wpis jako jej ostatni punkt:
 
    ```markdown
-   - All new TypeScript should contain TSDocs comments for documentation purposes.
+   - Każdy nowy kod TypeScript ma zawierać komentarze TSDoc dokumentujące funkcje i typy.
    ```
 
 Plik zapisze się automatycznie.
@@ -66,7 +66,7 @@ Copilot CLI wczytuje instrukcje przy starcie rozmowy. Wznów rozmowę o filtrowa
 1. Poproś Copilota o zastosowanie zaktualizowanych wytycznych:
 
    ```plaintext
-   We just updated our instructions and code guidance. Can you please update the code you generated to match that guidance?
+   Właśnie zaktualizowaliśmy instrukcje i wytyczne dotyczące kodu. Zaktualizuj wygenerowany przez siebie kod, żeby był z nimi zgodny.
    ```
 
 2. Wpisz `/diff` i przejrzyj zmienione pliki TypeScript. Zwróć uwagę na nowo wygenerowane komentarze TSDoc i sprawdź, czy rzetelnie opisują kod.
